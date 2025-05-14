@@ -128,7 +128,10 @@ export default function Home() {
         </section>
         {/* ABOUT */}
         <section id="about" className="h-screen max-h-screen pt-20 center-flex gap-10">
-          <div data-aos="fade-down" className="w-1/3 aspect-square center-flex rounded-lg overflow-hidden">
+          <div
+            data-aos="fade-down"
+            className="w-1/3 aspect-square center-flex rounded-lg overflow-hidden"
+          >
             <img className="h-full w-auto object-cover" src={images.code} alt="" />
           </div>
           <div data-aos="fade-left" className="w-2/3 h-full p-4 flex justify-center flex-col gap-4">
