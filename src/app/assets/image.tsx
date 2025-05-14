@@ -1,6 +1,6 @@
 import avatar from "./images/avatar.png";
-import Computer from "./images/Computer.png";
-import Code from "./images/Code.png";
+import Computer from "./images/computer.png";
+import Code from "./images/code.png";
 
 const images = {
   avatar: avatar.src,

@@ -1,15 +1,16 @@
 "use client";
+
 import { useEffect, useRef } from "react";
 import TypeIt from "typeit";
 import "aos/dist/aos.css";
 import AOS from "aos";
-
-import images from "./assets/image";
-import Icons from "./assets/Icon";
 import { IoMail } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa6";
+
+import images from "./assets/image";
+import Icons from "./assets/Icon";
 
 const skills = [
   { icon: Icons.html, name: "HTML" },
