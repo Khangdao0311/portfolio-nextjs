@@ -9,10 +9,12 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaGithub, FaList, FaPhone } from "react-icons/fa6";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { Modal } from "antd";
+import { FaCircleCheck, FaCircleExclamation } from "react-icons/fa6";
+import { Drawer, Popover, Tabs } from "antd";
 
 import images from "./assets/image";
 import Icons from "./assets/Icon";
-import { Drawer, Popover, Tabs } from "antd";
 
 const skills = [
   { icon: Icons.html, name: "HTML" },
@@ -29,6 +31,14 @@ const skills = [
 
 const projects = [
   {
+    image: images.portfolio,
+    name: "My Portfolio",
+    description:
+      "Website to introduce yourself, your professional skills, group projects and your staff.",
+    href: "",
+    technologies: ["NextJS", "TailwindCSS"],
+  },
+  {
     image: images.elecking,
     name: "Elecking website",
     description:
@@ -44,18 +54,12 @@ const projects = [
     href: "https://github.com/khangdao0311",
     technologies: ["NextJS", "NodeJS", "MongoDB"],
   },
-  {
-    image: images.portfolio,
-    name: "My Portfolio",
-    description:
-      "Website to introduce yourself, your professional skills, group projects and your staff.",
-    href: "",
-    technologies: ["NextJS", "TailwindCSS"],
-  },
 ];
 
 export default function Home() {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState<any>({ status: null, message: "" });
 
   const el = useRef(null);
 
@@ -100,30 +104,79 @@ export default function Home() {
     message: Yup.string().required("Vui lòng nhập tin nhắn cho tôi"),
   });
 
-  async function handleSubmit(values: any, { resetForm }: { resetForm: () => void }) {
-    console.log(values);
-
-    const res = await fetch("/api/sendMail", {
+  function handleSubmit(values: any, { resetForm }: { resetForm: () => void }) {
+    setLoading(true);
+    fetch("/api/sendMail", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         to: "Khangdao0311@gmail.com",
         subject: "Contact from Portfolio",
-        text: "This email is sent via API route",
+        text: `<main>
+                <p>Name: ${values.name}</p>
+                <p>Email: ${values.email}</p>
+                <p>Message: ${values.message}</p>
+              </main>`,
       }),
-    });
-
-    const data = await res.json();
-    if (res.ok) alert("Email sent");
-    else alert("Error sending email: " + data.error);
-
-    resetForm();
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        setNotification({
+          status: true,
+          message: "I received your message! I will reply you later.",
+        });
+        resetForm();
+      })
+      .catch((err) => {
+        setLoading(false);
+        setNotification({ status: false, message: "Error sending message: " + err });
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setNotification({ status: null, message: "" });
+        }, 2500);
+      });
   }
 
   const currentYear = new Date().getFullYear();
 
   return (
     <>
+      {loading && (
+        <div className="fixed w-screen h-screen bg-black/80 z-50 center-flex">
+          <div className="w-[50%] aspect-square max-w-[100px] border-8 border-t-blue-500 border-gray-300 rounded-full animate-spin"></div>
+        </div>
+      )}
+      <Modal
+        open={notification.status !== null}
+        footer={null}
+        title={null}
+        centered
+        maskClosable={false}
+        closable={false}
+        width="auto"
+      >
+        {notification.status ? (
+          <div className="center-flex flex-col gap-4">
+            <div>
+              <FaCircleCheck className="w-20 h-20 text-green-500 " />
+            </div>
+            <div className="text-xl font-medium text-green-700 text-center">
+              {notification.message}
+            </div>
+          </div>
+        ) : (
+          <div className="center-flex flex-col gap-4">
+            <div>
+              <FaCircleExclamation className="w-20 h-20 text-red-500 " />
+            </div>
+            <div className="text-xl font-medium text-red-700 text-center">
+              {notification.message}
+            </div>
+          </div>
+        )}
+      </Modal>
       <header className="fixed top-0 left-0 right-0 w-full bg-black z-30">
         <div className="container-custom flex items-center justify-between px-2.5 xl:px-0 py-4 ">
           <a href="" className="text-4xl font-bold select-none">
@@ -200,6 +253,7 @@ export default function Home() {
       </header>
       <main className="container-custom px-2.5 xl:px-0">
         {/* HOME */}
+
         <section
           id="home"
           className="min-h-screen flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-around pt-20 "
@@ -226,10 +280,13 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div data-aos="fade-up" className="w-3/4 aspect-square md:w-1/3 h-full center-flex group">
-            <div className="relative center-flex bg-blue-800 w-3/4 aspect-[1/1] translate-y-1/6 rounded-full z-10 shadow-[0_0_10px_#FFF] border-4 border-white shadow-white">
+          <div
+            data-aos="fade-up"
+            className="w-3/4 aspect-square md:w-1/3 h-full center-flex group select-none"
+          >
+            <div className="relative center-flex bg-blue-800 w-3/4 aspect-[1/1] translate-y-1/6 rounded-full z-10 shadow-[0_0_20px_#FFF] border-4 border-white shadow-white">
               <img
-                className="absolute bottom-0 w-full h-auto object-center rounded-full "
+                className="absolute bottom-0 w-full h-auto object-center rounded-full select-none"
                 src={images.avatar}
                 alt="Avatar"
               />
@@ -239,15 +296,15 @@ export default function Home() {
         {/* ABOUT */}
         <section id="about" className="min-h-screen center-flex flex-col md:flex-row gap-10 pt-20">
           <div
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-duration="1200"
             className="w-1/3 aspect-square hidden md:flex items-center justify-center rounded-lg overflow-hidden"
           >
             <img className="h-full w-auto object-cover" src={images.code} alt="" />
           </div>
           <div
-            data-aos="fade-right"
-            className="flex-1 h-full p-4 flex justify-center flex-col gap-4"
+            data-aos="fade-left"
+            className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-white/5 rounded-2xl"
           >
             <p className="text-2xl">My name is Dao Vinh Khang, born on November 3, 2004.</p>
             <p className="text-lg text-justify">
