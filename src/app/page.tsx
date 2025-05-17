@@ -112,7 +112,7 @@ export default function Home() {
       body: JSON.stringify({
         to: "Khangdao0311@gmail.com",
         subject: "Contact from Portfolio",
-        text: `<main>
+        html: `<main>
                 <p>Name: ${values.name}</p>
                 <p>Email: ${values.email}</p>
                 <p>Message: ${values.message}</p>

@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
-    const { to, subject, text } = await request.json();
+    const { to, subject, html } = await request.json();
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       from: 'khangdao0311@gmail.com',
       to,
       subject,
-      text,
+      html,
     });
 
     return NextResponse.json({ message: 'Email sent successfully' });
