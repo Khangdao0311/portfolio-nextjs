@@ -24,15 +24,15 @@ const skills = [
   { icon: Icons.nodejs, name: "NodeJS" },
   { icon: Icons.mongodb, name: "MongoDB" },
   { icon: Icons.tailwindcss, name: "Tailwind CSS" },
-  { icon: Icons.githup, name: "GitHup" },
+  { icon: Icons.githup, name: "GitHub" },
 ];
 
 const projects = [
   {
     image: images.elecking,
-    name: "Website bán hàng Elecking",
+    name: "Elecking website",
     description:
-      "Là một website bán hàng các sản phẩm điện tử, hộ trợ các công cụ như tìm kiếm, lọc, sắp xếp, giỏ hàng và thanh toán có tích hợp Vnpay, đăng ký đăng nhập, quên mật khẩu, thay dổi thông tin, địa chỉ, quản lý đơn hàng, CRUD admin, dashboard, reponsive,...",
+      "Is a website selling electronic products, supporting tools such as search, filter, sort, shopping cart and payment with integrated Vnpay, register login, forgot password, change information, address, order management, CRUD admin, dashboard, responsive,...",
     href: "http://elecking.click/home",
     technologies: ["NextJS", "TailwindCSS", "NodeJS", "MongoDB"],
   },
@@ -40,9 +40,17 @@ const projects = [
     image: images.cellphones,
     name: "Cellphones - Clone",
     description:
-      "Sao chép website cellphoneS sử dụn công nghệ nextjs và nodejs expressjs, thực hiện các chức năng tìm kiếm, lọc, sắp xếp, giỏ hàng, đăng ký đăng nhập, quên mật khẩu, CRUD admin",
+      "Clone website, implement search, filter, sort, cart, login login, forgot password, CRUD admin functions, using nextjs and nodejs expressjs technology",
     href: "https://github.com/khangdao0311",
     technologies: ["NextJS", "NodeJS", "MongoDB"],
+  },
+  {
+    image: images.portfolio,
+    name: "My Portfolio",
+    description:
+      "Website to introduce yourself, your professional skills, group projects and your staff.",
+    href: "",
+    technologies: ["NextJS", "TailwindCSS"],
   },
 ];
 
@@ -199,7 +207,9 @@ export default function Home() {
           <div data-aos="fade-right" className=" flex flex-col gap-6">
             <p className="text-white text-3xl font-bold">Hello !</p>
             <p className=" text-4xl font-bold text-white">I'm DAO VINH KHANG</p>
-            <p ref={el} className="text-white text-3xl font-bold"></p>
+            <p className="text-white text-3xl font-bold">
+              a <span ref={el}></span>
+            </p>
             <p className="text-white text-xl font-medium">Wellcome to my persanal website !</p>
             <div className="flex gap-4">
               <a
@@ -314,8 +324,8 @@ export default function Home() {
                             alt={e.name}
                           />
                         </div>
-                        <h3 className="text-lg font-bold text-white line-clamp-2 h-14">{e.name}</h3>
-                        <p className="text-base text-justify line-clamp-3 font-light text-white h-[72px ]">
+                        <h3 className="text-lg font-bold text-white line-clamp-2 ">{e.name}</h3>
+                        <p className="text-base text-justify line-clamp-3 font-light text-white ">
                           {e.description}
                         </p>
                         <div className="w-full flex gap-2 flex-wrap">
@@ -354,7 +364,7 @@ export default function Home() {
               </div>
               <div className="flex gap-10 items-center">
                 <FaMapMarkerAlt className="w-10 h-10" />
-                <span className="text-xl font-bold ">Quận 12, TP. Hồ Chí Minh</span>
+                <span className="text-xl font-bold ">District 12, Ho Chi Minh City</span>
               </div>
               <div className="flex gap-10 items-center">
                 <FaGithub className="w-10 h-10" />
@@ -459,7 +469,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="containẻ-custom center-flex p-10 mt-5">
-        © {currentYear} - Profile Khangdao0311
+        © {currentYear} - Portfilio Khangdao0311
       </footer>
     </>
   );
