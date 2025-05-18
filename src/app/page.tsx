@@ -17,16 +17,16 @@ import images from "./assets/image";
 import Icons from "./assets/Icon";
 
 const skills = [
-  { icon: Icons.html, name: "HTML" },
-  { icon: Icons.css, name: "CSS" },
-  { icon: Icons.js, name: "JavaScript" },
-  { icon: Icons.ts, name: "TypeScript" },
-  { icon: Icons.reactjs, name: "ReactJS" },
-  { icon: Icons.nextjs, name: "NextJS" },
-  { icon: Icons.nodejs, name: "NodeJS" },
-  { icon: Icons.mongodb, name: "MongoDB" },
-  { icon: Icons.tailwindcss, name: "Tailwind CSS" },
-  { icon: Icons.githup, name: "GitHub" },
+  { icon: Icons.html, name: "HTML", level: "advanced" },
+  { icon: Icons.css, name: "CSS", level: "advanced" },
+  { icon: Icons.js, name: "JavaScript", level: "advanced" },
+  { icon: Icons.ts, name: "TypeScript", level: "intermediate" },
+  { icon: Icons.reactjs, name: "ReactJS", level: "intermediate" },
+  { icon: Icons.nextjs, name: "NextJS", level: "intermediate" },
+  { icon: Icons.nodejs, name: "NodeJS", level: "intermediate" },
+  { icon: Icons.mongodb, name: "MongoDB", level: "intermediate" },
+  { icon: Icons.tailwindcss, name: "Tailwind CSS", level: "intermediate" },
+  { icon: Icons.githup, name: "GitHub", level: "intermediate" },
 ];
 
 const projects = [
@@ -141,6 +141,40 @@ export default function Home() {
 
   const currentYear = new Date().getFullYear();
 
+  const [activeSection, setActiveSection] = useState("");
+  const observer = useRef<any>(null);
+
+  useEffect(() => {
+    // Tạo Intersection Observer
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target.id) {
+            // Cập nhật section hiện tại
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null, // Viewport
+        threshold: 0.6, // Section được coi là "hiển thị" khi 60% của nó trong viewport
+      }
+    );
+
+    // Theo dõi tất cả các section
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+      observer.current.observe(section);
+    });
+
+    // Cleanup khi component unmount
+    return () => {
+      sections.forEach((section) => {
+        observer.current.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <>
       {loading && (
@@ -183,26 +217,46 @@ export default function Home() {
             Portfolio
           </a>
           <div className="hidden sm:flex gap-2 lg:gap-5">
-            <a href="" className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase">
+            <a href="" className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}>
               home
+              <span
+                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
+                  activeSection === "home" ? " w-full" : " w-[0%]"
+                }`}
+              ></span>
             </a>
             <a
               href="#about"
-              className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase"
+              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
             >
               about
+              <span
+                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
+                  activeSection === "about" ? " w-full" : " w-[0%]"
+                }`}
+              ></span>
             </a>
             <a
               href="#skills"
-              className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase"
+              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
             >
               skills
+              <span
+                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
+                  activeSection === "skills" ? " w-full" : " w-[0%]"
+                }`}
+              ></span>
             </a>
             <a
               href="#contact"
-              className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase"
+              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
             >
               contact
+              <span
+                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
+                  activeSection === "contact" ? " w-full" : " w-[0%]"
+                }`}
+              ></span>
             </a>
           </div>
           <div onClick={() => setOpenDrawer(true)} className="flex sm:hidden px-4">
@@ -222,28 +276,36 @@ export default function Home() {
               <a
                 href=""
                 onClick={() => setOpenDrawer(false)}
-                className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase"
+                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+                  activeSection === "home" ? "border-white" : "border-transparent"
+                }`}
               >
                 home
               </a>
               <a
                 href="#about"
                 onClick={() => setOpenDrawer(false)}
-                className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase"
+                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+                  activeSection === "about" ? "border-white" : "border-transparent"
+                }`}
               >
                 about
               </a>
               <a
                 href="#skills"
                 onClick={() => setOpenDrawer(false)}
-                className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase"
+                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+                  activeSection === "skills" ? "border-white" : "border-transparent"
+                }`}
               >
                 skills
               </a>
               <a
                 href="#contact"
                 onClick={() => setOpenDrawer(false)}
-                className="text-lg font-bold px-4 py-2 rounded-lg select-none uppercase"
+                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+                  activeSection === "contact" ? "border-white" : "border-transparent"
+                }`}
               >
                 contact
               </a>
@@ -272,8 +334,8 @@ export default function Home() {
                 download
               >
                 <span className="absolute w-52 h-32 -top-10 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
-                <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
-                <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-800 rotate-12 transform scale-x-0 group-hover:scale-x-50 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-800 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-950 rotate-12 transform scale-x-0 group-hover:scale-x-60 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
                 <span className=" absolute center-fixed text-xl font-bold text-nowrap">
                   Download CV
                 </span>
@@ -282,9 +344,9 @@ export default function Home() {
           </div>
           <div
             data-aos="fade-up"
-            className="w-3/4 aspect-square md:w-1/3 h-full center-flex group select-none"
+            className="w-3/4 aspect-square rounded-full md:w-1/3 h-full center-flex group select-none"
           >
-            <div className="relative center-flex bg-blue-800 w-3/4 aspect-[1/1] translate-y-1/6 rounded-full z-10 shadow-[0_0_20px_#FFF] border-4 border-white shadow-white">
+            <div className="relative center-flex bg-[radial-gradient(circle_at_center,_#000,_#162556)] w-3/4 aspect-[1/1] translate-y-1/6 rounded-full z-10 shadow-[0_0_20px_#FFF] border-4 border-white shadow-white">
               <img
                 className="absolute bottom-0 w-full h-auto object-center rounded-full select-none"
                 src={images.avatar}
@@ -304,7 +366,7 @@ export default function Home() {
           </div>
           <div
             data-aos="fade-left"
-            className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-white/5 rounded-2xl"
+            className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-blue-950/10 rounded-2xl border border-white/35 shadow-[20px_20px_2px_#162556] md:shadow-[20px_20px_1  px_#162556]"
           >
             <p className="text-2xl">My name is Dao Vinh Khang, born on November 3, 2004.</p>
             <p className="text-lg text-justify">
@@ -321,6 +383,7 @@ export default function Home() {
             </p>
           </div>
         </section>
+
         {/* SKILLS */}
         <section id="skills" className="min-h-screen center-flex pt-20 ">
           <Tabs
@@ -338,18 +401,26 @@ export default function Home() {
                 children: (
                   <div
                     data-aos="fade-up"
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8 lg:gap-10 pt-5"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8 lg:gap-10 pt-5 "
                   >
                     {skills.map((skill: any, index: number) => {
                       return (
                         <div
-                          className="flex px-4 py-3 gap-4 items-center border border-white rounded-lg"
+                          className="relative flex px-4 py-3 gap-4 items-center border-l-4 border-r-4 border-l-white hover:border-l-blue-900 border-r-blue-900 hover:border-r-white rounded overflow-hidden group transition-all duration-700 bg-black"
                           key={index}
                         >
-                          <div className="w-1/4 aspect-square bg-white rounded-lg flex items-center justify-center">
-                            <skill.icon className="w-[90%]" />
+                          <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center">
+                            <skill.icon className="w-[90%] shrink-0" />
                           </div>
-                          <p className="text-xl font-bold">{skill.name}</p>
+                          <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
+                            <p className="absolute left-0 top-1/2 -translate-y-1/2 group-hover:-translate-y-full transition-all duration-300 text-xl font-bold line-clamp-1">
+                              {skill.name}
+                            </p>
+                            <p className="absolute left-0 top-full group-hover:top-1/2 transition-all duration-500 text-md font-medium line-clamp-1">
+                              {skill.level}
+                            </p>
+                          </div>
+                          <span className="z-10 absolute w-full aspect-square bg-blue-800 rotate-[120deg] blur-2xl group-hover:rotate-[180deg] shadow-[0_0_20px_#1c398e] translate-x-[-70%] group-hover:translate-x-[50%] transition-all duration-700"></span>
                         </div>
                       );
                     })}
@@ -372,7 +443,7 @@ export default function Home() {
                       <a
                         href={e.href}
                         key={i}
-                        className="flex flex-col gap-2.5 p-4 border border-white rounded-xl"
+                        className="flex flex-col gap-2.5 p-4 border border-white rounded-xl shadow-[10px_10px_1px_#1c398e]"
                       >
                         <div className="w-full aspect-square overflow-hidden rounded-md">
                           <img
@@ -431,7 +502,7 @@ export default function Home() {
           </div>
           <div
             data-aos="zoom-in-down"
-            className="w-full max-w-[500px] p-6 sm:p-10 border-4 border-blue-800 shadow-[0_0_10px_#FFF] rounded-xl "
+            className="w-full max-w-[500px] p-6 sm:p-10 border-4 border-blue-800 shadow-[0_0_10px_#FFF] rounded-xl bg-white/5"
           >
             <h2 className="text-3xl font-semibold text-white mb-4 text-center">Contact Me</h2>
             <Formik
