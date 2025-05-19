@@ -315,7 +315,6 @@ export default function Home() {
       </header>
       <main className="container-custom px-2.5 xl:px-0">
         {/* HOME */}
-
         <section
           id="home"
           className="min-h-screen flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-around pt-20 "
@@ -366,7 +365,7 @@ export default function Home() {
           </div>
           <div
             data-aos="fade-left"
-            className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-blue-950/10 rounded-2xl border border-white/35 shadow-[20px_20px_2px_#162556] md:shadow-[20px_20px_1  px_#162556]"
+            className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-blue-950/10 rounded-2xl border border-white/35 shadow-[0px_0px_10px_#162556] md:shadow-[20px_20px_2px_#091934]"
           >
             <p className="text-2xl">My name is Dao Vinh Khang, born on November 3, 2004.</p>
             <p className="text-lg text-justify">
@@ -383,7 +382,6 @@ export default function Home() {
             </p>
           </div>
         </section>
-
         {/* SKILLS */}
         <section id="skills" className="min-h-screen center-flex pt-20 ">
           <Tabs
@@ -401,16 +399,16 @@ export default function Home() {
                 children: (
                   <div
                     data-aos="fade-up"
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8 lg:gap-10 pt-5 "
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-8 pt-5 "
                   >
                     {skills.map((skill: any, index: number) => {
                       return (
                         <div
-                          className="relative flex px-4 py-3 gap-4 items-center border-l-4 border-r-4 border-l-white hover:border-l-blue-900 border-r-blue-900 hover:border-r-white rounded overflow-hidden group transition-all duration-700 bg-black"
+                          className="relative flex px-4 py-3 gap-4 items-center border-white rounded-lg overflow-hidden group bg-blue-500/20 select-none"
                           key={index}
                         >
                           <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center">
-                            <skill.icon className="w-[90%] shrink-0" />
+                            <skill.icon className="w-[90%] shrink-0 " />
                           </div>
                           <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
                             <p className="absolute left-0 top-1/2 -translate-y-1/2 group-hover:-translate-y-full transition-all duration-300 text-xl font-bold line-clamp-1">
@@ -420,7 +418,7 @@ export default function Home() {
                               {skill.level}
                             </p>
                           </div>
-                          <span className="z-10 absolute w-full aspect-square bg-blue-800 rotate-[120deg] blur-2xl group-hover:rotate-[180deg] shadow-[0_0_20px_#1c398e] translate-x-[-70%] group-hover:translate-x-[50%] transition-all duration-700"></span>
+                          <span className="z-10 absolute w-full translate-1/2 group-hover:-translate-1/3 blur-2xl aspect-square bg-blue-800  shadow-[0_0_20px_#1c398e] transition-all duration-500"></span>
                         </div>
                       );
                     })}
@@ -488,7 +486,7 @@ export default function Home() {
               </div>
               <div className="flex gap-10 items-center">
                 <FaPhone className="w-10 h-10" />
-                <span className="text-xl font-bold ">0976382553</span>
+                <span className="text-xl font-bold ">0976 382 553</span>
               </div>
               <div className="flex gap-10 items-center">
                 <FaMapMarkerAlt className="w-10 h-10" />
