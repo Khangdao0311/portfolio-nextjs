@@ -418,7 +418,7 @@ export default function Home() {
                               {skill.level}
                             </p>
                           </div>
-                          <span className="z-10 absolute w-full translate-1/2 group-hover:-translate-1/3 blur-2xl aspect-square bg-blue-800  shadow-[0_0_20px_#1c398e] transition-all duration-500"></span>
+                          <span className="z-10 absolute w-full translate-1/2 group-hover:-translate-1/3 blur-2xl aspect-square bg-blue-800 shadow-[0_0_20px_#1c398e] transition-all duration-500"></span>
                         </div>
                       );
                     })}
@@ -435,35 +435,38 @@ export default function Home() {
                 children: (
                   <div
                     data-aos="fade-up"
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5 md:gap-10 pt-5"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-10 pt-5"
                   >
                     {projects.map((e: any, i: number) => (
                       <a
+                        className="overflow-hidden relative p-4 shadow-[0_0_5px_#FFF] rounded-xl group !bg-blue-500/20"
                         href={e.href}
                         key={i}
-                        className="flex flex-col gap-2.5 p-4 border border-white rounded-xl shadow-[10px_10px_1px_#1c398e]"
                       >
-                        <div className="w-full aspect-square overflow-hidden rounded-md">
-                          <img
-                            className="w-full h-full object-contain"
-                            src={e.image}
-                            alt={e.name}
-                          />
+                        <div className="flex flex-col gap-2.5 z-20">
+                          <div className="w-full aspect-square overflow-hidden rounded-md">
+                            <img
+                              className="w-full h-full object-fill rounded-md"
+                              src={e.image}
+                              alt={e.name}
+                            />
+                          </div>
+                          <h3 className="text-lg font-bold text-white line-clamp-2 ">{e.name}</h3>
+                          <p className="text-base text-justify line-clamp-3 font-light text-white ">
+                            {e.description}
+                          </p>
+                          <div className="w-full flex gap-2 flex-wrap">
+                            {e.technologies.map((t: string, iT: number) => (
+                              <p
+                                key={iT}
+                                className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
+                              >
+                                {t}
+                              </p>
+                            ))}
+                          </div>
                         </div>
-                        <h3 className="text-lg font-bold text-white line-clamp-2 ">{e.name}</h3>
-                        <p className="text-base text-justify line-clamp-3 font-light text-white ">
-                          {e.description}
-                        </p>
-                        <div className="w-full flex gap-2 flex-wrap">
-                          {e.technologies.map((t: string, iT: number) => (
-                            <p
-                              key={iT}
-                              className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
-                            >
-                              {t}
-                            </p>
-                          ))}
-                        </div>
+                        <span className="-z-10 absolute w-1/2 h-full top-0 left-0 rotate-45 -translate-1/2 group-hover:top-[100%] group-hover:left-[100%] bg-blue-800 blur-xl transition-all duration-700"></span>
                       </a>
                     ))}
                   </div>
