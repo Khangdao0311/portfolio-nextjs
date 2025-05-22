@@ -439,7 +439,7 @@ export default function Home() {
                   >
                     {projects.map((e: any, i: number) => (
                       <a
-                        className="overflow-hidden relative p-4 shadow-[0_0_5px_#FFF] rounded-xl group !bg-blue-500/20"
+                        className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-blue-950/10"
                         href={e.href}
                         key={i}
                       >
