@@ -15,6 +15,8 @@ import { Drawer, Popover, Tabs } from "antd";
 
 import images from "./assets/image";
 import Icons from "./assets/Icon";
+import { AnimatePresence } from "motion/react";
+import * as motion from "motion/react-client";
 
 const skills = [
   { icon: Icons.html, name: "HTML", level: "advanced" },
@@ -60,6 +62,7 @@ export default function Home() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState<any>({ status: null, message: "" });
+  const [activeTabKey, setActiveTabKey] = useState("1");
 
   const el = useRef(null);
 
@@ -387,6 +390,8 @@ export default function Home() {
           <Tabs
             className="w-full  min-h-[80vh] [&_.ant-tabs-nav::before]:hidden"
             defaultActiveKey="1"
+            activeKey={activeTabKey}
+            onChange={setActiveTabKey}
             style={{ color: "white" }}
             items={[
               {
@@ -401,27 +406,37 @@ export default function Home() {
                     data-aos="fade-up"
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-8 pt-5 "
                   >
-                    {skills.map((skill: any, index: number) => {
-                      return (
-                        <div
-                          className="relative flex px-4 py-3 gap-4 items-center border-white rounded-lg overflow-hidden group bg-blue-500/20 select-none"
-                          key={index}
-                        >
-                          <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center">
-                            <skill.icon className="w-[90%] shrink-0 " />
-                          </div>
-                          <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
-                            <p className="absolute left-0 top-1/2 -translate-y-1/2 group-hover:-translate-y-full transition-all duration-300 text-xl font-bold line-clamp-1">
-                              {skill.name}
-                            </p>
-                            <p className="absolute left-0 top-full group-hover:top-1/2 transition-all duration-500 text-md font-medium line-clamp-1">
-                              {skill.level}
-                            </p>
-                          </div>
-                          <span className="z-10 absolute w-full translate-1/2 group-hover:-translate-1/3 blur-2xl aspect-square bg-blue-800 shadow-[0_0_20px_#1c398e] transition-all duration-500"></span>
-                        </div>
-                      );
-                    })}
+                    <AnimatePresence>
+                      {skills.map((skill: any, index: number) => {
+                        return (
+                          <motion.div
+                            initial={{ y: 30, opacity: 0 }}
+                            // animate={{ y: 0, opacity: 1 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true, amount: 0.1 }}
+                            transition={{
+                              duration: 0.5,
+                              delay: index * 0.1,
+                            }}
+                            key={`${activeTabKey}-${index}`}
+                            className="relative flex px-4 py-3 gap-4 items-center border-white rounded-lg overflow-hidden group bg-blue-500/20 select-none"
+                          >
+                            <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center">
+                              <skill.icon className="w-[90%] shrink-0 " />
+                            </div>
+                            <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
+                              <p className="absolute left-0 top-1/2 -translate-y-1/2 group-hover:-translate-y-full transition-all duration-300 text-xl font-bold line-clamp-1">
+                                {skill.name}
+                              </p>
+                              <p className="absolute left-0 top-full group-hover:top-1/2 transition-all duration-500 text-md font-medium line-clamp-1">
+                                {skill.level}
+                              </p>
+                            </div>
+                            <span className="z-10 absolute w-full translate-1/2 group-hover:-translate-1/3 blur-2xl aspect-square bg-blue-800 shadow-[0_0_20px_#1c398e] transition-all duration-500"></span>
+                          </motion.div>
+                        );
+                      })}
+                    </AnimatePresence>
                   </div>
                 ),
               },
@@ -437,38 +452,46 @@ export default function Home() {
                     data-aos="fade-up"
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-10 pt-5"
                   >
-                    {projects.map((e: any, i: number) => (
-                      <a
-                        className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-blue-950/10"
-                        href={e.href}
-                        key={i}
-                      >
-                        <div className="flex flex-col gap-2.5 z-20">
-                          <div className="w-full aspect-square overflow-hidden rounded-md">
-                            <img
-                              className="w-full h-full object-fill rounded-md"
-                              src={e.image}
-                              alt={e.name}
-                            />
+                    <AnimatePresence>
+                      {projects.map((e: any, index: number) => (
+                        <motion.div
+                          initial={{ y: 40, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          viewport={{ once: true, amount: 0.1 }}
+                          transition={{
+                            duration: 0.5,
+                            delay: index * 0.2,
+                          }}
+                          key={`${activeTabKey}-${index}`}
+                          className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-blue-950/10"
+                        >
+                          <div className="flex flex-col gap-2.5 z-20">
+                            <div className="w-full aspect-square overflow-hidden rounded-md">
+                              <img
+                                className="w-full h-full object-fill rounded-md"
+                                src={e.image}
+                                alt={e.name}
+                              />
+                            </div>
+                            <h3 className="text-lg font-bold text-white line-clamp-2 ">{e.name}</h3>
+                            <p className="text-base text-justify line-clamp-3 font-light text-white ">
+                              {e.description}
+                            </p>
+                            <div className="w-full flex gap-2 flex-wrap">
+                              {e.technologies.map((t: string, iT: number) => (
+                                <p
+                                  key={iT}
+                                  className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
+                                >
+                                  {t}
+                                </p>
+                              ))}
+                            </div>
                           </div>
-                          <h3 className="text-lg font-bold text-white line-clamp-2 ">{e.name}</h3>
-                          <p className="text-base text-justify line-clamp-3 font-light text-white ">
-                            {e.description}
-                          </p>
-                          <div className="w-full flex gap-2 flex-wrap">
-                            {e.technologies.map((t: string, iT: number) => (
-                              <p
-                                key={iT}
-                                className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
-                              >
-                                {t}
-                              </p>
-                            ))}
-                          </div>
-                        </div>
-                        <span className="-z-10 absolute w-1/2 h-full top-0 left-0 rotate-45 -translate-1/2 group-hover:top-[100%] group-hover:left-[100%] bg-blue-800 blur-xl transition-all duration-700"></span>
-                      </a>
-                    ))}
+                          <span className="-z-10 absolute w-1/2 h-full top-0 left-0 rotate-45 -translate-1/2 group-hover:top-[100%] group-hover:left-[100%] bg-blue-800 blur-xl transition-all duration-700"></span>
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
                   </div>
                 ),
               },
