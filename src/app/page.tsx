@@ -6,17 +6,22 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import { IoMail } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaGithub, FaList, FaPhone } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaList,
+  FaPhone,
+  FaCircleCheck,
+  FaCircleExclamation,
+} from "react-icons/fa6";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Modal } from "antd";
-import { FaCircleCheck, FaCircleExclamation } from "react-icons/fa6";
 import { Drawer, Popover, Tabs } from "antd";
-
-import images from "./assets/image";
-import Icons from "./assets/Icon";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
+
+import images from "../assets/image";
+import Icons from "../assets/Icon";
 
 const skills = [
   { icon: Icons.html, name: "HTML", level: "advanced" },
@@ -61,7 +66,10 @@ const projects = [
 export default function Home() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [notification, setNotification] = useState<any>({ status: null, message: "" });
+  const [notification, setNotification] = useState<any>({
+    status: null,
+    message: "",
+  });
   const [activeTabKey, setActiveTabKey] = useState("1");
 
   const el = useRef(null);
@@ -103,7 +111,9 @@ export default function Home() {
       )
       .required("Vui lòng nhập Họ và Tên"),
 
-    email: Yup.string().email("Email không hợp lệ").required("Vui lòng nhập email của bạn"),
+    email: Yup.string()
+      .email("Email không hợp lệ")
+      .required("Vui lòng nhập email của bạn"),
     message: Yup.string().required("Vui lòng nhập tin nhắn cho tôi"),
   });
 
@@ -133,7 +143,10 @@ export default function Home() {
       })
       .catch((err) => {
         setLoading(false);
-        setNotification({ status: false, message: "Error sending message: " + err });
+        setNotification({
+          status: false,
+          message: "Error sending message: " + err,
+        });
       })
       .finally(() => {
         setTimeout(() => {
@@ -220,7 +233,10 @@ export default function Home() {
             Portfolio
           </a>
           <div className="hidden sm:flex gap-2 lg:gap-5">
-            <a href="" className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}>
+            <a
+              href=""
+              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
+            >
               home
               <span
                 className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
@@ -262,7 +278,10 @@ export default function Home() {
               ></span>
             </a>
           </div>
-          <div onClick={() => setOpenDrawer(true)} className="flex sm:hidden px-4">
+          <div
+            onClick={() => setOpenDrawer(true)}
+            className="flex sm:hidden px-4"
+          >
             <FaList className=" w-7 h-7" />
           </div>
           <Drawer
@@ -280,7 +299,9 @@ export default function Home() {
                 href=""
                 onClick={() => setOpenDrawer(false)}
                 className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "home" ? "border-white" : "border-transparent"
+                  activeSection === "home"
+                    ? "border-white"
+                    : "border-transparent"
                 }`}
               >
                 home
@@ -289,7 +310,9 @@ export default function Home() {
                 href="#about"
                 onClick={() => setOpenDrawer(false)}
                 className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "about" ? "border-white" : "border-transparent"
+                  activeSection === "about"
+                    ? "border-white"
+                    : "border-transparent"
                 }`}
               >
                 about
@@ -298,7 +321,9 @@ export default function Home() {
                 href="#skills"
                 onClick={() => setOpenDrawer(false)}
                 className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "skills" ? "border-white" : "border-transparent"
+                  activeSection === "skills"
+                    ? "border-white"
+                    : "border-transparent"
                 }`}
               >
                 skills
@@ -307,7 +332,9 @@ export default function Home() {
                 href="#contact"
                 onClick={() => setOpenDrawer(false)}
                 className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "contact" ? "border-white" : "border-transparent"
+                  activeSection === "contact"
+                    ? "border-white"
+                    : "border-transparent"
                 }`}
               >
                 contact
@@ -323,12 +350,14 @@ export default function Home() {
           className="min-h-screen flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-around pt-20 "
         >
           <div data-aos="fade-right" className=" flex flex-col gap-6">
-            <p className="text-white text-3xl font-bold">Hello !</p>
+            <p className="text-white text-3xl font-bold">Hello ! 👋</p>
             <p className=" text-4xl font-bold text-white">I'm DAO VINH KHANG</p>
             <p className="text-white text-3xl font-bold">
               a <span ref={el}></span>
             </p>
-            <p className="text-white text-xl font-medium">Wellcome to my persanal website !</p>
+            <p className="text-white text-xl font-medium">
+              Wellcome to my persanal website !
+            </p>
             <div className="flex gap-4">
               <a
                 className="overflow-hidden w-48 p-2 h-12 bg-black border-2 border-white text-white rounded-lg cursor-pointer relative z-10 group"
@@ -358,30 +387,40 @@ export default function Home() {
           </div>
         </section>
         {/* ABOUT */}
-        <section id="about" className="min-h-screen center-flex flex-col md:flex-row gap-10 pt-20">
+        <section
+          id="about"
+          className="min-h-screen center-flex flex-col md:flex-row gap-10 pt-20"
+        >
           <div
             data-aos="fade-down"
             data-aos-duration="1200"
             className="w-1/3 aspect-square hidden md:flex items-center justify-center rounded-lg overflow-hidden"
           >
-            <img className="h-full w-auto object-cover" src={images.code} alt="" />
+            <img
+              className="h-full w-auto object-cover"
+              src={images.code}
+              alt="code"
+            />
           </div>
           <div
             data-aos="fade-left"
             className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-blue-950/10 rounded-2xl border border-white/35 shadow-[0px_0px_10px_#162556] md:shadow-[20px_20px_2px_#091934]"
           >
-            <p className="text-2xl">My name is Dao Vinh Khang, born on November 3, 2004.</p>
+            <p className="text-2xl">
+              My name is Dao Vinh Khang, born on November 3, 2004.
+            </p>
             <p className="text-lg text-justify">
-              I graduated from FPT Polytechnic College. During my studies, I worked on individual
-              and group projects, always completing them on time. I always attended seminars to
-              further improve my professional knowledge.
+              I graduated from FPT Polytechnic College. During my studies, I
+              worked on individual and group projects, always completing them on
+              time. I always attended seminars to further improve my
+              professional knowledge.
               <br />
               <br />
-              Although I am a fresh graduate, I have 4 months of experience working as a Front end
-              developer at Tin Viet Software Solutions.
+              Although I am a fresh graduate, I have 4 months of experience
+              working as a Front end developer at Tin Viet Software Solutions.
               <br />
-              <br />I hope to find a place to practice, learn to improve my knowledge and also find
-              a stable job.
+              <br />I hope to find a place to practice, learn to improve my
+              knowledge and also find a stable job.
             </p>
           </div>
         </section>
@@ -397,7 +436,10 @@ export default function Home() {
               {
                 key: "1",
                 label: (
-                  <h2 data-aos="fade-down" className="text-white text-2xl font-bold">
+                  <h2
+                    data-aos="fade-down"
+                    className="text-white text-2xl font-bold"
+                  >
                     Skills
                   </h2>
                 ),
@@ -443,7 +485,10 @@ export default function Home() {
               {
                 key: "2",
                 label: (
-                  <h2 data-aos="fade-down" className="text-white text-2xl font-bold">
+                  <h2
+                    data-aos="fade-down"
+                    className="text-white text-2xl font-bold"
+                  >
                     Projects
                   </h2>
                 ),
@@ -473,7 +518,9 @@ export default function Home() {
                                 alt={e.name}
                               />
                             </div>
-                            <h3 className="text-lg font-bold text-white line-clamp-2 ">{e.name}</h3>
+                            <h3 className="text-lg font-bold text-white line-clamp-2 ">
+                              {e.name}
+                            </h3>
                             <p className="text-base text-justify line-clamp-3 font-light text-white ">
                               {e.description}
                             </p>
@@ -508,7 +555,9 @@ export default function Home() {
             <div className="flex flex-col gap-10">
               <div className="flex gap-10 items-center">
                 <IoMail className="w-10 h-10" />
-                <span className="text-xl font-bold ">khangdao0311@gmail.com</span>
+                <span className="text-xl font-bold ">
+                  khangdao0311@gmail.com
+                </span>
               </div>
               <div className="flex gap-10 items-center">
                 <FaPhone className="w-10 h-10" />
@@ -516,11 +565,15 @@ export default function Home() {
               </div>
               <div className="flex gap-10 items-center">
                 <FaMapMarkerAlt className="w-10 h-10" />
-                <span className="text-xl font-bold ">District 12, Ho Chi Minh City</span>
+                <span className="text-xl font-bold ">
+                  District 12, Ho Chi Minh City
+                </span>
               </div>
               <div className="flex gap-10 items-center">
                 <FaGithub className="w-10 h-10" />
-                <span className="text-xl font-bold ">github.com/khangdao0311</span>
+                <span className="text-xl font-bold ">
+                  github.com/khangdao0311
+                </span>
               </div>
             </div>
           </div>
@@ -528,7 +581,9 @@ export default function Home() {
             data-aos="zoom-in-down"
             className="w-full max-w-[500px] p-6 sm:p-10 border-4 border-blue-800 shadow-[0_0_10px_#FFF] rounded-xl bg-white/5"
           >
-            <h2 className="text-3xl font-semibold text-white mb-4 text-center">Contact Me</h2>
+            <h2 className="text-3xl font-semibold text-white mb-4 text-center">
+              Contact Me
+            </h2>
             <Formik
               initialValues={{
                 name: "",
@@ -547,7 +602,9 @@ export default function Home() {
                     <Popover
                       placement="bottom"
                       content={
-                        <div className="text-red-500 text-sm font-semibold">{errors.name}</div>
+                        <div className="text-red-500 text-sm font-semibold">
+                          {errors.name}
+                        </div>
                       }
                       open={!!(errors.name && touched.name)}
                     >
@@ -570,7 +627,9 @@ export default function Home() {
                     <Popover
                       placement="bottom"
                       content={
-                        <div className="text-red-500 text-sm font-semibold">{errors.email}</div>
+                        <div className="text-red-500 text-sm font-semibold">
+                          {errors.email}
+                        </div>
                       }
                       open={!!(errors.email && touched.email)}
                     >
@@ -594,7 +653,9 @@ export default function Home() {
                     <Popover
                       placement="bottom"
                       content={
-                        <div className="text-red-500 text-sm font-semibold">{errors.message}</div>
+                        <div className="text-red-500 text-sm font-semibold">
+                          {errors.message}
+                        </div>
                       }
                       open={!!(errors.message && touched.message)}
                     >
