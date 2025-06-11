@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       secure: false,
       auth: {
         user: 'khangdao0311@gmail.com',
-        pass: 'dncx zklb lnkj xzvm',
+        pass: 'tubx kxty cbzm wmtm',
       },
     });
 
