@@ -361,7 +361,7 @@ export default function Home() {
             <div className="flex gap-4">
               <a
                 className="overflow-hidden w-48 p-2 h-12 bg-black border-2 border-white text-white rounded-lg cursor-pointer relative z-10 group"
-                href="/cv.pdf"
+                href="/CV_INTERN_FRONT-END_DEVELOPER.pdf"
                 download
               >
                 <span className="absolute w-52 h-32 -top-10 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
@@ -406,21 +406,26 @@ export default function Home() {
             data-aos="fade-left"
             className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-blue-950/10 rounded-2xl border border-white/35 shadow-[0px_0px_10px_#162556] md:shadow-[20px_20px_2px_#091934]"
           >
-            <p className="text-2xl">
-              My name is Dao Vinh Khang, born on November 3, 2004.
+            <p className="text-xl">
+              Hi ! My name is Dao Vinh Khang, born in 2004, graduated from FPT
+              Polytechnic College with a major in Website Design.
             </p>
             <p className="text-lg text-justify">
-              I graduated from FPT Polytechnic College. During my studies, I
-              worked on individual and group projects, always completing them on
-              time. I always attended seminars to further improve my
-              professional knowledge.
+              Currently, I am looking for an internship position to have the
+              opportunity to learn, practice and improve my professional
+              knowledge and gradually develop into a Fullstack programmer in the
+              future.
               <br />
               <br />
-              Although I am a fresh graduate, I have 4 months of experience
-              working as a Front end developer at Tin Viet Software Solutions.
+              I am a cheerful, sociable, responsible person at work and always
+              ready to learn new knowledge. I wish to work in a professional
+              environment where I can apply the knowledge I have learned and
+              develop practical skills, while contributing to the overall
+              development of the team and the company.
               <br />
-              <br />I hope to find a place to practice, learn to improve my
-              knowledge and also find a stable job.
+              <br />
+              Although I have just graduated, I have 4 months of experience
+              interning as a Front end developer at Tin Viet Software Solutions.
             </p>
           </div>
         </section>
