@@ -408,12 +408,12 @@ export default function Home() {
           >
             <p className="text-xl">
               Hi ! My name is Dao Vinh Khang, born in 2004, graduated from FPT
-              Polytechnic College with a major in Website Design.
+              Polytechnic College with a major in Web Development.
             </p>
             <p className="text-lg text-justify">
               Currently, I am looking for an internship position to have the
               opportunity to learn, practice and improve my professional
-              knowledge and gradually develop into a Fullstack programmer in the
+              knowledge and gradually develop into a Fullstack in the
               future.
               <br />
               <br />
