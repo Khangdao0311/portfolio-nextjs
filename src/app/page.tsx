@@ -1,70 +1,26 @@
 "use client";
-
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import TypeIt from "typeit";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { IoMail } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import {
-  FaGithub,
-  FaList,
-  FaPhone,
-  FaCircleCheck,
-  FaCircleExclamation,
-} from "react-icons/fa6";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FaGithub, FaPhone } from "react-icons/fa6";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Modal } from "antd";
-import { Drawer, Popover, Tabs } from "antd";
-import { AnimatePresence } from "motion/react";
+import { Popover, Tabs } from "antd";
 import * as motion from "motion/react-client";
+import { AnimatePresence } from "motion/react";
 
-import images from "../assets/image";
-import Icons from "../assets/Icon";
-
-const skills = [
-  { icon: Icons.html, name: "HTML", level: "advanced" },
-  { icon: Icons.css, name: "CSS", level: "advanced" },
-  { icon: Icons.js, name: "JavaScript", level: "advanced" },
-  { icon: Icons.ts, name: "TypeScript", level: "intermediate" },
-  { icon: Icons.reactjs, name: "ReactJS", level: "intermediate" },
-  { icon: Icons.nextjs, name: "NextJS", level: "intermediate" },
-  { icon: Icons.nodejs, name: "NodeJS", level: "intermediate" },
-  { icon: Icons.mongodb, name: "MongoDB", level: "intermediate" },
-  { icon: Icons.tailwindcss, name: "Tailwind CSS", level: "intermediate" },
-  { icon: Icons.githup, name: "GitHub", level: "intermediate" },
-];
-
-const projects = [
-  {
-    image: images.portfolio,
-    name: "My Portfolio",
-    description:
-      "Website to introduce yourself, your professional skills, group projects and your staff.",
-    href: "",
-    technologies: ["NextJS", "TailwindCSS"],
-  },
-  {
-    image: images.elecking,
-    name: "Elecking website",
-    description:
-      "Is a website selling electronic products, supporting tools such as search, filter, sort, shopping cart and payment with integrated Vnpay, register login, forgot password, change information, address, order management, CRUD admin, dashboard, responsive,...",
-    href: "http://elecking.click/home",
-    technologies: ["NextJS", "TailwindCSS", "NodeJS", "MongoDB"],
-  },
-  {
-    image: images.cellphones,
-    name: "Cellphones - Clone",
-    description:
-      "Clone website, implement search, filter, sort, cart, login login, forgot password, CRUD admin functions, using nextjs and nodejs expressjs technology",
-    href: "https://github.com/khangdao0311",
-    technologies: ["NextJS", "NodeJS", "MongoDB"],
-  },
-];
+import { projects, skills } from "@/data";
+import images from "@/assets/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Loading from "@/components/Loading";
+import ModalNotification from "@/components/ModalNotification";
+import Link from "next/link";
 
 export default function Home() {
-  const [openDrawer, setOpenDrawer] = useState(false);
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState<any>({
     status: null,
@@ -75,6 +31,11 @@ export default function Home() {
   const el = useRef(null);
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false, // Cho phép animate lại khi cuộn lên
+    });
+
     if (!el.current) return;
     const instance = new TypeIt(el.current, {
       speed: 100,
@@ -96,253 +57,68 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false, // 👈 Cho phép animate lại khi cuộn lên
+  const validationSchema = useMemo(() => {
+    Yup.object().shape({
+      name: Yup.string()
+        .matches(
+          /^([A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝĂĐĨŨƠƯỲỴÝỶỸẰẮẲẴẶẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆÔỒỐỔỖỘƠỜỚỞỠỢƯỪỨỬỮỰ]+[a-zàáâãèéêìíòóôõùúýăđĩũơưỳỵỷỹằắẳẵặấầẩẫậèéẹẻẽêềếểễệôồốổỗộơờớởỡợưừứửữự]+(?:\s+)?)+$/,
+          "Họ tên không hợp lệ. Vui lòng viết đúng định dạng (có dấu, viết hoa đầu mỗi chữ)."
+        )
+        .required("Vui lòng nhập Họ và Tên"),
+
+      email: Yup.string()
+        .email("Email không hợp lệ")
+        .required("Vui lòng nhập email của bạn"),
+      message: Yup.string().required("Vui lòng nhập tin nhắn cho tôi"),
     });
   }, []);
 
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .matches(
-        /^([A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝĂĐĨŨƠƯỲỴÝỶỸẰẮẲẴẶẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆÔỒỐỔỖỘƠỜỚỞỠỢƯỪỨỬỮỰ]+[a-zàáâãèéêìíòóôõùúýăđĩũơưỳỵỷỹằắẳẵặấầẩẫậèéẹẻẽêềếểễệôồốổỗộơờớởỡợưừứửữự]+(?:\s+)?)+$/,
-        "Họ tên không hợp lệ. Vui lòng viết đúng định dạng (có dấu, viết hoa đầu mỗi chữ)."
-      )
-      .required("Vui lòng nhập Họ và Tên"),
-
-    email: Yup.string()
-      .email("Email không hợp lệ")
-      .required("Vui lòng nhập email của bạn"),
-    message: Yup.string().required("Vui lòng nhập tin nhắn cho tôi"),
-  });
-
-  function handleSubmit(values: any, { resetForm }: { resetForm: () => void }) {
-    setLoading(true);
-    fetch("/api/sendMail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        to: "Khangdao0311@gmail.com",
-        subject: "Contact from Portfolio",
-        html: `<main>
+  const handleSubmit = useCallback(
+    (values: any, { resetForm }: { resetForm: () => void }) => {
+      setLoading(true);
+      fetch("/api/sendMail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to: "Khangdao0311@gmail.com",
+          subject: "Contact from Portfolio",
+          html: `<main>
                 <p>Name: ${values.name}</p>
                 <p>Email: ${values.email}</p>
                 <p>Message: ${values.message}</p>
               </main>`,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setLoading(false);
-        setNotification({
-          status: true,
-          message: "I received your message! I will reply you later.",
-        });
-        resetForm();
+        }),
       })
-      .catch((err) => {
-        setLoading(false);
-        setNotification({
-          status: false,
-          message: "Error sending message: " + err,
+        .then((res) => res.json())
+        .then((res) => {
+          setLoading(false);
+          setNotification({
+            status: true,
+            message: "I received your message! I will reply you later.",
+          });
+          resetForm();
+        })
+        .catch((err) => {
+          setLoading(false);
+          setNotification({
+            status: false,
+            message: "Error sending message: " + err,
+          });
+        })
+        .finally(() => {
+          setTimeout(() => {
+            setNotification({ status: null, message: "" });
+          }, 2500);
         });
-      })
-      .finally(() => {
-        setTimeout(() => {
-          setNotification({ status: null, message: "" });
-        }, 2500);
-      });
-  }
-
-  const currentYear = new Date().getFullYear();
-
-  const [activeSection, setActiveSection] = useState("");
-  const observer = useRef<any>(null);
-
-  useEffect(() => {
-    // Tạo Intersection Observer
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target.id) {
-            // Cập nhật section hiện tại
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        root: null, // Viewport
-        threshold: 0.6, // Section được coi là "hiển thị" khi 60% của nó trong viewport
-      }
-    );
-
-    // Theo dõi tất cả các section
-    const sections = document.querySelectorAll("section");
-    sections.forEach((section) => {
-      observer.current.observe(section);
-    });
-
-    // Cleanup khi component unmount
-    return () => {
-      sections.forEach((section) => {
-        observer.current.unobserve(section);
-      });
-    };
-  }, []);
+    },
+    []
+  );
 
   return (
     <>
-      {loading && (
-        <div className="fixed w-screen h-screen bg-black/80 z-50 center-flex">
-          <div className="w-[50%] aspect-square max-w-[100px] border-8 border-t-blue-500 border-gray-300 rounded-full animate-spin"></div>
-        </div>
-      )}
-      <Modal
-        open={notification.status !== null}
-        footer={null}
-        title={null}
-        centered
-        maskClosable={false}
-        closable={false}
-        width="auto"
-      >
-        {notification.status ? (
-          <div className="center-flex flex-col gap-4">
-            <div>
-              <FaCircleCheck className="w-20 h-20 text-green-500 " />
-            </div>
-            <div className="text-xl font-medium text-green-700 text-center">
-              {notification.message}
-            </div>
-          </div>
-        ) : (
-          <div className="center-flex flex-col gap-4">
-            <div>
-              <FaCircleExclamation className="w-20 h-20 text-red-500 " />
-            </div>
-            <div className="text-xl font-medium text-red-700 text-center">
-              {notification.message}
-            </div>
-          </div>
-        )}
-      </Modal>
-      <header className="fixed top-0 left-0 right-0 w-full bg-black z-30">
-        <div className="container-custom flex items-center justify-between px-2.5 xl:px-0 py-4 ">
-          <a href="" className="text-4xl font-bold select-none">
-            Portfolio
-          </a>
-          <div className="hidden sm:flex gap-2 lg:gap-5">
-            <a
-              href=""
-              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
-            >
-              home
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
-                  activeSection === "home" ? " w-full" : " w-[0%]"
-                }`}
-              ></span>
-            </a>
-            <a
-              href="#about"
-              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
-            >
-              about
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
-                  activeSection === "about" ? " w-full" : " w-[0%]"
-                }`}
-              ></span>
-            </a>
-            <a
-              href="#skills"
-              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
-            >
-              skills
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
-                  activeSection === "skills" ? " w-full" : " w-[0%]"
-                }`}
-              ></span>
-            </a>
-            <a
-              href="#contact"
-              className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
-            >
-              contact
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
-                  activeSection === "contact" ? " w-full" : " w-[0%]"
-                }`}
-              ></span>
-            </a>
-          </div>
-          <div
-            onClick={() => setOpenDrawer(true)}
-            className="flex sm:hidden px-4"
-          >
-            <FaList className=" w-7 h-7" />
-          </div>
-          <Drawer
-            title="Menu"
-            placement={"right"}
-            closable={true}
-            onClose={() => setOpenDrawer(false)}
-            open={openDrawer}
-            key={"left"}
-            zIndex={50}
-            width="min(50vw, 300px)"
-          >
-            <div className="flex flex-col gap-4">
-              <a
-                href=""
-                onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "home"
-                    ? "border-white"
-                    : "border-transparent"
-                }`}
-              >
-                home
-              </a>
-              <a
-                href="#about"
-                onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "about"
-                    ? "border-white"
-                    : "border-transparent"
-                }`}
-              >
-                about
-              </a>
-              <a
-                href="#skills"
-                onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "skills"
-                    ? "border-white"
-                    : "border-transparent"
-                }`}
-              >
-                skills
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                  activeSection === "contact"
-                    ? "border-white"
-                    : "border-transparent"
-                }`}
-              >
-                contact
-              </a>
-            </div>
-          </Drawer>
-        </div>
-      </header>
+      {loading && <Loading />}
+      <ModalNotification notification={notification} />
+      <Header />
       <main className="container-custom px-2.5 xl:px-0">
         {/* HOME */}
         <section
@@ -413,8 +189,7 @@ export default function Home() {
             <p className="text-lg text-justify">
               Currently, I am looking for an internship position to have the
               opportunity to learn, practice and improve my professional
-              knowledge and gradually develop into a Fullstack in the
-              future.
+              knowledge and gradually develop into a Fullstack in the future.
               <br />
               <br />
               I am a cheerful, sociable, responsible person at work and always
@@ -503,7 +278,7 @@ export default function Home() {
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-10 pt-5"
                   >
                     <AnimatePresence>
-                      {projects.map((e: any, index: number) => (
+                      {projects.map((project: any, index: number) => (
                         <motion.div
                           initial={{ y: 40, opacity: 0 }}
                           whileInView={{ y: 0, opacity: 1 }}
@@ -516,28 +291,36 @@ export default function Home() {
                           className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-blue-950/10"
                         >
                           <div className="flex flex-col gap-2.5 z-20">
-                            <div className="w-full aspect-square overflow-hidden rounded-md">
+                            <Link
+                              href={project.href}
+                              className="w-full aspect-square overflow-hidden rounded-md"
+                            >
                               <img
                                 className="w-full h-full object-fill rounded-md"
-                                src={e.image}
-                                alt={e.name}
+                                src={project.image}
+                                alt={project.name}
                               />
-                            </div>
-                            <h3 className="text-lg font-bold text-white line-clamp-2 ">
-                              {e.name}
-                            </h3>
+                            </Link>
+                            <Link
+                              href={project.href}
+                              className="text-lg font-bold text-white line-clamp-2 "
+                            >
+                              {project.name}
+                            </Link>
                             <p className="text-base text-justify line-clamp-3 font-light text-white ">
-                              {e.description}
+                              {project.description}
                             </p>
                             <div className="w-full flex gap-2 flex-wrap">
-                              {e.technologies.map((t: string, iT: number) => (
-                                <p
-                                  key={iT}
-                                  className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
-                                >
-                                  {t}
-                                </p>
-                              ))}
+                              {project.technologies.map(
+                                (t: string, iT: number) => (
+                                  <p
+                                    key={iT}
+                                    className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
+                                  >
+                                    {t}
+                                  </p>
+                                )
+                              )}
                             </div>
                           </div>
                           <span className="-z-10 absolute w-1/2 h-full top-0 left-0 rotate-45 -translate-1/2 group-hover:top-[100%] group-hover:left-[100%] bg-blue-800 blur-xl transition-all duration-700"></span>
@@ -686,9 +469,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="containẻ-custom center-flex p-10 mt-5">
-        © {currentYear} - Portfilio Khangdao0311
-      </footer>
+      <Footer />
     </>
   );
 }
