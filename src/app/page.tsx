@@ -357,12 +357,15 @@ export default function Home() {
                   District 12, Ho Chi Minh City
                 </span>
               </div>
-              <div className="flex gap-10 items-center">
+              <a
+                href="https://github.com/Khangdao0311"
+                className="flex gap-10 items-center"
+              >
                 <FaGithub className="w-10 h-10" />
                 <span className="text-xl font-bold ">
                   github.com/khangdao0311
                 </span>
-              </div>
+              </a>
             </div>
           </div>
           <div
