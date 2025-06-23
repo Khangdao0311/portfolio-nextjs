@@ -137,7 +137,7 @@ export default function Home() {
             <div className="flex gap-4">
               <a
                 className="overflow-hidden w-48 p-2 h-12 bg-black border-2 border-white text-white rounded-lg cursor-pointer relative z-10 group"
-                href="/CV_INTERN_FRONT-END_DEVELOPER.pdf"
+                href="/CV_FRONT-END_DEVELOPER.pdf"
                 download
               >
                 <span className="absolute w-52 h-32 -top-10 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
