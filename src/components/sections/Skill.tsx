@@ -100,7 +100,7 @@ function Skill() {
                       <div className="flex flex-col gap-2.5 z-20">
                         <Link
                           href={project.href}
-                          className="w-full aspect-square relative overflow-hidden rounded-md !bg-amber-500"
+                          className="w-full aspect-square relative overflow-hidden rounded-md"
                         >
                           <Image fill src={project.image} alt={project.name} />
                         </Link>
