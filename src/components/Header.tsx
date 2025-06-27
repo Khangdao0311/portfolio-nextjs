@@ -1,7 +1,9 @@
-import Icons from "@/assets/Icon";
-import { Drawer } from "antd";
+"use client";
 import { useEffect, useRef, useState } from "react";
+import { Drawer } from "antd";
 import { FaList } from "react-icons/fa6";
+
+import Icons from "@/assets/Icon";
 
 function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
