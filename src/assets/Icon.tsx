@@ -1,5 +1,5 @@
 import LogoCSS from "./icons/logoCSS";
-import LogoGitHup from "./icons/logoGitHub";
+import LogoGitHub from "./icons/logoGitHub";
 import LogoHTML from "./icons/logoHTML";
 import LogoJS from "./icons/logoJS";
 import LogoMongoDB from "./icons/logoMongoDB";
@@ -19,7 +19,7 @@ const Icons = {
   nodejs: LogoNodeJS,
   mongodb: LogoMongoDB,
   tailwindcss: LogoTailwindCSS,
-  githup: LogoGitHup,
+  github: LogoGitHub,
 };
 
 export default Icons;

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Tabs } from "antd";
+import { Popover, Tabs, Tooltip } from "antd";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 
@@ -110,9 +110,29 @@ function Skill() {
                         >
                           {project.name}
                         </Link>
-                        <p className="text-base text-justify line-clamp-3 font-light text-white ">
-                          {project.description}
-                        </p>
+                        <Popover
+                          placement="top"
+                          content={
+                            <div className="w-[300px]">
+                              <Link
+                                href={project.href}
+                                className="text-lg font-bold bg-amber-600"
+                              >
+                                {project.name}
+                              </Link>
+                              <p
+                                className="text-justify overflow-y-auto max-h-[245px] scroll-visible"
+                                dangerouslySetInnerHTML={{
+                                  __html: project.description,
+                                }}
+                              />
+                            </div>
+                          }
+                        >
+                          <p className="text-base text-justify line-clamp-3 font-light text-white cursor-pointer ">
+                            {project.description}
+                          </p>
+                        </Popover>
                         <div className="w-full flex gap-2 flex-wrap">
                           {project.technologies.map((t: string, iT: number) => (
                             <p

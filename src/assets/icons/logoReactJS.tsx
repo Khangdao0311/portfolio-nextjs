@@ -1,6 +1,11 @@
 function LogoReactJS({ ...props }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 40 40" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+      viewBox="0 0 40 40"
+      fill="none"
+    >
       <path
         d="M19.7999 22.6611C21.3232 22.6611 22.5581 21.4331 22.5581 19.9183C22.5581 18.4035 21.3232 17.1755 19.7999 17.1755C18.2766 17.1755 17.0417 18.4035 17.0417 19.9183C17.0417 21.4331 18.2766 22.6611 19.7999 22.6611Z"
         fill="#61DAFB"

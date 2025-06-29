@@ -96,7 +96,7 @@ function Header() {
             href="https://github.com/Khangdao0311"
             className={`h-11 w-11 hidden sm:flex `}
           >
-            <Icons.githup />
+            <Icons.github />
           </a>
         </div>
         <div

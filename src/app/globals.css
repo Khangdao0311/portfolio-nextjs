@@ -2,13 +2,13 @@
 
 body {
   background: #000;
-  color: #FFF;
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  /* scroll-snap-type: y mandatory; */
+  scroll-snap-type: y mandatory;
 }
 
 /* section {
@@ -40,17 +40,21 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #fff;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: #777;
   border-radius: 10px;
-  border: 1px solid #000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #fff;
+  background-color: #333;
   cursor: pointer;
+}
+
+.scroll-visible::-webkit-scrollbar {
+  display: block;
+  width: 6px;
 }
