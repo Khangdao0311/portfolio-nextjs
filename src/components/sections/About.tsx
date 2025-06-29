@@ -26,9 +26,12 @@ function About() {
           Polytechnic College with a major in Web Development.
         </p>
         <p className="text-lg text-justify">
-          Currently, I am looking for an Fresher Front-End Developer position to
+          Currently, I am looking for a Fresher Front-End Developer position to
           have the opportunity to learn, practice and improve my professional
-          knowledge and gradually develop into a Fullstack in the future.
+          knowledge. In the next 1-2 years, I hope to work in the position of
+          Junior Front-End Developer to improve my professional skills, get
+          acquainted with the real environment and accumulate experience and
+          gradually develop into a Fullstack programmer in the future.
           <br />
           <br />
           I am a cheerful, sociable, responsible person at work and always ready
