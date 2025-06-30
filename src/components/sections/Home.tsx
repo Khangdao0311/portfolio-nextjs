@@ -11,6 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     AOS.init({
+      disable: () => window.innerWidth < 768, // 👈 Chỉ bật nếu là desktop
       duration: 1000,
       once: false, // Cho phép animate lại khi cuộn lên
     });

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Image, Popover, Tabs } from "antd";
 import { AnimatePresence } from "motion/react";
-import * as motion from "motion/react-client";
+import { motion } from "framer-motion";
 
 import { projects, skills } from "@/data";
 
@@ -88,10 +88,10 @@ function Skill() {
                     <motion.div
                       initial={{ y: 40, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
-                      viewport={{ once: true, amount: 0.1 }}
+                      viewport={{ once: false, amount: 0.1 }}
                       transition={{
                         duration: 0.5,
-                        delay: index * 0.2,
+                        delay: index * 0.1,
                       }}
                       key={`${activeTabKey}-${index}`}
                       className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-blue-950/10"
