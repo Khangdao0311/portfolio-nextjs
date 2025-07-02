@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "title": "Portfolio",
+    "description": "information for khangdao0311"
+  },
+
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "skill": "Skills",
+    "contact": "Contact",
+    "languages": "Languages",
+    "vi": "Vietnamese",
+    "en": "English"
+  },
+
+  "home": {
+    "hello": "Hello ! 👋",
+    "name": "I'm DAO VINH KHANG",
+    "a": "a",
+    "webDeveloper": "Web Developer",
+    "frontEndDeveloper": "Front End Developer",
+    "welcome": "Welcome to my personal website !",
+    "download": "Download CV",
+    "cv": "CV_FRONT-END_DEVELOPER.pdf"
+  },
+
+  "about": {
+    "1": "Hi ! My name is Dao Vinh Khang, born in 2004, graduated from FPT Polytechnic College with a major in Web Development.",
+    "2": "Currently, I am looking for a Fresher Front-End Developer position to have the opportunity to learn, practice and improve my professional knowledge. In the next 1-2 years, I hope to work in the position of Junior Front-End Developer to improve my professional skills, get acquainted with the real environment and accumulate experience and gradually develop into a Fullstack programmer in the future.",
+    "3": "I am a cheerful, sociable, responsible person at work and always ready to learn new knowledge. I wish to work in a professional environment where I can apply the knowledge I have learned and develop practical skills, while contributing to the overall development of the team and the company.",
+    "4": "Although I have just graduated, I have 4 months of experience interning as an Intern Front end developer at Tin Viet Software Solutions."
+  },
+
+  "skill": {
+    "skills": "Skills",
+    "projects": "Projects",
+    "skillList": {
+      "html": {
+        "name": "HTML",
+        "level": "advanced"
+      },
+      "css": {
+        "name": "CSS",
+        "level": "advanced"
+      },
+      "js": {
+        "name": "JavaScript",
+        "level": "advanced"
+      },
+      "ts": {
+        "name": "TypeScript",
+        "level": "intermediate"
+      },
+      "reactjs": {
+        "name": "ReactJS",
+        "level": "intermediate"
+      },
+      "nextjs": {
+        "name": "NextJS",
+        "level": "intermediate"
+      },
+      "expressjs": {
+        "name": "ExpressJS",
+        "level": "intermediate"
+      },
+      "mongodb": {
+        "name": "MongoDB",
+        "level": "intermediate"
+      },
+      "tailwindcss": {
+        "name": "Tailwind CSS",
+        "level": "intermediate"
+      },
+      "github": {
+        "name": "GitHub",
+        "level": "intermediate"
+      }
+    },
+    "projectList": {
+      "portfolio": {
+        "name": "Portfolio",
+        "description": "The website introduces me, my professional skills, frameworks, experiences as well as my team and personal projects."
+      },
+      "elecking": {
+        "name": "Elecking website",
+        "description": "This is an e-commerce website specializing in selling electronic products, fully integrating features such as searching, filtering, sorting products, shopping cart and online payment via VNPAY. <br/> Users can register, log in, recover passwords, update personal information, address and password, and are assigned permissions according to roles to ensure security. The system supports order management, applying discount codes and tracking delivery status. <br/> The administrator (Admin) has access to the monthly and yearly statistical dashboard, and performs management operations (CRUD) on data tables such as products, orders, categories, users, brands, etc. to ensure effective system operation and management."
+      },
+      "cellphones": {
+        "name": "Cellphones - Clone",
+        "description": "Website design and development based on CellphoneS interface, integrating features such as search, filter, product sorting, shopping cart management, login, registration, password recovery and administration system with full CRUD functionality."
+      },
+      "chatApp": {
+        "name": "Chat App",
+        "description": "Real-time chat app using Firebase, integrated with Google, login with Facebook, create chat rooms and invite others to the room."
+      }
+    }
+  },
+
+  "contact": {
+    "contactMe": "Contact Me",
+    "profile": "Profile",
+    "address": "District 12, Ho Chi Minh City",
+    "yourName": "Your Name",
+    "placeholderName": "Enter your name",
+    "matchesName": "Invalid name. Please write in correct format (with accents, capitalize each letter).",
+    "requiredName": "Please enter your name",
+    "yourEmail": "Your Email",
+    "placeholderEmail": "Enter your email",
+    "matchesEmail": "Invalid email format. Please enter a valid email address.",
+    "requiredEmail": "Please enter your email",
+    "yourMessage": "Your Message",
+    "placeholderMessage": "Enter your message",
+    "requiredMessage": "Please enter your message",
+    "notiSuccess": "I received your message! I will reply you later.",
+    "notiError": "An error occurred while sending your message. Please try again later.",
+    "sendMessage": "Send Message"
+  }
+}

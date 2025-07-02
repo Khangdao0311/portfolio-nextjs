@@ -1,14 +1,18 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Image, Popover, Tabs } from "antd";
 import { AnimatePresence } from "motion/react";
 import { motion } from "framer-motion";
 
-import { projects, skills } from "@/data";
+import { getProjects, getSkills } from "@/data";
+import { useTranslations } from "next-intl";
 
 function Skill() {
   const [activeTabKey, setActiveTabKey] = useState("1");
+  const t = useTranslations("skill");
+  const skills = useMemo(() => getSkills(t), [t]);
+  const projects = useMemo(() => getProjects(t), [t]);
 
   return (
     <section id="skills" className="min-h-screen center-flex pt-20 ">
@@ -26,7 +30,7 @@ function Skill() {
                 // data-aos="fade-down"
                 className="text-white text-2xl font-bold"
               >
-                Skills
+                {t("skills")}
               </h2>
             ),
             children: (
@@ -39,8 +43,8 @@ function Skill() {
                     return (
                       <motion.div
                         initial={{ y: 30, opacity: 0 }}
-                        // animate={{ y: 0, opacity: 1 }}
-                        whileInView={{ y: 0, opacity: 1 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        // whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true, amount: 0.1 }}
                         transition={{
                           duration: 0.5,
@@ -75,7 +79,7 @@ function Skill() {
                 // data-aos="fade-down"
                 className="text-white text-2xl font-bold"
               >
-                Projects
+                {t("projects")}
               </h2>
             ),
             children: (
@@ -87,7 +91,8 @@ function Skill() {
                   {projects.map((project: any, index: number) => (
                     <motion.div
                       initial={{ y: 40, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      // whileInView={{ y: 0, opacity: 1 }}
                       viewport={{ once: false, amount: 0.1 }}
                       transition={{
                         duration: 0.5,

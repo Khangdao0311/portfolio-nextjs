@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "title": "Portfolio",
+    "description": "Thông tin về khangdao0311"
+  },
+
+  "header": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "skill": "Kỹ năng",
+    "contact": "Liên hệ",
+    "languages": "Ngôn ngữ",
+    "vi": "Tiếng Việt",
+    "en": "Tiếng Anh"
+  },
+
+  "home": {
+    "hello": "Xin chào ! 👋",
+    "name": "Tôi là ĐÀO VĨNH KHANG",
+    "a": "một",
+    "webDeveloper": "Web Developer",
+    "frontEndDeveloper": "Front End Developer",
+    "welcome": "Chào mừng bạn đến với trang web cá nhân của tôi !",
+    "download": "Tải CV",
+    "cv": "CV_FRONT-END_DEVELOPER_VN.pdf"
+  },
+
+  "about": {
+    "1": "Xin chào! Tôi tên là Đào Vĩnh Khang, sinh năm 2004, tốt nghiệp trường Cao đẳng FPT chuyên ngành Web Development.",
+    "2": "Hiện tại, tôi đang tìm kiếm vị trí Fresher Front-End Developer để có cơ hội học hỏi, thực hành và nâng cao kiến thức chuyên môn. Trong 1-2 năm tới, tôi hy vọng sẽ làm việc ở vị trí Junior Front-End Developer để cải thiện kỹ năng chuyên môn, làm quen với môi trường thực tế và tích lũy kinh nghiệm, dần dần phát triển thành lập trình viên Fullstack trong tương lai.",
+    "3": "Tôi là người vui vẻ, hòa đồng, có trách nhiệm trong công việc và luôn sẵn sàng học hỏi kiến thức mới. Tôi mong muốn làm việc trong môi trường chuyên nghiệp, nơi tôi có thể áp dụng kiến thức đã học và phát triển kỹ năng thực tiễn, đồng thời đóng góp vào sự phát triển chung của đội ngũ và công ty.",
+    "4": "Mặc dù tôi vừa tốt nghiệp, nhưng tôi đã có 4 tháng kinh nghiệm thực tập với vai trò thực tập sinh Front end developer tại Tin Viet Software Solutions."
+  },
+
+  "skill": {
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "skillList": {
+      "html": {
+        "name": "HTML",
+        "level": "cao cấp"
+      },
+      "css": {
+        "name": "CSS",
+        "level": "cao cấp"
+      },
+      "js": {
+        "name": "JavaScript",
+        "level": "cao cấp"
+      },
+      "ts": {
+        "name": "TypeScript",
+        "level": "trung cấp"
+      },
+      "reactjs": {
+        "name": "ReactJS",
+        "level": "trung cấp"
+      },
+      "nextjs": {
+        "name": "NextJS",
+        "level": "trung cấp"
+      },
+      "expressjs": {
+        "name": "ExpressJS",
+        "level": "trung cấp"
+      },
+      "mongodb": {
+        "name": "MongoDB",
+        "level": "trung cấp"
+      },
+      "tailwindcss": {
+        "name": "Tailwind CSS",
+        "level": "trung cấp"
+      },
+      "github": {
+        "name": "GitHub",
+        "level": "trung cấp"
+      }
+    },
+    "projectList": {
+      "portfolio": {
+        "name": "Portfolio",
+        "description": "Trang web giới thiệu về bản thân tôi, các kỹ năng chuyên môn, các Framework đã sử dụng, kinh nghiệm cũng như các dự án nhóm và các dự án cá nhân của tôi."
+      },
+      "elecking": {
+        "name": "Elecking website",
+        "description": "Đây là một trang web thương mại điện tử chuyên bán các sản phẩm điện tử, tích hợp đầy đủ các tính năng như tìm kiếm, lọc, sắp xếp sản phẩm, giỏ hàng và thanh toán trực tuyến qua VNPAY. <br/> Người dùng có thể đăng ký, đăng nhập, khôi phục mật khẩu, cập nhật thông tin cá nhân, địa chỉ và mật khẩu, và được phân quyền theo vai trò để đảm bảo an ninh. Hệ thống hỗ trợ quản lý đơn hàng, áp dụng mã giảm giá và theo dõi trạng thái giao hàng. <br/> Quản trị viên (Admin) có quyền truy cập vào bảng điều khiển thống kê hàng tháng và hàng năm, và thực hiện các thao tác quản lý (CRUD) trên các bảng dữ liệu như sản phẩm, đơn hàng, danh mục, người dùng, thương hiệu, v.v. để đảm bảo hệ thống hoạt động và quản lý hiệu quả."
+      },
+      "cellphones": {
+        "name": "Cellphones - Clone",
+        "description": "Thiết kế và phát triển website dựa trên giao diện 'CellphoneS', tích hợp các tính năng như tìm kiếm, lọc, sắp xếp sản phẩm, quản lý giỏ hàng, đăng nhập, đăng ký, khôi phục mật khẩu và hệ thống quản trị với đầy đủ chức năng CRUD."
+      },
+      "chatApp": {
+        "name": "Chat App",
+        "description": "Ứng dụng chat thời gian thực sử dụng Firebase, tích hợp đăng nhập bằng Google, Facebook, tạo phòng chat và mời người khác vào phòng."
+      }
+    }
+  },
+
+  "contact": {
+    "contactMe": "Liên hệ với tôi",
+    "profile": "Thông tin cá nhân",
+    "address": "Quận 12, Thành phố Hồ Chí Minh",
+    "yourName": "Tên của bạn",
+    "placeholderName": "Nhập tên của bạn",
+    "matchesName": "Tên không hợp lệ. Vui lòng viết đúng định dạng (có dấu, viết hoa chữ cái đầu).",
+    "requiredName": "Vui lòng nhập tên của bạn",
+    "yourEmail": "Email của bạn",
+    "placeholderEmail": "Nhập email của bạn",
+    "matchesEmail": "Định dạng email không hợp lệ. Vui lòng nhập địa chỉ email hợp lệ.",
+    "requiredEmail": "Vui lòng nhập email của bạn",
+    "yourMessage": "Tin nhắn của bạn",
+    "placeholderMessage": "Nhập tin nhắn của bạn",
+    "requiredMessage": "Vui lòng nhập tin nhắn của bạn",
+    "notiSuccess": "Tôi đã nhận được tin nhắn của bạn! Tôi sẽ trả lời bạn sau.",
+    "notiError": "Đã xảy ra lỗi trong quá trình gửi tin nhắn của bạn. Vui lòng thử lại sau.",
+    "sendMessage": "Gửi tin nhắn"
+  }
+}

@@ -1,7 +1,11 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Drawer } from "antd";
+import { Drawer, Popover } from "antd";
 import { FaList } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
+import { GrLanguage } from "react-icons/gr";
+import { MdLanguage } from "react-icons/md";
 
 import Icons from "@/assets/Icon";
 
@@ -9,6 +13,7 @@ function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const observer = useRef<any>(null);
+  const t = useTranslations("header");
 
   useEffect(() => {
     // Tạo Intersection Observer
@@ -47,12 +52,12 @@ function Header() {
         <a href="" className="text-4xl font-bold select-none">
           Portfolio
         </a>
-        <div className="hidden sm:flex gap-2 lg:gap-5">
+        <div className="hidden lg:flex gap-2 lg:gap-5">
           <a
             href=""
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
           >
-            home
+            {t("home")}
             <span
               className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
                 activeSection === "home" ? " w-full" : " w-[0%]"
@@ -63,7 +68,7 @@ function Header() {
             href="#about"
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
           >
-            about
+            {t("about")}
             <span
               className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
                 activeSection === "about" ? " w-full" : " w-[0%]"
@@ -74,7 +79,7 @@ function Header() {
             href="#skills"
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
           >
-            skills
+            {t("skill")}
             <span
               className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
                 activeSection === "skills" ? " w-full" : " w-[0%]"
@@ -85,7 +90,7 @@ function Header() {
             href="#contact"
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
           >
-            contact
+            {t("contact")}
             <span
               className={`absolute bottom-0 left-0 h-[2px] transition-all duration-200 bg-white ${
                 activeSection === "contact" ? " w-full" : " w-[0%]"
@@ -94,16 +99,47 @@ function Header() {
           </a>
           <a
             href="https://github.com/Khangdao0311"
-            className={`h-11 w-11 hidden sm:flex `}
+            className={`h-11 w-11 flex `}
           >
             <Icons.github />
           </a>
+          <Popover
+            content={
+              <div className="flex flex-col gap-2 ">
+                <Link href="/en" className="text-lg font-bold px-4">
+                  {t("en")}
+                </Link>
+                <Link href="/vi" className="text-lg font-bold px-4">
+                  {t("vi")}
+                </Link>
+              </div>
+            }
+          >
+            <div className={`h-11 w-11 center-flex`}>
+              <MdLanguage className="w-full h-full font-light" />
+            </div>
+          </Popover>
         </div>
-        <div
-          onClick={() => setOpenDrawer(true)}
-          className="flex sm:hidden px-4"
-        >
-          <FaList className=" w-7 h-7" />
+        <div className="flex lg:hidden items-center gap-2">
+          <Popover
+            content={
+              <div className="flex flex-col gap-2">
+                <Link className="tex-lg font-medium text-black" href="/en">
+                  {t("en")}
+                </Link>
+                <Link className="tex-lg font-medium text-black" href="/vi">
+                  {t("vi")}
+                </Link>
+              </div>
+            }
+          >
+            <div className={`flex px-4`}>
+              <GrLanguage className=" w-7 h-7" />
+            </div>
+          </Popover>
+          <div onClick={() => setOpenDrawer(true)} className="flex px-4">
+            <FaList className=" w-7 h-7" />
+          </div>
         </div>
         <Drawer
           title="Menu"
@@ -123,7 +159,7 @@ function Header() {
                 activeSection === "home" ? "border-white" : "border-transparent"
               }`}
             >
-              home
+              {t("home")}
             </a>
             <a
               href="#about"
@@ -134,7 +170,7 @@ function Header() {
                   : "border-transparent"
               }`}
             >
-              about
+              {t("about")}
             </a>
             <a
               href="#skills"
@@ -145,7 +181,7 @@ function Header() {
                   : "border-transparent"
               }`}
             >
-              skills
+              {t("skill")}
             </a>
             <a
               href="#contact"
@@ -156,7 +192,7 @@ function Header() {
                   : "border-transparent"
               }`}
             >
-              contact
+              {t("contact")}
             </a>
             <a
               href="https://github.com/Khangdao0311"
