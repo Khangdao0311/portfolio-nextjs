@@ -1,11 +1,14 @@
 "use client";
-import AOS from "aos";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Typewriter } from "react-simple-typewriter";
+import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 import images from "@/assets/image";
+import Icon from "@/assets/Icon";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -39,18 +42,45 @@ export default function Home() {
           />
         </p>
         <p className=" text-xl font-medium">{t("welcome")}</p>
+
         <div className="flex gap-4">
           <a
-            className="overflow-hidden w-48 p-2 h-12 bg-black border-2 border-white rounded-lg cursor-pointer relative z-10 group"
+            className="overflow-hidden w-48 p-2.5 h-14 bg-black border-2 border-[theme(--primary-light)] rounded-lg cursor-pointer relative z-10 group"
             href={`/${t("cv")}`}
             download
           >
-            <span className="absolute w-52 h-32 -top-10 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
-            <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-800 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
-            <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-950 rotate-12 transform scale-x-0 group-hover:scale-x-60 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
-            <span className=" absolute center-fixed text-xl font-bold text-nowrap">
+            <span className="absolute w-52 h-32 -top-10 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left" />
+            <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left" />
+            <span className="absolute w-52 h-32 -top-10 -left-2 bg-[theme(--primary-dark)] rotate-12 transform scale-x-0 group-hover:scale-x-60 transition-transform group-hover:duration-1000 duration-500 origin-left" />
+            <span className=" absolute center-fixed text-xl text-2xl font-bold text-nowrap">
               {t("download")}
             </span>
+          </a>
+        </div>
+        <div className="flex gap-4">
+          <a
+            href="https://github.com/khangdao0311"
+            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+          >
+            <FaGithub className="w-9 h-9 fill-white" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/khangdao0311/"
+            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+          >
+            <FaLinkedinIn className="w-9 h-9 fill-white" />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61564139123358"
+            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+          >
+            <FaFacebookF className="w-9 h-9 fill-white" />
+          </a>
+          <a
+            href="https://zalo.me/84976382553"
+            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+          >
+            <Icon.zalo className="w-9 h-9 fill-white" />
           </a>
         </div>
       </div>

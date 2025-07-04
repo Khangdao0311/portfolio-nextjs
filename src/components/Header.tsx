@@ -2,12 +2,10 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Drawer, Popover } from "antd";
-import { FaList } from "react-icons/fa6";
+import { FaList, FaSquareGithub } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 import { GrLanguage } from "react-icons/gr";
 import { MdLanguage } from "react-icons/md";
-
-import Icons from "@/assets/Icon";
 
 function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -49,13 +47,16 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-black z-30">
       <div className="container-custom flex items-center justify-between px-2.5 xl:px-0 py-4 ">
-        <a href="" className="text-4xl font-bold select-none">
+        <a
+          href=""
+          className="text-4xl font-black select-none text-[theme(--primary-light)] text-shadow-[theme(--primary-light)]"
+        >
           Portfolio
         </a>
         <div className="hidden lg:flex gap-2 lg:gap-5">
           <a
             href=""
-            className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
+            className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("home")}
             <span
@@ -66,7 +67,7 @@ function Header() {
           </a>
           <a
             href="#about"
-            className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
+            className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("about")}
             <span
@@ -77,7 +78,7 @@ function Header() {
           </a>
           <a
             href="#skills"
-            className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
+            className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("skill")}
             <span
@@ -88,7 +89,7 @@ function Header() {
           </a>
           <a
             href="#contact"
-            className={`relative text-lg font-bold px-4 py-2 select-none uppercase`}
+            className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("contact")}
             <span
@@ -99,24 +100,31 @@ function Header() {
           </a>
           <a
             href="https://github.com/Khangdao0311"
-            className={`h-11 w-11 flex `}
+            className={`h-11 w-11 center-flex`}
           >
-            <Icons.github />
+            <FaSquareGithub className="w-4/5 h-4/5 text-white hover:text-[theme(--primary-light)] transition-all duration-300" />
           </a>
           <Popover
+            className="group"
             content={
-              <div className="flex flex-col gap-2 ">
-                <Link href="/en" className="text-lg font-bold px-4">
+              <div className="flex flex-col gap-2">
+                <Link
+                  href="/en"
+                  className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                >
                   {t("en")}
                 </Link>
-                <Link href="/vi" className="text-lg font-bold px-4">
+                <Link
+                  href="/vi"
+                  className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                >
                   {t("vi")}
                 </Link>
               </div>
             }
           >
             <div className={`h-11 w-11 center-flex`}>
-              <MdLanguage className="w-full h-full font-light" />
+              <MdLanguage className="w-4/5 h-4/5 text-white group-hover:text-[theme(--primary-light)] transition-all duration-300" />
             </div>
           </Popover>
         </div>
@@ -124,10 +132,16 @@ function Header() {
           <Popover
             content={
               <div className="flex flex-col gap-2">
-                <Link className="tex-lg font-medium text-black" href="/en">
+                <Link
+                  className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                  href="/en"
+                >
                   {t("en")}
                 </Link>
-                <Link className="tex-lg font-medium text-black" href="/vi">
+                <Link
+                  className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                  href="/vi"
+                >
                   {t("vi")}
                 </Link>
               </div>
@@ -155,8 +169,10 @@ function Header() {
             <a
               href=""
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
-                activeSection === "home" ? "border-white" : "border-transparent"
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
+                activeSection === "home"
+                  ? "border-[theme(--primary-light)]"
+                  : "border-transparent"
               }`}
             >
               {t("home")}
@@ -164,9 +180,9 @@ function Header() {
             <a
               href="#about"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
                 activeSection === "about"
-                  ? "border-white"
+                  ? "border-[theme(--primary-light)]"
                   : "border-transparent"
               }`}
             >
@@ -175,9 +191,9 @@ function Header() {
             <a
               href="#skills"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
                 activeSection === "skills"
-                  ? "border-white"
+                  ? "border-[theme(--primary-light)]"
                   : "border-transparent"
               }`}
             >
@@ -186,9 +202,9 @@ function Header() {
             <a
               href="#contact"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
                 activeSection === "contact"
-                  ? "border-white"
+                  ? "border-[theme(--primary-light)]"
                   : "border-transparent"
               }`}
             >
@@ -197,9 +213,9 @@ function Header() {
             <a
               href="https://github.com/Khangdao0311"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-white  ${
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
                 activeSection === "contact"
-                  ? "border-white"
+                  ? "border-[theme(--primary-light)]"
                   : "border-transparent"
               }`}
             >

@@ -8,6 +8,7 @@ import LogoNodeJS from "./icons/logoNodeJS";
 import LogoReactJS from "./icons/logoReactJS";
 import LogoTailwindCSS from "./icons/logoTailwindCSS";
 import LogoTS from "./icons/logoTS";
+import LogoZalo from "./icons/logoZalo";
 
 const Icons = {
   html: LogoHTML,
@@ -20,6 +21,7 @@ const Icons = {
   mongodb: LogoMongoDB,
   tailwindcss: LogoTailwindCSS,
   github: LogoGitHub,
+  zalo: LogoZalo,
 };
 
 export default Icons;

@@ -4,9 +4,13 @@ import { useMemo, useState } from "react";
 import { Image, Popover, Tabs } from "antd";
 import { AnimatePresence } from "motion/react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import { EffectCards } from "swiper/modules";
 
 import { getProjects, getSkills } from "@/data";
-import { useTranslations } from "next-intl";
 
 function Skill() {
   const [activeTabKey, setActiveTabKey] = useState("1");
@@ -14,10 +18,64 @@ function Skill() {
   const skills = useMemo(() => getSkills(t), [t]);
   const projects = useMemo(() => getProjects(t), [t]);
 
+  const projectCard = (project: any) => (
+    <div className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-black border-2 border-[theme(--primary-light)] h-full h-full">
+      <div className="relative z-20 flex flex-col gap-2.5 ">
+        <Image.PreviewGroup items={project.gallery}>
+          <Image
+            className="w-full aspect-square relative overflow-hidden rounded-md"
+            src={project.image}
+            alt={project.name}
+          />
+        </Image.PreviewGroup>
+        <Link
+          href={project.href}
+          className="text-lg font-bold text-white line-clamp-2 "
+        >
+          {project.name}
+        </Link>
+        <Popover
+          placement="top"
+          content={
+            <div className="w-[300px]">
+              <Link
+                href={project.href}
+                className="text-lg font-bold bg-amber-600"
+              >
+                {project.name}
+              </Link>
+              <p
+                className="text-justify overflow-y-auto max-h-[245px] scroll-visible"
+                dangerouslySetInnerHTML={{
+                  __html: project.description,
+                }}
+              />
+            </div>
+          }
+        >
+          <p className="text-base text-justify line-clamp-3 font-light text-white cursor-pointer ">
+            {project.description}
+          </p>
+        </Popover>
+        <div className="w-full flex gap-2 flex-wrap">
+          {project.technologies.map((t: string, iT: number) => (
+            <p
+              key={iT}
+              className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
+            >
+              {t}
+            </p>
+          ))}
+        </div>
+      </div>
+      <span className="z-10 absolute w-1/2 h-full top-0 left-0 rotate-45 -translate-1/2 group-hover:top-[100%] group-hover:left-[100%] bg-blue-800 blur-xl transition-all duration-700" />
+    </div>
+  );
+
   return (
     <section id="skills" className="min-h-screen center-flex pt-20 ">
       <Tabs
-        className="w-full  min-h-[80vh] [&_.ant-tabs-nav::before]:hidden"
+        className="w-full min-h-[80vh] [&_.ant-tabs-nav::before]:hidden"
         defaultActiveKey="1"
         activeKey={activeTabKey}
         onChange={setActiveTabKey}
@@ -75,85 +133,41 @@ function Skill() {
           {
             key: "2",
             label: (
-              <h2
-                // data-aos="fade-down"
-                className="text-white text-2xl font-bold"
-              >
-                {t("projects")}
-              </h2>
+              <h2 className="text-white text-2xl font-bold">{t("projects")}</h2>
             ),
             children: (
-              <div
-                data-aos="fade-up"
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-10 pt-5"
-              >
-                <AnimatePresence>
+              <>
+                <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8 pt-5">
+                  <AnimatePresence>
+                    {projects.map((project: any, index: number) => (
+                      <motion.div
+                        initial={{ y: 40, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{
+                          duration: 0.5,
+                          delay: index * 0.1,
+                        }}
+                        key={`${activeTabKey}-${index}`}
+                      >
+                        {projectCard(project)}
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+                <Swiper
+                  effect={"cards"}
+                  grabCursor={true}
+                  modules={[EffectCards]}
+                  className="!flex sm:!hidden !px-6 !h-full"
+                >
                   {projects.map((project: any, index: number) => (
-                    <motion.div
-                      initial={{ y: 40, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      // whileInView={{ y: 0, opacity: 1 }}
-                      viewport={{ once: false, amount: 0.1 }}
-                      transition={{
-                        duration: 0.5,
-                        delay: index * 0.1,
-                      }}
-                      key={`${activeTabKey}-${index}`}
-                      className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-blue-950/10"
-                    >
-                      <div className="flex flex-col gap-2.5 z-20">
-                        <Image.PreviewGroup items={project.gallery}>
-                          <Image
-                            className="w-full aspect-square relative overflow-hidden rounded-md"
-                            src={project.image}
-                            alt={project.name}
-                          />
-                        </Image.PreviewGroup>
-                        <Link
-                          href={project.href}
-                          className="text-lg font-bold text-white line-clamp-2 "
-                        >
-                          {project.name}
-                        </Link>
-                        <Popover
-                          placement="top"
-                          content={
-                            <div className="w-[300px]">
-                              <Link
-                                href={project.href}
-                                className="text-lg font-bold bg-amber-600"
-                              >
-                                {project.name}
-                              </Link>
-                              <p
-                                className="text-justify overflow-y-auto max-h-[245px] scroll-visible"
-                                dangerouslySetInnerHTML={{
-                                  __html: project.description,
-                                }}
-                              />
-                            </div>
-                          }
-                        >
-                          <p className="text-base text-justify line-clamp-3 font-light text-white cursor-pointer ">
-                            {project.description}
-                          </p>
-                        </Popover>
-                        <div className="w-full flex gap-2 flex-wrap">
-                          {project.technologies.map((t: string, iT: number) => (
-                            <p
-                              key={iT}
-                              className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
-                            >
-                              {t}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                      <span className="-z-10 absolute w-1/2 h-full top-0 left-0 rotate-45 -translate-1/2 group-hover:top-[100%] group-hover:left-[100%] bg-blue-800 blur-xl transition-all duration-700"></span>
-                    </motion.div>
+                    <SwiperSlide key={index}>
+                      {projectCard(project)}
+                    </SwiperSlide>
                   ))}
-                </AnimatePresence>
-              </div>
+                </Swiper>
+              </>
             ),
           },
         ]}
