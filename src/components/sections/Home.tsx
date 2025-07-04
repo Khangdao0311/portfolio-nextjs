@@ -10,11 +10,9 @@ import {
   FaGithub,
   FaLinkedinIn,
 } from "react-icons/fa6";
-import { Button, Flex } from "antd";
 
 import images from "@/assets/image";
 import Icon from "@/assets/Icon";
-import { SiTypescript } from "react-icons/si";
 
 export default function Home() {
   const t = useTranslations("home");

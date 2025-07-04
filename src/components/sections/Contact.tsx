@@ -6,9 +6,9 @@ import * as Yup from "yup";
 import { IoMail } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaGithub, FaPhone } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 import { useNotiContext } from "@/context/NotiProvider";
-import { useTranslations } from "next-intl";
 
 function Contact() {
   const { setLoading, setNotification } = useNotiContext()!;
@@ -104,7 +104,7 @@ function Contact() {
       </div>
       <div
         data-aos="zoom-in-down"
-        className="w-full max-w-[500px] p-6 sm:p-10 border-4 border-blue-800 shadow-[0_0_10px_#FFF] rounded-xl bg-white/5"
+        className="w-full max-w-[500px] p-6 sm:p-10 border-4 border-[theme(--primary-light)] shadow-[0_0_10px_#FFF] rounded-xl bg-white/5"
       >
         <h2 className="text-3xl font-semibold text-white mb-4 text-center">
           {t("contactMe")}
@@ -134,7 +134,7 @@ function Contact() {
                   open={!!(errors.name && touched.name)}
                 >
                   <input
-                    className="w-full px-4 py-2 rounded focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-blue-800 transition duration-300"
+                    className="w-full px-4 py-2 rounded focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-[theme(--primary-light)] transition duration-300"
                     placeholder={t("placeholderName")}
                     type="text"
                     name="name"
@@ -159,7 +159,7 @@ function Contact() {
                   open={!!(errors.email && touched.email)}
                 >
                   <input
-                    className="w-full px-4 py-2 rounded focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-blue-800 transition duration-300"
+                    className="w-full px-4 py-2 rounded focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-[theme(--primary-light)] transition duration-300"
                     placeholder={t("placeholderEmail")}
                     name="email"
                     id="email"
@@ -185,7 +185,7 @@ function Contact() {
                   open={!!(errors.message && touched.message)}
                 >
                   <textarea
-                    className="w-full px-4 py-2 rounded focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-blue-800 transition duration-300"
+                    className="w-full px-4 py-2 rounded focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-[theme(--primary-light)] transition duration-300"
                     rows={4}
                     placeholder={t("placeholderMessage")}
                     name="message"
@@ -197,7 +197,7 @@ function Contact() {
                   ></textarea>
                 </Popover>
               </div>
-              <button className="mt-4 relative bg-slate-900 h-16 w-full text-center border-2 border-blue-600 text-white text-base font-bold rounded-xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:border-blue-800 hover:text-white p-3 before:absolute before:w-10 before:h-10 before:content[''] before:right-2 before:top-2 before:z-10 before:bg-indigo-500 before:rounded-full before:blur-lg before:transition-all before:duration-500 after:absolute after:z-10 after:w-16 after:h-16 after:content[''] after:bg-blue-400 after:right-6 after:top-4 after:rounded-full after:blur-lg after:transition-all after:duration-500 hover:before:right-10 hover:before:-bottom-4 hover:before:blur hover:after:-right-6 hover:after:scale-110">
+              <button className="w-full center-flex gap-2 text-2xl font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border-2 border-[theme(--primary-light)] transition-all hover:scale-105 duration-300">
                 {t("sendMessage")}
               </button>
             </Form>

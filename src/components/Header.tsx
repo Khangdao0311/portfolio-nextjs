@@ -47,15 +47,17 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-black z-30">
       <div className="container-custom flex items-center justify-between px-2.5 xl:px-0 py-4 ">
+        {/* logo */}
         <a
           href=""
           className="text-4xl font-black select-none text-[theme(--primary-light)] text-shadow-[theme(--primary-light)]"
         >
           Portfolio
         </a>
+        {/* nav */}
         <div className="hidden lg:flex gap-2 lg:gap-5">
           <a
-            href=""
+            href="#"
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("home")}
@@ -128,6 +130,7 @@ function Header() {
             </div>
           </Popover>
         </div>
+        {/*  */}
         <div className="flex lg:hidden items-center gap-2">
           <Popover
             content={
@@ -155,6 +158,7 @@ function Header() {
             <FaList className=" w-7 h-7" />
           </div>
         </div>
+        {/*  */}
         <Drawer
           title="Menu"
           placement={"right"}
@@ -167,57 +171,37 @@ function Header() {
         >
           <div className="flex flex-col gap-4">
             <a
-              href=""
+              href="#"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
-                activeSection === "home"
-                  ? "border-[theme(--primary-light)]"
-                  : "border-transparent"
-              }`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
             >
               {t("home")}
             </a>
             <a
               href="#about"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
-                activeSection === "about"
-                  ? "border-[theme(--primary-light)]"
-                  : "border-transparent"
-              }`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
             >
               {t("about")}
             </a>
             <a
               href="#skills"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
-                activeSection === "skills"
-                  ? "border-[theme(--primary-light)]"
-                  : "border-transparent"
-              }`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
             >
               {t("skill")}
             </a>
             <a
               href="#contact"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
-                activeSection === "contact"
-                  ? "border-[theme(--primary-light)]"
-                  : "border-transparent"
-              }`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
             >
               {t("contact")}
             </a>
             <a
               href="https://github.com/Khangdao0311"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]  ${
-                activeSection === "contact"
-                  ? "border-[theme(--primary-light)]"
-                  : "border-transparent"
-              }`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
             >
               GitHub
             </a>
