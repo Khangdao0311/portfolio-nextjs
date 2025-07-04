@@ -3,7 +3,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
+  title: "Portfolio - Khangdao0311",
   description: "information for me",
 };
 
