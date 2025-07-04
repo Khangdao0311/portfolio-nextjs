@@ -75,7 +75,7 @@ function Skill() {
   return (
     <section id="skills" className="min-h-screen center-flex pt-20 ">
       <Tabs
-        className="w-full min-h-[80vh] [&_.ant-tabs-nav::before]:hidden"
+        className="w-full min-h-[80vh] [&_.ant-tabs-nav::before]:hidden [&_.ant-tabs-ink-bar]:!bg-[theme(--primary-light)]"
         defaultActiveKey="1"
         activeKey={activeTabKey}
         onChange={setActiveTabKey}

@@ -21,7 +21,7 @@ function About() {
       </div>
       <div
         data-aos="fade-left"
-        className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-blue-950/10 rounded-2xl border border-white/35 shadow-[0px_0px_10px_#162556] md:shadow-[20px_20px_2px_#091934]"
+        className="flex-1 h-full p-5 sm:p-10 flex justify-center flex-col gap-4 bg-[theme(--primary-dark)] rounded-2xl border-2 border-[theme(--primary-light)] md:border-transparent shadow-[0px_0px_10px_theme(--primary-light)] md:shadow-[20px_20px_2px_theme(--primary-light)]"
       >
         <p className="text-xl">{t("1")}</p>
         <p className="text-lg text-justify">
