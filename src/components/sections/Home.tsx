@@ -1,14 +1,20 @@
 "use client";
-import Link from "next/link";
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Typewriter } from "react-simple-typewriter";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import {
+  FaDownload,
+  FaFacebookF,
+  FaGithub,
+  FaLinkedinIn,
+} from "react-icons/fa6";
+import { Button, Flex } from "antd";
 
 import images from "@/assets/image";
 import Icon from "@/assets/Icon";
+import { SiTypescript } from "react-icons/si";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -24,9 +30,12 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-around pt-20 "
+      className="min-h-screen flex flex-col md:flex-row gap-16 md:gap-10 items-center justify-around pt-20 "
     >
-      <div data-aos="fade-right" className=" flex flex-col gap-6">
+      <div
+        data-aos="fade-right"
+        className="w-full md:w-3/5 flex flex-col gap-6"
+      >
         <p className="text-3xl font-bold">{t("hello")}</p>
         <p className="text-4xl font-bold">{t("name")}</p>
         <p className="text-3xl font-bold">
@@ -42,58 +51,97 @@ export default function Home() {
           />
         </p>
         <p className=" text-xl font-medium">{t("welcome")}</p>
-
-        <div className="flex gap-4">
-          <a
-            className="overflow-hidden w-48 p-2.5 h-14 bg-black border-2 border-[theme(--primary-light)] rounded-lg cursor-pointer relative z-10 group"
-            href={`/${t("cv")}`}
-            download
-          >
-            <span className="absolute w-52 h-32 -top-10 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left" />
-            <span className="absolute w-52 h-32 -top-10 -left-2 bg-blue-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left" />
-            <span className="absolute w-52 h-32 -top-10 -left-2 bg-[theme(--primary-dark)] rotate-12 transform scale-x-0 group-hover:scale-x-60 transition-transform group-hover:duration-1000 duration-500 origin-left" />
-            <span className=" absolute center-fixed text-xl text-2xl font-bold text-nowrap">
-              {t("download")}
-            </span>
-          </a>
-        </div>
         <div className="flex gap-4">
           <a
             href="https://github.com/khangdao0311"
-            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaGithub className="w-9 h-9 fill-white" />
           </a>
           <a
             href="https://www.linkedin.com/in/khangdao0311/"
-            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaLinkedinIn className="w-9 h-9 fill-white" />
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61564139123358"
-            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaFacebookF className="w-9 h-9 fill-white" />
           </a>
           <a
             href="https://zalo.me/84976382553"
-            className="p-2 border-4 border-[theme(--primary-light)] rounded-xl hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <Icon.zalo className="w-9 h-9 fill-white" />
           </a>
         </div>
+        <a
+          className="w-full md:w-2/3 text-2xl center-flex gap-2 font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border border-[theme(--primary-light)] transition-all hover:scale-105 duration-300"
+          href={`/${t("cv")}`}
+          download
+        >
+          <FaDownload />
+          {t("download")}
+        </a>
       </div>
       <div
         data-aos="fade-up"
-        className="w-3/4 aspect-square rounded-full md:w-1/3 h-full center-flex group select-none"
+        className="w-full md:w-2/5 aspect-square h-full center-flex group select-none"
       >
-        <div className="relative center-flex bg-[radial-gradient(circle_at_center,_#000,_#162556)] w-3/4 aspect-[1/1] translate-y-1/6 rounded-full z-10 shadow-[0_0_20px_#FFF] border-4 border-white shadow-white">
-          <img
-            className="absolute bottom-0 w-full h-auto object-center rounded-full select-none"
-            src={images.avatar}
-            alt="Avatar"
-          />
+        <div className="relative center-flex w-[90%] aspect-square p-8 border-2 border-dashed rounded-full">
+          <div className="absolute inset-0 w-full aspect-square animate-spin-slow">
+            <button className="animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.reactjs />
+              </span>
+            </button>
+            <button className="animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.tailwindcss />
+              </span>
+            </button>
+            <button className="animate-spin-reverse-slow absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.figma />
+              </span>
+            </button>
+            <button className="animate-spin-reverse-slow absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.nodejs />
+              </span>
+            </button>
+          </div>
+          <div className="absolute inset-0 w-full aspect-square rotate-45 animate-spin-slow">
+            <button className="animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.nextjs />
+              </span>
+            </button>
+            <button className="animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.github />
+              </span>
+            </button>
+            <button className="animate-spin-reverse-slow -rotate-45 absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.ts />
+              </span>
+            </button>
+            <button className="animate-spin-reverse-slow -rotate-45 absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full bg-cover cursor-pointer border-2 border-gray-400 p-2 active:scale-95 hover:scale-95 transition-all duration-500">
+              <span className="center-flex w-12 !aspect-square transition-all duration-500 rounded-full z-[2] bg-[theme(--primary-dark)] p-1 overflow-hidden">
+                <Icon.mongodb />
+              </span>
+            </button>
+          </div>
+          <div className="relative center-flex bg-[radial-gradient(circle_at_center,_#000,_#162556)] w-4/5 aspect-square rounded-full border-2 border-[theme(--primary-light)]">
+            <img
+              className="absolute bottom-0 w-full h-auto object-center rounded-full select-none"
+              src={images.avatar4x6}
+              alt="Avatar"
+            />
+          </div>
         </div>
       </div>
     </section>

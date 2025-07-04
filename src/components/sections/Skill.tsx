@@ -84,12 +84,7 @@ function Skill() {
           {
             key: "1",
             label: (
-              <h2
-                // data-aos="fade-down"
-                className="text-white text-2xl font-bold"
-              >
-                {t("skills")}
-              </h2>
+              <h2 className="text-white text-2xl font-bold">{t("skills")}</h2>
             ),
             children: (
               <div
@@ -102,7 +97,6 @@ function Skill() {
                       <motion.div
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        // whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true, amount: 0.1 }}
                         transition={{
                           duration: 0.5,
