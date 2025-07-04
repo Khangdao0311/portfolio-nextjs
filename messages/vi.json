@@ -75,6 +75,10 @@
       "github": {
         "name": "GitHub",
         "level": "trung cấp"
+      },
+      "figma": {
+        "name": "Figma",
+        "level": "trung cấp "
       }
     },
     "projectList": {

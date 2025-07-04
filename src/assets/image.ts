@@ -1,4 +1,5 @@
-import avatar from "./images/avatar.png";
+import avatar4x6 from "./images/avatar4x6.png";
+import avatar1x1 from "./images/avatar1x1.png";
 import code from "./images/code.png";
 import elecking from "./images/elecking/elecking.png";
 import elecking1 from "./images/elecking/elecking1.png";
@@ -43,7 +44,8 @@ import portfolio from "./images/portfolio.png";
 import chatApp from "./images/chat-app.png";
 
 const images = {
-  avatar: avatar.src,
+  avatar4x6: avatar4x6.src,
+  avatar1x1: avatar1x1.src,
   code: code.src,
   elecking: elecking.src,
   elecking1: elecking1.src,

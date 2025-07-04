@@ -9,6 +9,7 @@ import LogoReactJS from "./icons/logoReactJS";
 import LogoTailwindCSS from "./icons/logoTailwindCSS";
 import LogoTS from "./icons/logoTS";
 import LogoZalo from "./icons/logoZalo";
+import LogoFigma from "./icons/logoFigma";
 
 const Icons = {
   html: LogoHTML,
@@ -22,6 +23,7 @@ const Icons = {
   tailwindcss: LogoTailwindCSS,
   github: LogoGitHub,
   zalo: LogoZalo,
+  figma: LogoFigma,
 };
 
 export default Icons;

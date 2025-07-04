@@ -52,6 +52,11 @@ export const getSkills = (t: (key: string) => string) => [
     name: t("skillList.github.name"),
     level: t("skillList.github.level"),
   },
+  {
+    icon: Icons.figma,
+    name: t("skillList.figma.name"),
+    level: t("skillList.figma.level"),
+  },
 ];
 
 export const getProjects = (t: (key: string) => string) => [

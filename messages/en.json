@@ -75,6 +75,10 @@
       "github": {
         "name": "GitHub",
         "level": "intermediate"
+      },
+      "figma": {
+        "name": "Figma",
+        "level": "intermediate"
       }
     },
     "projectList": {
