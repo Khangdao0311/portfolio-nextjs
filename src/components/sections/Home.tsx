@@ -88,9 +88,9 @@ export default function Home() {
       </div>
       <div
         data-aos="fade-up"
-        className="w-full md:w-2/5 aspect-square h-full center-flex group select-none"
+        className="w-full md:w-2/5 aspect-square h-full center-flex group select-none overflow-hidden"
       >
-        <div className="relative center-flex w-[90%] aspect-square p-8 border-2 border-dashed border-white rounded-full">
+        <div className="relative center-flex w-[80%] aspect-square p-8 border-2 border-dashed border-white rounded-full">
           {/* item1 */}
           <div className="absolute inset-0 w-full aspect-square animate-spin-slow">
             <button className="animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
