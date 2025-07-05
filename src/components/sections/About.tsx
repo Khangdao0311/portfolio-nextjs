@@ -6,12 +6,12 @@ function About() {
   return (
     <section
       id="about"
-      className="min-h-screen center-flex flex-col md:flex-row gap-10 pt-20"
+      className="min-h-screen center-flex flex-col lg:flex-row gap-10 pt-20"
     >
       <div
         data-aos="fade-down"
         data-aos-duration="1200"
-        className="w-1/3 aspect-square hidden md:flex items-center justify-center rounded-lg overflow-hidden"
+        className="w-1/3 aspect-square hidden lg:flex items-center justify-center rounded-lg overflow-hidden"
       >
         <img
           className="h-full w-auto object-cover"

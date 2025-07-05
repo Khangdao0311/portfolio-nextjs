@@ -11,9 +11,6 @@ html {
   scroll-snap-type: y mandatory;
 }
 
-section {
-  overflow: hidden;
-}
 
 @layer components {
   .container-custom {

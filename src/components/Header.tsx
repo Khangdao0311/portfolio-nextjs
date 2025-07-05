@@ -167,41 +167,41 @@ function Header() {
           open={openDrawer}
           key={"left"}
           zIndex={50}
-          width="min(50vw, 300px)"
+          width="min(70vw, 300px)"
         >
           <div className="flex flex-col gap-4">
             <a
               href="#"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               {t("home")}
             </a>
             <a
               href="#about"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               {t("about")}
             </a>
             <a
               href="#skills"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               {t("skill")}
             </a>
             <a
               href="#contact"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               {t("contact")}
             </a>
             <a
               href="https://github.com/Khangdao0311"
               onClick={() => setOpenDrawer(false)}
-              className={`text-lg font-bold px-4 py-2 select-none uppercase border-b-2 text-[theme(--primary-light)]`}
+              className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               GitHub
             </a>
