@@ -100,7 +100,7 @@ function Skill() {
                         viewport={{ once: true, amount: 0.1 }}
                         transition={{
                           duration: 0.5,
-                          delay: index * 0.1,
+                          delay: index * 0.05,
                         }}
                         key={`${activeTabKey}-${index}`}
                         className="relative flex px-4 py-3 gap-4 items-center border-white rounded-lg overflow-hidden group bg-blue-500/20 select-none"

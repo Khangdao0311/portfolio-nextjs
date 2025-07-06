@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     AOS.init({
-      disable: () => window.innerWidth < 768,
+      disable: () => window.innerWidth < 1024,
       duration: 1000,
       once: false,
     });
@@ -54,27 +54,27 @@ export default function Home() {
         <div className="flex gap-4">
           <a
             href="https://github.com/khangdao0311"
-            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <FaGithub className="w-9 h-9 fill-white" />
+            <FaGithub className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://www.linkedin.com/in/khangdao0311/"
-            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <FaLinkedinIn className="w-9 h-9 fill-white" />
+            <FaLinkedinIn className="w-9 h-9 text-white  group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61564139123358"
-            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <FaFacebookF className="w-9 h-9 fill-white" />
+            <FaFacebookF className="w-9 h-9 text-white  group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://zalo.me/84976382553"
-            className="p-2 border-2 border-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <Icon.zalo className="w-9 h-9 fill-white" />
+            <Icon.zalo className="w-9 h-9 text-white  group-hover:text-[theme(--primary-dark)]" />
           </a>
         </div>
         <a
