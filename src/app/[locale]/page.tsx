@@ -12,7 +12,6 @@ import ModalNotification from "@/components/ModalNotification";
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "metadata" });
-
   return {
     title: t("title"),
     description: t("description"),

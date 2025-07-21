@@ -6,9 +6,9 @@ import { AnimatePresence } from "motion/react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
-import { EffectCards } from "swiper/modules";
 
 import { getProjects, getSkills } from "@/data";
 
@@ -19,7 +19,7 @@ function Skill() {
   const projects = useMemo(() => getProjects(t), [t]);
 
   const projectCard = (project: any) => (
-    <div className="overflow-hidden relative p-4 shadow-[0_0_4px_gray] rounded-xl group !bg-black border-2 border-[theme(--primary-light)] h-full h-full">
+    <div className="overflow-hidden relative p-4 rounded-xl group !bg-black border border-[theme(--primary-light)] h-full hover:scale-105 transition-all duration-300">
       <div className="relative z-20 flex flex-col gap-2.5 ">
         <Image.PreviewGroup items={project.gallery}>
           <Image
@@ -68,7 +68,6 @@ function Skill() {
           ))}
         </div>
       </div>
-      <span className="z-10 absolute w-1/2 h-full top-0 left-0 rotate-45 -translate-1/2 group-hover:top-[100%] group-hover:left-[100%] bg-blue-800 blur-xl transition-all duration-700" />
     </div>
   );
 
@@ -103,20 +102,20 @@ function Skill() {
                           delay: index * 0.05,
                         }}
                         key={`${activeTabKey}-${index}`}
-                        className="relative flex px-4 py-3 gap-4 items-center border-white rounded-lg overflow-hidden group bg-blue-500/20 select-none"
                       >
-                        <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center">
-                          <skill.icon className="w-[90%] shrink-0 " />
+                        <div className="relative z-20 flex px-4 py-3 gap-4 items-center justify-center w-full h-full rounded border-x-4 border-[theme(--primary-light)] overflow-hidden group bg-[theme(--primary-dark)] select-none hover:scale-110 transition-all duration-300">
+                          <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-black border-2 border-transparent group-hover:border-[theme(--primary-light)]">
+                            <skill.icon className="w-[90%] shrink-0" />
+                          </div>
+                          <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
+                            <p className="absolute left-0 top-1/2 -translate-y-full sm:-translate-y-1/2 group-hover:-translate-y-full text-[theme(--primary-light)] sm:text-white group-hover:text-[theme(--primary-light)] transition-all duration-300 text-xl font-bold line-clamp-1">
+                              {skill.name}
+                            </p>
+                            <p className="absolute left-0 top-1/2 sm:top-full group-hover:top-1/2 transition-all duration-500 text-md font-medium line-clamp-1">
+                              {skill.level}
+                            </p>
+                          </div>
                         </div>
-                        <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
-                          <p className="absolute left-0 top-1/2 -translate-y-1/2 group-hover:-translate-y-full transition-all duration-300 text-xl font-bold line-clamp-1">
-                            {skill.name}
-                          </p>
-                          <p className="absolute left-0 top-full group-hover:top-1/2 transition-all duration-500 text-md font-medium line-clamp-1">
-                            {skill.level}
-                          </p>
-                        </div>
-                        <span className="z-10 absolute w-full translate-1/2 group-hover:-translate-1/3 blur-2xl aspect-square bg-blue-800 shadow-[0_0_20px_#1c398e] transition-all duration-500"></span>
                       </motion.div>
                     );
                   })}

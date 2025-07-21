@@ -14,3 +14,4 @@ export default function RootLayout({
 }) {
   return <AntdRegistry>{children}</AntdRegistry>;
 }
+  

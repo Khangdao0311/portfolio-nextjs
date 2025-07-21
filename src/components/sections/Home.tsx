@@ -62,19 +62,19 @@ export default function Home() {
             href="https://www.linkedin.com/in/khangdao0311/"
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <FaLinkedinIn className="w-9 h-9 text-white  group-hover:text-[theme(--primary-dark)]" />
+            <FaLinkedinIn className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61564139123358"
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <FaFacebookF className="w-9 h-9 text-white  group-hover:text-[theme(--primary-dark)]" />
+            <FaFacebookF className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://zalo.me/84976382553"
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <Icon.zalo className="w-9 h-9 text-white  group-hover:text-[theme(--primary-dark)]" />
+            <Icon.zalo className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
         </div>
         <a
@@ -98,6 +98,11 @@ export default function Home() {
                 <Icon.reactjs className="w-full h-full" />
               </span>
             </button>
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+              <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
+                <Icon.nodejs className="w-full h-full" />
+              </span>
+            </button>
             <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
                 <Icon.tailwindcss className="w-full h-full" />
@@ -108,17 +113,17 @@ export default function Home() {
                 <Icon.figma className="w-full h-full" />
               </span>
             </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
-              <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.nodejs className="w-full h-full" />
-              </span>
-            </button>
           </div>
           {/* item2 */}
           <div className="absolute inset-0 w-full aspect-square rotate-45 animate-spin-slow">
             <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
                 <Icon.nextjs className="w-full h-full" />
+              </span>
+            </button>
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+              <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
+                <Icon.mongodb className="w-full h-full" />
               </span>
             </button>
             <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
@@ -129,11 +134,6 @@ export default function Home() {
             <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
                 <Icon.ts className="w-full h-full" />
-              </span>
-            </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
-              <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.mongodb className="w-full h-full" />
               </span>
             </button>
           </div>

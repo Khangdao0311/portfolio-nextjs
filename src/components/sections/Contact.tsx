@@ -78,22 +78,42 @@ function Contact() {
       id="contact"
       className="min-h-screen center-flex flex-col lg:flex-row gap-20 pt-20"
     >
-      <div data-aos="fade-right" className=" flex flex-col gap-10">
-        <h2 className="text-4xl font-bold">{t("profile")}</h2>
+      <div className=" flex flex-col gap-10">
+        <h2
+          data-aos="fade-right"
+          data-aos-duration="400"
+          className="text-4xl font-bold"
+        >
+          {t("profile")}
+        </h2>
         <div className="flex flex-col gap-10">
-          <div className="flex gap-10 items-center">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="500"
+            className="flex gap-10 items-center"
+          >
             <IoMail className="w-10 h-10" />
             <span className="text-xl font-bold ">khangdao0311@gmail.com</span>
           </div>
-          <div className="flex gap-10 items-center">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="600"
+            className="flex gap-10 items-center"
+          >
             <FaPhone className="w-10 h-10" />
             <span className="text-xl font-bold ">0976 382 553</span>
           </div>
-          <div className="flex gap-10 items-center">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="700"
+            className="flex gap-10 items-center"
+          >
             <FaMapMarkerAlt className="w-10 h-10" />
             <span className="text-xl font-bold ">{t("address")}</span>
           </div>
           <a
+            data-aos="fade-right"
+            data-aos-duration="800"
             href="https://github.com/Khangdao0311"
             className="flex gap-10 items-center"
           >
@@ -104,7 +124,7 @@ function Contact() {
       </div>
       <div
         data-aos="zoom-in-down"
-        className="w-full max-w-[500px] p-6 sm:p-10 border-4 border-[theme(--primary-light)] shadow-[0_0_10px_#FFF] rounded-xl bg-white/5"
+        className="w-full max-w-[500px] p-6 sm:p-10 border-2 border-[theme(--primary-light)] rounded-xl"
       >
         <h2 className="text-3xl font-semibold text-white mb-4 text-center">
           {t("contactMe")}

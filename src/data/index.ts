@@ -61,14 +61,6 @@ export const getSkills = (t: (key: string) => string) => [
 
 export const getProjects = (t: (key: string) => string) => [
   {
-    image: images.portfolio,
-    gallery: [images.portfolio],
-    name: t("projectList.portfolio.name"),
-    description: t("projectList.portfolio.description"),
-    href: "https://khangdao0311-portfolio.vercel.app/",
-    technologies: ["NextJS", "TailwindCSS"],
-  },
-  {
     image: images.elecking,
     gallery: [
       images.elecking,
@@ -114,6 +106,14 @@ export const getProjects = (t: (key: string) => string) => [
     description: t("projectList.elecking.description"),
     href: "https://github.com/khangdao0311",
     technologies: ["NextJS", "TailwindCSS", "NodeJS (ExpressJS)", "MongoDB"],
+  },
+  {
+    image: images.portfolio,
+    gallery: [images.portfolio],
+    name: t("projectList.portfolio.name"),
+    description: t("projectList.portfolio.description"),
+    href: "https://khangdao0311-portfolio.vercel.app/",
+    technologies: ["NextJS", "TailwindCSS"],
   },
   {
     image: images.cellphones,
