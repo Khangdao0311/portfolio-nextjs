@@ -19,7 +19,7 @@ function Skill() {
   const projects = useMemo(() => getProjects(t), [t]);
 
   const projectCard = (project: any) => (
-    <div className="overflow-hidden relative p-4 rounded-xl group !bg-black border border-[theme(--primary-light)] h-full hover:scale-105 transition-all duration-300">
+    <div className="overflow-hidden relative p-4 rounded-xl group !bg-black border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] h-full hover:scale-105 transition-all duration-300">
       <div className="relative z-20 flex flex-col gap-2.5 ">
         <Image.PreviewGroup items={project.gallery}>
           <Image
@@ -103,7 +103,7 @@ function Skill() {
                         }}
                         key={`${activeTabKey}-${index}`}
                       >
-                        <div className="relative z-20 flex px-4 py-3 gap-4 items-center justify-center w-full h-full rounded border-x-4 border-[theme(--primary-light)] overflow-hidden group bg-[theme(--primary-dark)] select-none hover:scale-110 transition-all duration-300">
+                        <div className="relative z-20 flex px-4 py-3 gap-4 items-center justify-center w-full h-full rounded-lg border-x-2 border-[theme(--primary-light)] overflow-hidden group bg-[theme(--primary-dark)] select-none hover:scale-110 transition-all duration-300">
                           <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-black border-2 border-transparent group-hover:border-[theme(--primary-light)]">
                             <skill.icon className="w-[90%] shrink-0" />
                           </div>

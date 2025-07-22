@@ -81,7 +81,7 @@ function Contact() {
       <div className=" flex flex-col gap-10">
         <h2
           data-aos="fade-right"
-          data-aos-duration="400"
+          data-aos-duration="200"
           className="text-4xl font-bold"
         >
           {t("profile")}
