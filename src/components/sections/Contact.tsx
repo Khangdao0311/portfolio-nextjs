@@ -52,7 +52,7 @@ function Contact() {
         .then((res) => {
           setLoading(false);
           setNotification({
-            status: true,
+            status: "success",
             message: t("notiSuccess"),
           });
           resetForm();
@@ -60,7 +60,7 @@ function Contact() {
         .catch((err) => {
           setLoading(false);
           setNotification({
-            status: false,
+            status: "error",
             message: t("notiError"),
           });
         })

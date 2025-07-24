@@ -42,6 +42,7 @@ import elecking37 from "./images/elecking/elecking37.png";
 import cellphones from "./images/cellphones.png";
 import portfolio from "./images/portfolio.png";
 import chatApp from "./images/chat-app.png";
+import calculator from "./images/calculator.png";
 
 const images = {
   avatar4x6: avatar4x6.src,
@@ -88,6 +89,7 @@ const images = {
   cellphones: cellphones.src,
   portfolio: portfolio.src,
   chatApp: chatApp.src,
+  calculator: calculator.src,
 };
 
 export default images;

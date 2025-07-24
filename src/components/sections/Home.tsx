@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col lg:flex-row gap-10 items-center justify-around pt-20 "
+      className="min-h-screen flex flex-col lg:flex-row gap-10 items-center justify-around pt-20" 
     >
       <div
         data-aos="fade-right"

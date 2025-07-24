@@ -2,12 +2,14 @@
 
 import { useState, createContext, useContext } from "react";
 
+type ToastType = "success" | "error" | "info" | "warn";
+
 export const NotiContext = createContext<{
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  notification: { status: boolean | null; message: string };
+  notification: { status: ToastType | null; message: string };
   setNotification: (notification: {
-    status: boolean | null;
+    status: ToastType | null;
     message: string;
   }) => void;
 } | null>(null);

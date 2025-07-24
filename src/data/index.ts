@@ -132,3 +132,11 @@ export const getProjects = (t: (key: string) => string) => [
     technologies: ["NextJS", "TailwindCSS", "Firebase"],
   },
 ];
+
+export const getDemos = (t: (key: string) => string) => [
+  {
+    image: images.calculator,
+    name: t("demoList.calculator.name"),
+    link: "/calculator",
+  },
+];

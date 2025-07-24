@@ -10,16 +10,18 @@ import { EffectCards } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
 
-import { getProjects, getSkills } from "@/data";
+import { getProjects, getSkills, getDemos } from "@/data";
 
 function Skill() {
   const [activeTabKey, setActiveTabKey] = useState("1");
   const t = useTranslations("skill");
+  const locale = useTranslations("header")("locale");
   const skills = useMemo(() => getSkills(t), [t]);
   const projects = useMemo(() => getProjects(t), [t]);
+  const demos = useMemo(() => getDemos(t), [t]);
 
   const projectCard = (project: any) => (
-    <div className="overflow-hidden relative p-4 rounded-xl group !bg-black border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] h-full hover:scale-105 transition-all duration-300">
+    <div className="overflow-hidden relative p-4 rounded-xl group !bg-black border border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] h-full hover:scale-105 transition-all duration-300">
       <div className="relative z-20 flex flex-col gap-2.5 ">
         <Image.PreviewGroup items={project.gallery}>
           <Image
@@ -72,7 +74,7 @@ function Skill() {
   );
 
   return (
-    <section id="skills" className="min-h-screen center-flex pt-20 ">
+    <section id="skills" className="min-h-screen center-flex pt-20">
       <Tabs
         className="w-full min-h-[80vh] [&_.ant-tabs-nav::before]:hidden [&_.ant-tabs-ink-bar]:!bg-[theme(--primary-light)]"
         defaultActiveKey="1"
@@ -103,8 +105,8 @@ function Skill() {
                         }}
                         key={`${activeTabKey}-${index}`}
                       >
-                        <div className="relative z-20 flex px-4 py-3 gap-4 items-center justify-center w-full h-full rounded-lg border-x-2 border-[theme(--primary-light)] overflow-hidden group bg-[theme(--primary-dark)] select-none hover:scale-110 transition-all duration-300">
-                          <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-black border-2 border-transparent group-hover:border-[theme(--primary-light)]">
+                        <div className="relative z-20 flex px-4 py-3 gap-4 items-center justify-center w-full h-full rounded-lg border-2 border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] overflow-hidden group bg-black select-none hover:scale-110 transition-all duration-300">
+                          <div className="z-20 w-1/4 shrink-0 aspect-square rounded-lg flex items-center justify-center transition-all duration-300 border-2 border-transparent group-hover:border-[theme(--primary-light)]">
                             <skill.icon className="w-[90%] shrink-0" />
                           </div>
                           <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
@@ -161,6 +163,41 @@ function Skill() {
                   ))}
                 </Swiper>
               </>
+            ),
+          },
+          {
+            key: "3",
+            label: (
+              <h2 className="text-white text-2xl font-bold">{t("demos")}</h2>
+            ),
+            children: (
+              <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8 pt-5">
+                <AnimatePresence>
+                  {demos.map((demo: any, index: number) => (
+                    <motion.div
+                      initial={{ y: 40, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      viewport={{ once: false, amount: 0.1 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: index * 0.1,
+                      }}
+                      key={`${activeTabKey}-${index}`}
+                    >
+                      <Link href={`/${locale}${demo.link}`}>
+                        <div className="w-full aspect-[3/1] flex items-center gap-4 p-2.5 rounded-lg border-2 border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] overflow-hidden group bg-black select-none hover:scale-110 transition-all duration-300">
+                          <div className="h-full aspect-square p-2 rounded center-flex">
+                            <img src={demo.image} alt={demo.name} />
+                          </div>
+                          <p className="text-xl font-bold line-clamp-1 text-white group-hover:text-[theme(--primary-light)] transition-all duration-300">
+                            {demo.name}
+                          </p>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
             ),
           },
         ]}

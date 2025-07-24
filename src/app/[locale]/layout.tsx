@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 
 import { routing } from "@/i18n/routing";
 import NotiProvider from "@/context/NotiProvider";
+import ModalNotification from "@/components/ModalNotification";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default async function LocaleLayout({
   children,
@@ -19,7 +22,12 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <NotiProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <ModalNotification />
+            <Header />
+            <main className="container-custom px-2.5 xl:px-1">{children}</main>
+            <Footer />
+          </NextIntlClientProvider>
         </NotiProvider>
       </body>
     </html>

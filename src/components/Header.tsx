@@ -6,12 +6,22 @@ import { FaList, FaSquareGithub } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 import { GrLanguage } from "react-icons/gr";
 import { MdLanguage } from "react-icons/md";
+import { usePathname } from "next/navigation";
 
 function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const observer = useRef<any>(null);
   const t = useTranslations("header");
+
+  const pathname = usePathname();
+
+  const switchLocale = (locale: string) => {
+    const segments = pathname.split("/");
+    segments[1] = locale;
+    const newPath = segments.join("/");
+    return newPath;
+  };
 
   useEffect(() => {
     // Tạo Intersection Observer
@@ -43,13 +53,46 @@ function Header() {
       });
     };
   }, []);
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        let found = false;
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target.id) {
+            setActiveSection(entry.target.id);
+            found = true;
+          }
+        });
+
+        if (!found) {
+          setActiveSection("");
+        }
+      },
+      {
+        root: null,
+        threshold: 0.6,
+      }
+    );
+
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+      observer.current.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.current.unobserve(section);
+      });
+    };
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-black z-30">
       <div className="container-custom flex items-center justify-between px-2.5 xl:px-0 py-4 ">
         {/* logo */}
         <a
-          href=""
+          href={`/${t("locale")}`}
           className="text-4xl font-black select-none text-[theme(--primary-light)] text-shadow-[theme(--primary-light)]"
         >
           Portfolio
@@ -57,7 +100,7 @@ function Header() {
         {/* nav */}
         <div className="hidden lg:flex gap-2 lg:gap-5">
           <a
-            href="#"
+            href={`/${t("locale")}#`}
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("home")}
@@ -68,7 +111,7 @@ function Header() {
             ></span>
           </a>
           <a
-            href="#about"
+            href={`/${t("locale")}#about`}
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("about")}
@@ -79,7 +122,7 @@ function Header() {
             ></span>
           </a>
           <a
-            href="#skills"
+            href={`/${t("locale")}#skills`}
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("skill")}
@@ -90,7 +133,7 @@ function Header() {
             ></span>
           </a>
           <a
-            href="#contact"
+            href={`/${t("locale")}#contact`}
             className={`relative text-lg font-bold px-4 py-2 select-none uppercase text-white hover:text-[theme(--primary-light)] transition-all duration-300`}
           >
             {t("contact")}
@@ -111,13 +154,13 @@ function Header() {
             content={
               <div className="flex flex-col gap-2">
                 <Link
-                  href="/en"
+                  href={switchLocale("en")}
                   className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
                 >
                   {t("en")}
                 </Link>
                 <Link
-                  href="/vi"
+                  href={switchLocale("vi")}
                   className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
                 >
                   {t("vi")}
@@ -137,13 +180,13 @@ function Header() {
               <div className="flex flex-col gap-2">
                 <Link
                   className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
-                  href="/en"
+                  href={switchLocale("en")}
                 >
                   {t("en")}
                 </Link>
                 <Link
                   className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
-                  href="/vi"
+                  href={switchLocale("vi")}
                 >
                   {t("vi")}
                 </Link>
@@ -171,28 +214,28 @@ function Header() {
         >
           <div className="flex flex-col gap-4">
             <a
-              href="#"
+              href={`/${t("locale")}#`}
               onClick={() => setOpenDrawer(false)}
               className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               {t("home")}
             </a>
             <a
-              href="#about"
+              href={`/${t("locale")}#about`}
               onClick={() => setOpenDrawer(false)}
               className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               {t("about")}
             </a>
             <a
-              href="#skills"
+              href={`/${t("locale")}#skills`}
               onClick={() => setOpenDrawer(false)}
               className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >
               {t("skill")}
             </a>
             <a
-              href="#contact"
+              href={`/${t("locale")}#contact`}
               onClick={() => setOpenDrawer(false)}
               className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
             >

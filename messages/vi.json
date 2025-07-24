@@ -11,7 +11,8 @@
     "contact": "Liên hệ",
     "languages": "Ngôn ngữ",
     "vi": "Tiếng Việt",
-    "en": "Tiếng Anh"
+    "en": "Tiếng Anh",
+    "locale": "vi"
   },
 
   "home": {
@@ -35,6 +36,7 @@
   "skill": {
     "skills": "Kỹ năng",
     "projects": "Dự án",
+    "demos": "Demo",
     "skillList": {
       "html": {
         "name": "HTML",
@@ -98,6 +100,11 @@
         "name": "Chat App",
         "description": "Ứng dụng chat thời gian thực sử dụng Firebase, tích hợp đăng nhập bằng Google, Facebook, tạo phòng chat và mời người khác vào phòng."
       }
+    },
+    "demoList": {
+      "calculator": {
+        "name": "Máy tính"
+      }
     }
   },
 
@@ -119,5 +126,11 @@
     "notiSuccess": "Tôi đã nhận được tin nhắn của bạn! Tôi sẽ trả lời bạn sau.",
     "notiError": "Đã xảy ra lỗi trong quá trình gửi tin nhắn của bạn. Vui lòng thử lại sau.",
     "sendMessage": "Gửi tin nhắn"
+  },
+
+  "calculator": {
+    "title": "Máy tính",
+    "divideByZero": "Không thể chia cho 0",
+    "invalidInput": "Đầu vào không hợp lệ"
   }
 }

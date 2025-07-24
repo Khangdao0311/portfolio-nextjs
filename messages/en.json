@@ -11,7 +11,8 @@
     "contact": "Contact",
     "languages": "Languages",
     "vi": "Vietnamese",
-    "en": "English"
+    "en": "English",
+    "locale": "en"
   },
 
   "home": {
@@ -35,6 +36,7 @@
   "skill": {
     "skills": "Skills",
     "projects": "Projects",
+    "demos": "Demos",
     "skillList": {
       "html": {
         "name": "HTML",
@@ -98,6 +100,11 @@
         "name": "Chat App",
         "description": "Real-time chat app using Firebase, integrated with Google, login with Facebook, create chat rooms and invite others to the room."
       }
+    },
+    "demoList": {
+      "calculator": {
+        "name": "Calculator"
+      }
     }
   },
 
@@ -119,5 +126,11 @@
     "notiSuccess": "I received your message! I will reply you later.",
     "notiError": "An error occurred while sending your message. Please try again later.",
     "sendMessage": "Send Message"
+  },
+
+  "calculator": {
+    "title": "Calculator",
+    "divideByZero": "Cannot divide by 0",
+    "invalidInput": "Invalid input"
   }
 }
