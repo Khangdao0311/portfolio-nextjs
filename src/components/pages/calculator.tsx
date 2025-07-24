@@ -220,9 +220,9 @@ function Calculator() {
 
   return (
     <section className="min-h-screen center-flex pt-20">
-      <div className="max-w-[400px] w-[95%] flex gap-4 flex-col bg-stone-950 p-6 rounded-xl border border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)]">
+      <div className="max-w-[400px] w-[95%] flex gap-4 flex-col bg-gray-950 p-6 rounded-xl border border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)]">
         <h1 className="uppercase text-2xl font-bold ">{t("title")}</h1>
-        <div className="w-full aspect-[3/1] p-4 bg-black rounded-lg flex flex-col">
+        <div className="w-full aspect-[3/1] p-4 bg-black border border-gray-700 rounded-lg flex flex-col">
           <div className="h-2/5 flex items-center">
             <p className="w-full overflow-x-auto text-right text-base font-light text-gray-400">
               {result.previousValue} {result.operation}

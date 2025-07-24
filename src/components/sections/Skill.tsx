@@ -90,7 +90,7 @@ function Skill() {
             children: (
               <div
                 data-aos="fade-up"
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-8 pt-5 "
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-8 pt-5"
               >
                 <AnimatePresence>
                   {skills.map((skill: any, index: number) => {
@@ -110,10 +110,10 @@ function Skill() {
                             <skill.icon className="w-[90%] shrink-0" />
                           </div>
                           <div className="z-20 w-full h-full relative flex flex-col transition-all overflow-hidden">
-                            <p className="absolute left-0 top-1/2 -translate-y-full sm:-translate-y-1/2 group-hover:-translate-y-full text-[theme(--primary-light)] sm:text-white group-hover:text-[theme(--primary-light)] transition-all duration-300 text-xl font-bold line-clamp-1">
+                            <p className="absolute left-0 top-1/2 -translate-y-full sm:-translate-y-1/2 group-hover:-translate-y-full text-[theme(--primary-light)] sm:text-white group-hover:text-[theme(--primary-light)] transition-all duration-300 text-2xl sm:text-xl font-bold line-clamp-1">
                               {skill.name}
                             </p>
-                            <p className="absolute left-0 top-1/2 sm:top-full group-hover:top-1/2 transition-all duration-500 text-md font-medium line-clamp-1">
+                            <p className="absolute left-0 top-1/2 sm:top-full group-hover:top-1/2 transition-all duration-500 text-base sm:text-md font-medium line-clamp-1">
                               {skill.level}
                             </p>
                           </div>
@@ -171,7 +171,7 @@ function Skill() {
               <h2 className="text-white text-2xl font-bold">{t("demos")}</h2>
             ),
             children: (
-              <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8 pt-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-8 pt-5">
                 <AnimatePresence>
                   {demos.map((demo: any, index: number) => (
                     <motion.div
@@ -185,11 +185,11 @@ function Skill() {
                       key={`${activeTabKey}-${index}`}
                     >
                       <Link href={`/${locale}${demo.link}`}>
-                        <div className="w-full aspect-[3/1] flex items-center gap-4 p-2.5 rounded-lg border-2 border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] overflow-hidden group bg-black select-none hover:scale-110 transition-all duration-300">
-                          <div className="h-full aspect-square p-2 rounded center-flex">
+                        <div className="w-full flex items-center gap-4 p-2.5 rounded-lg border-2 border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] overflow-hidden group bg-black select-none hover:scale-110 transition-all duration-300">
+                          <div className="w-1/4 aspect-square p-2 rounded center-flex">
                             <img src={demo.image} alt={demo.name} />
                           </div>
-                          <p className="text-xl font-bold line-clamp-1 text-white group-hover:text-[theme(--primary-light)] transition-all duration-300">
+                          <p className="text-2xl sm:text-xl font-bold line-clamp-1 text-[theme(--primary-light)] sm:text-white group-hover:text-[theme(--primary-light)] transition-all duration-300">
                             {demo.name}
                           </p>
                         </div>
