@@ -43,6 +43,7 @@ import cellphones from "./images/cellphones.png";
 import portfolio from "./images/portfolio.png";
 import chatApp from "./images/chat-app.png";
 import calculator from "./images/calculator.png";
+import xo3x3 from "./images/xo3x3.png";
 
 const images = {
   avatar4x6: avatar4x6.src,
@@ -89,6 +90,7 @@ const images = {
   cellphones: cellphones.src,
   portfolio: portfolio.src,
   chatApp: chatApp.src,
+  xo3x3: xo3x3.src,
   calculator: calculator.src,
 };
 

@@ -139,4 +139,9 @@ export const getDemos = (t: (key: string) => string) => [
     name: t("demoList.calculator.name"),
     link: "/calculator",
   },
+  {
+    image: images.xo3x3,
+    name: t("demoList.xo3x3.name"),
+    link: "/xo-3x3",
+  },
 ];

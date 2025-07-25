@@ -104,6 +104,9 @@
     "demoList": {
       "calculator": {
         "name": "Máy tính"
+      },
+      "xo3x3": {
+        "name": "Trò Chơi XO 3x3"
       }
     }
   },
@@ -132,5 +135,12 @@
     "title": "Máy tính",
     "divideByZero": "Không thể chia cho 0",
     "invalidInput": "Đầu vào không hợp lệ"
+  },
+  "xo3x3": {
+    "title": "Trò Chơi XO 3x3",
+    "resetGame": "Chơi lại",
+    "winner": "Người thắng",
+    "draw": "Hòa!",
+    "currentTurn": "Lượt hiện tại"
   }
 }

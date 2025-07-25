@@ -104,6 +104,9 @@
     "demoList": {
       "calculator": {
         "name": "Calculator"
+      },
+      "xo3x3": {
+        "name": "XO 3x3 Game"
       }
     }
   },
@@ -132,5 +135,12 @@
     "title": "Calculator",
     "divideByZero": "Cannot divide by 0",
     "invalidInput": "Invalid input"
+  },
+  "xo3x3": {
+    "title": "XO 3x3 Game",
+    "resetGame": "Play Again",
+    "winner": "Winner",
+    "draw": "Draw!",
+    "currentTurn": "Current Turn"
   }
 }
