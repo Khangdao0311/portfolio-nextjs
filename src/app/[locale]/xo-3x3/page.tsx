@@ -1,4 +1,4 @@
-import XO3x3 from "@/components/pages/xo3x3";
+import XO3x3 from "@/components/demos/xo3x3";
 
 function XO3x3Page() {
   return (

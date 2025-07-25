@@ -107,6 +107,9 @@
       },
       "xo3x3": {
         "name": "XO 3x3 Game"
+      },
+      "todolist": {
+        "name": "ToDo List"
       }
     }
   },
@@ -142,5 +145,15 @@
     "winner": "Winner",
     "draw": "Draw!",
     "currentTurn": "Current Turn"
+  },
+  "todolist": {
+    "title": "ToDo List",
+    "task": "Task",
+    "add": "Add",
+    "taskPlaceholder": "Enter your task",
+    "taskRequired": "Please enter a task",
+    "noTasks": "No tasks available",
+    "deleteTask": "Delete",
+    "deleteSelectedTasks": "Delete selected tasks"
   }
 }

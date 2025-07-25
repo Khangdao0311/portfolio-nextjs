@@ -1,4 +1,4 @@
-import Calculator from "@/components/pages/calculator";
+import Calculator from "@/components/demos/calculator";
 
 function CalculatorPage() {
   return (

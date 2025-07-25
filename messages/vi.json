@@ -107,6 +107,9 @@
       },
       "xo3x3": {
         "name": "Trò Chơi XO 3x3"
+      },
+      "todolist": {
+        "name": "Danh sách công việc"
       }
     }
   },
@@ -142,5 +145,15 @@
     "winner": "Người thắng",
     "draw": "Hòa!",
     "currentTurn": "Lượt hiện tại"
+  },
+  "todolist": {
+    "title": "Danh sách công việc",
+    "task": "Công việc",
+    "add": "Thêm",
+    "taskPlaceholder": "Nhập công việc của bạn",
+    "taskRequired": "Vui lòng nhập một công việc",
+    "noTasks": "Không có công việc nào",
+    "deleteTask": "Xóa",
+    "deleteSelectedTasks": "Xóa các công việc đã chọn"
   }
 }
