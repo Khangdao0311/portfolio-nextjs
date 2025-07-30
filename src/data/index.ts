@@ -104,7 +104,7 @@ export const getProjects = (t: (key: string) => string) => [
     ],
     name: t("projectList.elecking.name"),
     description: t("projectList.elecking.description"),
-    href: "https://github.com/khangdao0311",
+    href: "https://drive.google.com/drive/folders/1bxCf7-tPVTShcKCbEmHsKIosJrjkWbw7?usp=drive_link",
     technologies: ["NextJS", "TailwindCSS", "NodeJS (ExpressJS)", "MongoDB"],
   },
   {
