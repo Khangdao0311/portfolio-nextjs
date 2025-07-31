@@ -8,12 +8,17 @@ export const metadata: Metadata = {
   description:
     "Portfolio cá nhân của Khang Đào - Front-End Developer chuyên ReactJS, Next.js, TailwindCSS...",
   keywords: [
+    "Đào",
+    "Khang",
+    "Đào Khang",
     "Khang Đào",
     "Front-End Developer",
+    "ReactJS",
     "Next.js",
     "Portfolio",
     "khangdao311",
-    "ReactJS",
+    "khangdao",
+    "0311",
   ],
   metadataBase: new URL("https://khangdao0311-portfolio.vercel.app"),
   openGraph: {
