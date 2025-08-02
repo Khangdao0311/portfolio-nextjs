@@ -1,59 +1,59 @@
-import Icons from "@/assets/Icon";
-import images from "@/assets/image";
+import icons from "@/assets/icons";
+import images from "@/assets/images";
 
 export const getSkills = (t: (key: string) => string) => [
   {
-    icon: Icons.html,
+    icon: icons.html,
     name: t("skillList.html.name"),
     level: t("skillList.html.level"),
   },
   {
-    icon: Icons.css,
+    icon: icons.css,
     name: t("skillList.css.name"),
     level: t("skillList.css.level"),
   },
   {
-    icon: Icons.js,
+    icon: icons.js,
     name: t("skillList.js.name"),
     level: t("skillList.js.level"),
   },
   {
-    icon: Icons.ts,
+    icon: icons.ts,
     name: t("skillList.ts.name"),
     level: t("skillList.ts.level"),
   },
   {
-    icon: Icons.reactjs,
+    icon: icons.reactjs,
     name: t("skillList.reactjs.name"),
     level: t("skillList.reactjs.level"),
   },
   {
-    icon: Icons.nextjs,
+    icon: icons.nextjs,
     name: t("skillList.nextjs.name"),
     level: t("skillList.nextjs.level"),
   },
   {
-    icon: Icons.nodejs,
+    icon: icons.nodejs,
     name: t("skillList.expressjs.name"),
     level: t("skillList.expressjs.level"),
   },
   {
-    icon: Icons.mongodb,
+    icon: icons.mongodb,
     name: t("skillList.mongodb.name"),
     level: t("skillList.mongodb.level"),
   },
   {
-    icon: Icons.tailwindcss,
+    icon: icons.tailwindcss,
     name: t("skillList.tailwindcss.name"),
     level: t("skillList.tailwindcss.level"),
   },
   {
-    icon: Icons.github,
+    icon: icons.github,
     name: t("skillList.github.name"),
     level: t("skillList.github.level"),
   },
   {
-    icon: Icons.figma,
+    icon: icons.figma,
     name: t("skillList.figma.name"),
     level: t("skillList.figma.level"),
   },

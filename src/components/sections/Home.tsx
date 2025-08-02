@@ -11,8 +11,8 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 
-import images from "@/assets/image";
-import Icon from "@/assets/Icon";
+import images from "@/assets/images";
+import icons from "@/assets/icons";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col lg:flex-row gap-10 items-center justify-around pt-20" 
+      className="min-h-screen flex flex-col lg:flex-row gap-10 items-center justify-around pt-20"
     >
       <div
         data-aos="fade-right"
@@ -74,7 +74,7 @@ export default function Home() {
             href="https://zalo.me/84976382553"
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
-            <Icon.zalo className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
+            <icons.zalo className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
         </div>
         <a
@@ -93,47 +93,47 @@ export default function Home() {
         <div className="relative center-flex w-[80%] aspect-square p-8 border-2 border-dashed border-white rounded-full">
           {/* item1 */}
           <div className="absolute inset-0 w-full aspect-square animate-spin-slow">
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.reactjs className="w-full h-full" />
+                <icons.reactjs className="w-full h-full" />
               </span>
             </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.nodejs className="w-full h-full" />
+                <icons.nodejs className="w-full h-full" />
               </span>
             </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.tailwindcss className="w-full h-full" />
+                <icons.tailwindcss className="w-full h-full" />
               </span>
             </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.figma className="w-full h-full" />
+                <icons.figma className="w-full h-full" />
               </span>
             </button>
           </div>
           {/* item2 */}
           <div className="absolute inset-0 w-full aspect-square rotate-45 animate-spin-slow">
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.nextjs className="w-full h-full" />
+                <icons.nextjs className="w-full h-full" />
               </span>
             </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.mongodb className="w-full h-full" />
+                <icons.mongodb className="w-full h-full" />
               </span>
             </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.github className="w-full h-full" />
+                <icons.github className="w-full h-full" />
               </span>
             </button>
-            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-4 border-[theme(--primary-light)] p-2">
+            <button className="w-[20%] !aspect-square animate-spin-reverse-slow -rotate-45 absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full border-2 border-[theme(--primary-light)] p-2">
               <span className="center-flex w-full !aspect-square bg-[theme(--primary-dark)] overflow-hidden rounded-full p-1">
-                <Icon.ts className="w-full h-full" />
+                <icons.ts className="w-full h-full" />
               </span>
             </button>
           </div>

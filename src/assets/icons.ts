@@ -11,7 +11,7 @@ import LogoTS from "./icons/logoTS";
 import LogoZalo from "./icons/logoZalo";
 import LogoFigma from "./icons/logoFigma";
 
-const Icons = {
+const icons = {
   html: LogoHTML,
   css: LogoCSS,
   js: LogoJS,
@@ -26,4 +26,4 @@ const Icons = {
   figma: LogoFigma,
 };
 
-export default Icons;
+export default icons;
