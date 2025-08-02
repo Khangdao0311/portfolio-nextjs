@@ -1,6 +1,6 @@
 "use client";
 import Big from "big.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBackspace } from "react-icons/fa";
 import {
   FaDivide,
@@ -26,6 +26,55 @@ function Calculator() {
     overwrite: false,
   });
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const numbers = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        ".",
+        "%",
+        "C",
+        "c",
+        "+",
+        "-",
+        "x",
+        "X",
+        "=",
+      ];
+
+      if (numbers.includes(e.key)) {
+        setResult(calculate(result, e.key));
+      } else if (e.key === "/") {
+        setResult(calculate(result, "÷"));
+      } else if (e.key === "*") {
+        setResult(calculate(result, "x"));
+      } else if (e.key === "Backspace") {
+        setResult(calculate(result, "<="));
+      } else if (e.key === "Escape") {
+        setResult(calculate(result, "C"));
+      } else if (e.key === "Delete") {
+        setResult(calculate(result, "CE"));
+      } else if (e.key === "Enter") {
+        setResult(calculate(result, "="));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [result]);
+
   function operate(numberOne: string, numberTwo: string, operation: string) {
     const one = Big(numberOne || "0");
     const two: any = Big(
@@ -40,7 +89,7 @@ function Calculator() {
       return one.minus(two).toString();
     }
 
-    if (operation === "x") {
+    if (operation.toLowerCase() === "x") {
       return one.times(two).toString();
     }
 
@@ -97,7 +146,7 @@ function Calculator() {
     }
 
     // 1. "C" - Clear All
-    if (buttonName === "C") {
+    if (buttonName.toUpperCase() === "C") {
       return {
         currentValue: "0",
         previousValue: null,
@@ -182,20 +231,20 @@ function Calculator() {
     }
 
     // 8. Phép toán (+ - x ÷)
-    if (["+", "-", "x", "÷"].includes(buttonName)) {
+    if (["+", "-", "x", "÷"].includes(buttonName.toLowerCase())) {
       if (previousValue !== null && operation && !overwrite) {
         const computed = operate(previousValue, currentValue, operation);
         return {
           currentValue: computed,
           previousValue: computed,
-          operation: buttonName,
+          operation: buttonName.toLowerCase(),
           overwrite: true,
         };
       }
 
       return {
         ...result,
-        operation: buttonName,
+        operation: buttonName.toLowerCase(),
         previousValue: previousValue ?? currentValue,
         overwrite: true,
       };
