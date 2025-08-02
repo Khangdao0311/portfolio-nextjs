@@ -13,6 +13,8 @@ import {
 
 import images from "@/assets/images";
 import icons from "@/assets/icons";
+import animations from "@/assets/animations";
+import Lottie from "lottie-react";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -34,9 +36,17 @@ export default function Home() {
         data-aos="fade-right"
         className="w-full lg:w-3/5 flex flex-col gap-6"
       >
-        <p className="text-3xl font-bold">{t("hello")}</p>
+        <div className=" text-3xl font-bold flex items-end gap-4">
+          {t("hello")}{" "}
+          <Lottie
+            className="w-16 h-16 transition-transform duration-300 hover:scale-125"
+            animationData={animations.hey}
+            loop
+            autoplay
+          />
+        </div>
         <p className="text-3xl font-extrabold">{t("name")}</p>
-        <p className="text-3xl font-bold">
+        <div className="text-3xl font-bold">
           {t("a")}{" "}
           <span className="text-[theme(--primary-light)] font-black text-4xl">
             <Typewriter
@@ -49,7 +59,7 @@ export default function Home() {
               delaySpeed={1500}
             />
           </span>
-        </p>
+        </div>
         <p className=" text-xl font-medium">{t("welcome")}</p>
         <div className="flex gap-4">
           <a
