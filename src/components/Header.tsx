@@ -56,40 +56,6 @@ function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        let found = false;
-
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target.id) {
-            setActiveSection(entry.target.id);
-            found = true;
-          }
-        });
-
-        if (!found) {
-          setActiveSection("");
-        }
-      },
-      {
-        root: null,
-        threshold: 0.6,
-      }
-    );
-
-    const sections = document.querySelectorAll("section");
-    sections.forEach((section) => {
-      observer.current.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        observer.current.unobserve(section);
-      });
-    };
-  }, []);
-
   return (
     <>
       <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 }}>
