@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -10,6 +10,20 @@ export default function TodoList() {
   const [tasks, setTasks] = useState<string[]>([]);
   const [selectedTasks, setSelectedTasks] = useState<Set<number>>(new Set());
   const t = useTranslations("todolist");
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key == "Delete" && selectedTasks.size > 0) {
+        deleteSelectedTasks();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedTasks]);
 
   const addTask = (values: any, { resetForm }: { resetForm: () => void }) => {
     if (!values.task.trim()) return;
@@ -86,7 +100,6 @@ export default function TodoList() {
                   placeholder={t("taskPlaceholder")}
                   autoComplete="task"
                   onChange={handleChange}
-                  onBlur={handleBlur}
                 />
               </Popover>
 

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 const XO3x3 = () => {
@@ -7,6 +7,44 @@ const XO3x3 = () => {
   const [xIsNext, setXIsNext] = useState(true);
   const winner = calculateWinner(board);
   const t = useTranslations("xo3x3");
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+      if (keys.includes(e.key)) {
+        const keyMap: Record<string, number> = {
+          "1": 6,
+          "2": 7,
+          "3": 8,
+          "4": 3,
+          "5": 4,
+          "6": 5,
+          "7": 0,
+          "8": 1,
+          "9": 2,
+        };
+        const index = keyMap[e.key];
+        handleClick(index);
+      } else if (
+        ((winner || board.every(Boolean)) &&
+          (e.key === "Enter" || e.key === "Escape")) ||
+        e.key === "r" ||
+        e.key === "R" ||
+        e.key === "Backspace" ||
+        e.key === "Escape" ||
+        e.key === "Delete"
+      ) {
+        resetGame();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [board, xIsNext, winner]);
 
   function handleClick(index: number) {
     if (board[index] || winner) return;
