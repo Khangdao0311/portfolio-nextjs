@@ -82,15 +82,15 @@ function Calculator() {
     );
 
     if (operation === "+") {
-      return one.plus(two).toString();
+      return parseFloat(one.plus(two).toFixed(2)).toString();
     }
 
     if (operation === "-") {
-      return one.minus(two).toString();
+      return parseFloat(one.minus(two).toFixed(2)).toString();
     }
 
     if (operation.toLowerCase() === "x") {
-      return one.times(two).toString();
+      return parseFloat(one.times(two).toFixed(2)).toString();
     }
 
     if (operation === "÷") {
@@ -98,7 +98,7 @@ function Calculator() {
         toast.error(t("divideByZero"));
         return "0";
       } else {
-        return one.div(two).toString();
+        return parseFloat(one.div(two).toFixed(2)).toString();
       }
     }
 
@@ -118,7 +118,7 @@ function Calculator() {
       }
       return {
         ...result,
-        currentValue: (1 / num).toString(),
+        currentValue: parseFloat((1 / num).toFixed(2)).toString(),
         overwrite: true,
       };
     }
@@ -127,7 +127,7 @@ function Calculator() {
     if (buttonName === "x²") {
       return {
         ...result,
-        currentValue: Math.pow(num, 2).toString(),
+        currentValue: parseFloat(Math.pow(num, 2).toFixed(2)).toString(),
         overwrite: true,
       };
     }
@@ -140,7 +140,7 @@ function Calculator() {
       }
       return {
         ...result,
-        currentValue: Math.sqrt(num).toString(),
+        currentValue: parseFloat(Math.sqrt(num).toFixed(2)).toString(),
         overwrite: true,
       };
     }
@@ -195,7 +195,7 @@ function Calculator() {
       const num = parseFloat(currentValue);
       return {
         ...result,
-        currentValue: (num / 100).toString(),
+        currentValue: parseFloat((num / 100).toFixed(2)).toString(),
       };
     }
 
