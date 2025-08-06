@@ -1,9 +1,20 @@
 {
   "metadata": {
-    "title": "Portfolio - Khangdao0311",
-    "description": "Thông tin về khangdao0311"
+    "title": "Khang Đào - Lập Trình Viên Front End",
+    "description": "Thông tin về Khang Đào | Lập Trình Viên Front End với ReactJS, NextJS",
+    "calculator": {
+      "title": "Máy tính",
+      "description": "Máy tính trực tuyến đơn giản và nhanh chóng – hỗ trợ cộng, trừ, nhân, chia, phần trăm và nhiều chức năng nâng cao,"
+    },
+    "xo3x3Game": {
+      "title": "XO 3x3",
+      "description": "XO 3x3 - Trò chơi cờ đam đơn giản, trí tuệ"
+    },
+    "todoList": {
+      "title": "Danh sách công việc",
+      "description": "Danh sách công việc – Quản lý công việc đơn giản và hiệu quả"
+    }
   },
-
   "header": {
     "home": "Trang chủ",
     "about": "Giới thiệu",
@@ -14,7 +25,6 @@
     "en": "Tiếng Anh",
     "locale": "vi"
   },
-
   "home": {
     "hello": "Xin chào !",
     "name": "Tôi là ĐÀO VĨNH KHANG",
@@ -25,14 +35,12 @@
     "download": "Tải CV",
     "cv": "CV_FRONT-END_DEVELOPER_VN.pdf"
   },
-
   "about": {
     "1": "Xin chào! Tôi tên là Đào Vĩnh Khang, sinh năm 2004, tốt nghiệp trường Cao đẳng FPT chuyên ngành Web Development.",
     "2": "Hiện tại, tôi đang tìm kiếm vị trí Fresher Front-End Developer để có cơ hội học hỏi, thực hành và nâng cao kiến thức chuyên môn. Trong 1-2 năm tới, tôi hy vọng sẽ làm việc ở vị trí Junior Front-End Developer để cải thiện kỹ năng chuyên môn, làm quen với môi trường thực tế và tích lũy kinh nghiệm, dần dần phát triển thành lập trình viên Fullstack trong tương lai.",
     "3": "Tôi là người vui vẻ, hòa đồng, có trách nhiệm trong công việc và luôn sẵn sàng học hỏi kiến thức mới. Tôi mong muốn làm việc trong môi trường chuyên nghiệp, nơi tôi có thể áp dụng kiến thức đã học và phát triển kỹ năng thực tiễn, đồng thời đóng góp vào sự phát triển chung của đội ngũ và công ty.",
     "4": "Mặc dù tôi vừa tốt nghiệp, nhưng tôi đã có 4 tháng kinh nghiệm với vai trò thực tập sinh Front end developer tại công ty giải pháp phần mền Tín Việt."
   },
-
   "skill": {
     "skills": "Kỹ năng",
     "projects": "Dự án",
@@ -113,7 +121,6 @@
       }
     }
   },
-
   "contact": {
     "contactMe": "Liên hệ với tôi",
     "profile": "Thông tin cá nhân",
@@ -133,7 +140,6 @@
     "notiError": "Đã xảy ra lỗi trong quá trình gửi tin nhắn của bạn. Vui lòng thử lại sau.",
     "sendMessage": "Gửi tin nhắn"
   },
-
   "calculator": {
     "title": "Máy tính",
     "divideByZero": "Không thể chia cho 0",

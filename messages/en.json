@@ -1,9 +1,20 @@
 {
   "metadata": {
-    "title": "Portfolio - Khangdao0311",
-    "description": "information for khangdao0311"
+    "title": "Khang Dao - Front End Developer",
+    "description": "Information for khangdao0311 | Front End Developer with ReactJS, NextJS",
+    "calculator": {
+      "title": "Calculator",
+      "description": "Simple and fast online calculator – supports addition, subtraction, multiplication, division, percentages and many advanced functions"
+    },
+    "xo3x3Game": {
+      "title": "XO 3x3 Game",
+      "description": "XO 3x3 - Simple, intellectual checkers game"
+    },
+    "todoList": {
+      "title": "Todo List",
+      "description": "Todo List – Simple and effective task management"
+    }
   },
-
   "header": {
     "home": "Home",
     "about": "About",
@@ -14,7 +25,6 @@
     "en": "English",
     "locale": "en"
   },
-
   "home": {
     "hello": "Hello !",
     "name": "I'm DAO VINH KHANG",
@@ -25,14 +35,12 @@
     "download": "Download CV",
     "cv": "CV_FRONT-END_DEVELOPER.pdf"
   },
-
   "about": {
     "1": "Hi ! My name is Dao Vinh Khang, born in 2004, graduated from FPT Polytechnic College with a major in Web Development.",
     "2": "Currently, I am looking for a Fresher Front-End Developer position to have the opportunity to learn, practice and improve my professional knowledge. In the next 1-2 years, I hope to work in the position of Junior Front-End Developer to improve my professional skills, get acquainted with the real environment and accumulate experience and gradually develop into a Fullstack programmer in the future.",
     "3": "I am a cheerful, sociable, responsible person at work and always ready to learn new knowledge. I wish to work in a professional environment where I can apply the knowledge I have learned and develop practical skills, while contributing to the overall development of the team and the company.",
     "4": "Although I have just graduated, I have 4 months of experience as an Intern Front end developer at Tin Viet Software Solutions."
   },
-
   "skill": {
     "skills": "Skills",
     "projects": "Projects",
@@ -113,7 +121,6 @@
       }
     }
   },
-
   "contact": {
     "contactMe": "Contact Me",
     "profile": "Profile",
@@ -133,7 +140,6 @@
     "notiError": "An error occurred while sending your message. Please try again later.",
     "sendMessage": "Send Message"
   },
-
   "calculator": {
     "title": "Calculator",
     "divideByZero": "Cannot divide by 0",
