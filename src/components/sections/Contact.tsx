@@ -41,11 +41,18 @@ function Contact() {
         body: JSON.stringify({
           to: "Khangdao0311@gmail.com",
           subject: "Contact from Portfolio",
-          html: `<main>
-                <p>Name: ${values.name}</p>
-                <p>Email: ${values.email}</p>
-                <p>Message: ${values.message}</p>
-              </main>`,
+          html: ` <main style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
+                    <h2 style="color: #333; text-align: center; margin-bottom: 20px;">New Portfolio Contact</h2>
+                    <div style="background: #fff; padding: 15px 20px; border-radius: 6px; border: 1px solid #eee;">
+                      <p style="margin: 0 0 10px;"><strong>Name:</strong> ${values.name}</p>
+                      <p style="margin: 0 0 10px;"><strong>Email:</strong> ${values.email}</p>
+                      <p style="margin: 0;"><strong>Message:</strong></p>
+                      <p style="background: #f1f1f1; padding: 10px; border-radius: 5px; white-space: pre-wrap;">${values.message}</p>
+                    </div>
+                    <footer style="margin-top: 20px; font-size: 12px; color: #000; text-align: center;">
+                      This message was sent from your portfolio contact form.
+                    </footer>
+                  </main>`,
         }),
       })
         .then((res) => res.json())
