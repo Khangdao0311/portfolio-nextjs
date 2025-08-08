@@ -25,9 +25,8 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     metadataBase: new URL("https://khangdao0311-portfolio.vercel.app"),
     openGraph: {
-      title: "Khang Đào | Front-End Developer",
-      description:
-        "Xem các dự án cá nhân và kỹ năng của Khang Đào - Lập trình viên giao diện website.",
+      title: t("title"),
+      description: t("description"),
       images: ["https://khangdao0311-portfolio.vercel.app/portfolio.png"],
       url: "https://khangdao0311-portfolio.vercel.app",
       siteName: "Khang Đào Portfolio",
