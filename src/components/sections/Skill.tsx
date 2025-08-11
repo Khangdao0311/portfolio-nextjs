@@ -138,7 +138,7 @@ function Skill() {
                       <motion.div
                         initial={{ y: 40, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: false, amount: 0.1 }}
+                        viewport={{ once: true, amount: 0.1 }}
                         transition={{
                           duration: 0.5,
                           delay: index * 0.1,
@@ -177,7 +177,7 @@ function Skill() {
                     <motion.div
                       initial={{ y: 40, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
-                      viewport={{ once: false, amount: 0.1 }}
+                      viewport={{ once: true, amount: 0.1 }}
                       transition={{
                         duration: 0.5,
                         delay: index * 0.1,
