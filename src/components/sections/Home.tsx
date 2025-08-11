@@ -35,7 +35,7 @@ export default function Home() {
       <div className="w-full lg:w-3/5 flex flex-col gap-6">
         <div
           data-aos="fade-right"
-          data-aos-duration="300"
+          data-aos-duration="500"
           className=" text-3xl font-bold flex items-end gap-4"
         >
           {t("hello")}{" "}
@@ -48,14 +48,14 @@ export default function Home() {
         </div>
         <p
           data-aos="fade-right"
-          data-aos-duration="500"
+          data-aos-duration="600"
           className="text-3xl font-extrabold"
         >
           {t("name")}
         </p>
         <div
           data-aos="fade-right"
-          data-aos-duration="600"
+          data-aos-duration="700"
           className="text-3xl font-bold"
         >
           {t("a")}{" "}
@@ -73,14 +73,14 @@ export default function Home() {
         </div>
         <p
           data-aos="fade-right"
-          data-aos-duration="700"
+          data-aos-duration="800"
           className=" text-xl font-medium"
         >
           {t("welcome")}
         </p>
         <div
           data-aos="fade-right"
-          data-aos-duration="800"
+          data-aos-duration="900"
           className="flex gap-4"
         >
           <a
@@ -110,7 +110,7 @@ export default function Home() {
         </div>
         <a
           data-aos="fade-right"
-          data-aos-duration="900"
+          data-aos-duration="1000"
           className="w-full lg:w-2/3 text-2xl center-flex gap-2 font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border border-[theme(--primary-light)] transition-all hover:scale-105 duration-300"
           href={`/${t("cv")}`}
           download
