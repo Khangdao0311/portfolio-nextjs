@@ -89,7 +89,7 @@ function Skill() {
             ),
             children: (
               <div
-                data-aos="fade-up"
+                // data-aos="fade-up"
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-8 pt-5"
               >
                 <AnimatePresence>
@@ -97,7 +97,7 @@ function Skill() {
                     return (
                       <motion.div
                         initial={{ y: 30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true, amount: 0.1 }}
                         transition={{
                           duration: 0.5,
@@ -137,7 +137,7 @@ function Skill() {
                     {projects.map((project: any, index: number) => (
                       <motion.div
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: false, amount: 0.1 }}
                         transition={{
                           duration: 0.5,
@@ -176,7 +176,7 @@ function Skill() {
                   {demos.map((demo: any, index: number) => (
                     <motion.div
                       initial={{ y: 40, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
+                      whileInView={{ y: 0, opacity: 1 }}
                       viewport={{ once: false, amount: 0.1 }}
                       transition={{
                         duration: 0.5,

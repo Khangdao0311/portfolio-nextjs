@@ -23,7 +23,7 @@ export default function Home() {
     AOS.init({
       disable: () => window.innerWidth < 1024,
       duration: 1000,
-      once: false,
+      once: true,
     });
   }, []);
 
@@ -32,11 +32,12 @@ export default function Home() {
       id="home"
       className="min-h-screen flex flex-col lg:flex-row gap-10 items-center justify-around pt-20"
     >
-      <div
-        data-aos="fade-right"
-        className="w-full lg:w-3/5 flex flex-col gap-6"
-      >
-        <div className=" text-3xl font-bold flex items-end gap-4">
+      <div className="w-full lg:w-3/5 flex flex-col gap-6">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="300"
+          className=" text-3xl font-bold flex items-end gap-4"
+        >
           {t("hello")}{" "}
           <Lottie
             className="w-16 h-16 transition-transform duration-300 hover:scale-125"
@@ -45,8 +46,18 @@ export default function Home() {
             autoplay
           />
         </div>
-        <p className="text-3xl font-extrabold">{t("name")}</p>
-        <div className="text-3xl font-bold">
+        <p
+          data-aos="fade-right"
+          data-aos-duration="500"
+          className="text-3xl font-extrabold"
+        >
+          {t("name")}
+        </p>
+        <div
+          data-aos="fade-right"
+          data-aos-duration="600"
+          className="text-3xl font-bold"
+        >
           {t("a")}{" "}
           <span className="text-[theme(--primary-light)] font-black text-4xl">
             <Typewriter
@@ -60,8 +71,18 @@ export default function Home() {
             />
           </span>
         </div>
-        <p className=" text-xl font-medium">{t("welcome")}</p>
-        <div className="flex gap-4">
+        <p
+          data-aos="fade-right"
+          data-aos-duration="700"
+          className=" text-xl font-medium"
+        >
+          {t("welcome")}
+        </p>
+        <div
+          data-aos="fade-right"
+          data-aos-duration="800"
+          className="flex gap-4"
+        >
           <a
             href="https://github.com/khangdao0311"
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
@@ -88,6 +109,8 @@ export default function Home() {
           </a>
         </div>
         <a
+          data-aos="fade-right"
+          data-aos-duration="900"
           className="w-full lg:w-2/3 text-2xl center-flex gap-2 font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border border-[theme(--primary-light)] transition-all hover:scale-105 duration-300"
           href={`/${t("cv")}`}
           download
