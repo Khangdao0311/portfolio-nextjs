@@ -274,12 +274,14 @@ function Calculator() {
         <div className="w-full aspect-[3/1] p-4 bg-black border border-gray-700 rounded-lg flex flex-col">
           <div className="h-2/5 flex items-center">
             <p className="w-full overflow-x-auto text-right text-base font-light text-gray-400">
-              {result.previousValue} {result.operation}
+              {result.previousValue &&
+                Number(result.previousValue).toLocaleString("en-US")}{" "}
+              {result.operation}
             </p>
           </div>
           <div className="h-3/5 flex items-center">
             <p className="w-full text-4xl font-bold text-white overflow-x-auto text-right">
-              {result.currentValue}
+              {Number(result.currentValue).toLocaleString("en-US")}
             </p>
           </div>
         </div>
