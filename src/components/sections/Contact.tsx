@@ -131,7 +131,7 @@ function Contact() {
       </div>
       <div
         data-aos="zoom-in-down"
-        className="w-full max-w-[500px] p-6 sm:p-10 border-2 border-[theme(--primary-light)] rounded-xl"
+        className="w-full max-w-[500px] p-6 sm:p-10 border-2 border-[theme(--primary-light)] bg-black rounded-xl"
       >
         <h2 className="text-3xl font-semibold text-white mb-4 text-center">
           {t("contactMe")}
@@ -224,7 +224,7 @@ function Contact() {
                   ></textarea>
                 </Popover>
               </div>
-              <button className="w-full center-flex gap-2 text-2xl font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border-2 border-[theme(--primary-light)] transition-all hover:scale-105 duration-300">
+              <button className="w-full center-flex gap-2 text-2xl font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] bg-black text-white hover:text-[theme(--primary-dark)] border-2 border-[theme(--primary-light)] transition-all hover:scale-105 duration-300">
                 {t("sendMessage")}
               </button>
             </Form>

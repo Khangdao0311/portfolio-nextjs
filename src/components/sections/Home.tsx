@@ -85,39 +85,43 @@ export default function Home() {
         >
           <a
             href="https://github.com/khangdao0311"
-            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaGithub className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://www.linkedin.com/in/khangdao0311/"
-            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaLinkedinIn className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61564139123358"
-            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaFacebookF className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
           <a
             href="https://zalo.me/84976382553"
-            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+            className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <icons.zalo className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </a>
         </div>
-        <a
+        <div
           data-aos="fade-right"
           data-aos-duration="1000"
-          className="w-full lg:w-2/3 text-2xl center-flex gap-2 font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border border-[theme(--primary-light)] transition-all hover:scale-105 duration-300"
-          href={`/${t("cv")}`}
-          download
+          className="w-full lg:w-2/3 center-flex"
         >
-          <FaDownload />
-          {t("download")}
-        </a>
+          <a
+            className="w-full text-2xl center-flex gap-2 font-bold text-nowrap py-4 rounded-lg bg-black hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border border-[theme(--primary-light)] transition-transform hover:scale-105 duration-300"
+            href={`/${t("cv")}`}
+            download
+          >
+            <FaDownload />
+            {t("download")}
+          </a>
+        </div>
       </div>
       <div
         data-aos="fade-up"

@@ -71,7 +71,7 @@ function Header() {
           className="group !border-2 !border-[theme(--primary-light)] [&_.ant-float-btn-body]:!bg-black [&_.ant-float-btn-body]:hover:!bg-[theme(--primary-light)] [&_.ant-float-btn-body]:shadow-[0_0_5px_theme(--primary-light)] hover:scale-120  !transition-all duration-300"
         />
       </FloatButton.Group>
-      <header className="fixed top-0 left-0 right-0 w-full bg-black z-30">
+      <header className="fixed top-0 left-0 right-0 w-full bg-black/80 z-30">
         <div className="container-custom flex items-center justify-between px-2.5 xl:px-0 py-4 ">
           {/* logo */}
           <a
