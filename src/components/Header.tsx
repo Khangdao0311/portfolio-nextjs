@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Drawer, FloatButton, Popover } from "antd";
 import { FaAnglesUp, FaList, FaSquareGithub } from "react-icons/fa6";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { GrLanguage } from "react-icons/gr";
 import { MdLanguage } from "react-icons/md";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,7 @@ function Header() {
   const [activeSection, setActiveSection] = useState("");
   const observer = useRef<any>(null);
   const t = useTranslations("header");
+  const locale = useLocale();
 
   const pathname = usePathname();
 
@@ -138,13 +139,21 @@ function Header() {
                 <div className="flex flex-col gap-2">
                   <Link
                     href={switchLocale("en")}
-                    className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                    className={`text-lg font-bold px-8 py-2 ${
+                      locale === "en"
+                        ? "!text-[theme(--primary-light)] !bg-[theme(--primary-dark)]"
+                        : "!text-black  hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)]"
+                    }  rounded-lg transition-all duration-300`}
                   >
                     {t("en")}
                   </Link>
                   <Link
                     href={switchLocale("vi")}
-                    className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                    className={`text-lg font-bold px-8 py-2 ${
+                      locale === "vi"
+                        ? "!text-[theme(--primary-light)] !bg-[theme(--primary-dark)]"
+                        : "!text-black  hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)]"
+                    }  rounded-lg transition-all duration-300`}
                   >
                     {t("vi")}
                   </Link>
@@ -162,13 +171,21 @@ function Header() {
               content={
                 <div className="flex flex-col gap-2">
                   <Link
-                    className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                    className={`text-lg font-bold px-8 py-2 ${
+                      locale === "en"
+                        ? "!text-[theme(--primary-light)] !bg-[theme(--primary-dark)]"
+                        : "!text-black  hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)]"
+                    }  rounded-lg transition-all duration-300`}
                     href={switchLocale("en")}
                   >
                     {t("en")}
                   </Link>
                   <Link
-                    className="text-lg font-bold px-8 py-2 !text-black hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)] rounded-lg transition-all duration-300"
+                    className={`text-lg font-bold px-8 py-2 ${
+                      locale === "vi"
+                        ? "!text-[theme(--primary-light)] !bg-[theme(--primary-dark)]"
+                        : "!text-black  hover:!text-[theme(--primary-light)] hover:!bg-[theme(--primary-dark)]"
+                    }  rounded-lg transition-all duration-300`}
                     href={switchLocale("vi")}
                   >
                     {t("vi")}
