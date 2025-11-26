@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 
 import { getProjects, getSkills, getDemos } from "@/data";
+import { openNewTab } from "@/utils/openNewTab";
 
 function Skill() {
   const [activeTabKey, setActiveTabKey] = useState("1");
@@ -30,22 +31,22 @@ function Skill() {
             alt={project.name}
           />
         </Image.PreviewGroup>
-        <Link
-          href={project.href}
-          className="text-lg font-bold text-white line-clamp-2 "
+        <div
+          onClick={() => openNewTab(project.href)}
+          className="text-lg font-bold line-clamp-2 cursor-pointer text-[theme(--primary-light)] hover:text-[theme(--secondary)] transition-all duration-300"
         >
           {project.name}
-        </Link>
+        </div>
         <Popover
           placement="top"
           content={
             <div className="w-[300px]">
-              <Link
-                href={project.href}
-                className="text-lg font-bold bg-amber-600"
+              <div
+                onClick={() => openNewTab(project.href)}
+                className="text-lg font-bold text-[theme(--primary-dark)] hover:text-[theme(--secondary)] transition-all duration-300 cursor-pointer"
               >
                 {project.name}
-              </Link>
+              </div>
               <p
                 className="text-justify overflow-y-auto max-h-[245px] scroll-visible"
                 dangerouslySetInnerHTML={{
@@ -63,7 +64,7 @@ function Skill() {
           {project.technologies.map((t: string, iT: number) => (
             <p
               key={iT}
-              className="px-2 py-1 text-xs font-bold rounded border border-blue-500"
+              className="px-2 py-1 text-xs font-bold rounded border border-[theme(--primary-light)]"
             >
               {t}
             </p>

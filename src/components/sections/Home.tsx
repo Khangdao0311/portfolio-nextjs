@@ -15,6 +15,7 @@ import images from "@/assets/images";
 import icons from "@/assets/icons";
 import animations from "@/assets/animations";
 import Lottie from "lottie-react";
+import { openNewTab } from "@/utils/openNewTab";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -83,30 +84,30 @@ export default function Home() {
           data-aos-duration="900"
           className="flex gap-4"
         >
-          <a
-            href="https://github.com/khangdao0311"
+          <div
+            onClick={() => openNewTab("https://github.com/Khangdao0311")}
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaGithub className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/khangdao0311/"
+          </div>
+          <div
+            onClick={() => openNewTab("https://www.linkedin.com/in/khangdao0311/")}
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaLinkedinIn className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
-          </a>
-          <a
-            href="https://www.facebook.com/profile.php?id=61564139123358"
+          </div>
+          <div
+            onClick={() => openNewTab("https://www.facebook.com/profile.php?id=61564139123358")}
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaFacebookF className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
-          </a>
-          <a
-            href="https://zalo.me/84976382553"
+          </div>
+          <div
+            onClick={() => openNewTab("https://zalo.me/84976382553")}
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <icons.zalo className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
-          </a>
+          </div>
         </div>
         <div
           data-aos="fade-right"

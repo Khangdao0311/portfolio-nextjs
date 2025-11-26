@@ -25,6 +25,9 @@
     "en": "English",
     "locale": "en"
   },
+  "footer": {
+    "text": "© {year} - Portfolio Khang Dao | Front-End Developer"
+  },
   "home": {
     "hello": "Hello !",
     "name": "I'm DAO VINH KHANG",

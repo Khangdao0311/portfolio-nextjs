@@ -25,6 +25,9 @@
     "en": "Tiếng Anh",
     "locale": "vi"
   },
+  "footer": {
+    "text": "© {year} – Portfolio Khang Đào | Lập Trình Viên Front-End"
+  },
   "home": {
     "hello": "Xin chào !",
     "name": "Tôi là ĐÀO VĨNH KHANG",

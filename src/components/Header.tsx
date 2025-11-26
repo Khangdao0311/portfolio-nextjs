@@ -9,6 +9,7 @@ import { MdLanguage } from "react-icons/md";
 import { usePathname } from "next/navigation";
 
 import icons from "@/assets/icons";
+import { openNewTab } from "@/utils/openNewTab";
 
 function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -61,7 +62,7 @@ function Header() {
     <>
       <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 }}>
         <FloatButton
-          href="https://zalo.me/84976382553"
+          onClick={() => openNewTab("https://zalo.me/84976382553")}
           icon={<icons.zalo className="text-white group-hover:text-black" />}
           className="group !border-2 !border-[theme(--primary-light)] [&_.ant-float-btn-body]:!bg-black [&_.ant-float-btn-body]:hover:!bg-[theme(--primary-light)] [&_.ant-float-btn-body]:shadow-[0_0_5px_theme(--primary-light)] hover:scale-120  !transition-all duration-300"
         />
@@ -127,12 +128,12 @@ function Header() {
                 }`}
               ></span>
             </a>
-            <a
-              href="https://github.com/Khangdao0311"
+            <div
+              onClick={() => openNewTab("https://github.com/Khangdao0311")}
               className={`h-11 w-11 center-flex`}
             >
               <FaSquareGithub className="w-4/5 h-4/5 text-white hover:text-[theme(--primary-light)] transition-all duration-300" />
-            </a>
+            </div>
             <Popover
               className="group"
               content={
@@ -216,38 +217,37 @@ function Header() {
               <a
                 href={`/${t("locale")}#`}
                 onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
+                className={`text-lg font-bold px-4 py-2 select-none uppercase !text-[theme(--primary-dark)]`}
               >
                 {t("home")}
               </a>
               <a
                 href={`/${t("locale")}#about`}
                 onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
+                className={`text-lg font-bold px-4 py-2 select-none uppercase !text-[theme(--primary-dark)]`}
               >
                 {t("about")}
               </a>
               <a
                 href={`/${t("locale")}#skills`}
                 onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
+                className={`text-lg font-bold px-4 py-2 select-none uppercase !text-[theme(--primary-dark)]`}
               >
                 {t("skill")}
               </a>
               <a
                 href={`/${t("locale")}#contact`}
                 onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
+                className={`text-lg font-bold px-4 py-2 select-none uppercase !text-[theme(--primary-dark)]`}
               >
                 {t("contact")}
               </a>
-              <a
-                href="https://github.com/Khangdao0311"
-                onClick={() => setOpenDrawer(false)}
-                className={`text-lg font-bold px-4 py-2 select-none uppercase text-[theme(--primary-light)]`}
+              <div
+                onClick={() => openNewTab("https://github.com/Khangdao0311")}
+                className={`text-lg font-bold px-4 py-2 select-none uppercase !text-[theme(--primary-dark)]`}
               >
                 GitHub
-              </a>
+              </div>
             </div>
           </Drawer>
         </div>

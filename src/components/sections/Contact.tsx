@@ -9,6 +9,7 @@ import { FaGithub, FaPhone } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 
 import { useNotiContext } from "@/context/NotiProvider";
+import { openNewTab } from "@/utils/openNewTab";
 
 function Contact() {
   const { setLoading, setNotification } = useNotiContext()!;
@@ -118,15 +119,15 @@ function Contact() {
             <FaMapMarkerAlt className="w-10 h-10" />
             <span className="text-xl font-bold ">{t("address")}</span>
           </div>
-          <a
+          <div
             data-aos="fade-right"
             data-aos-duration="800"
-            href="https://github.com/Khangdao0311"
-            className="flex gap-10 items-center"
+            onClick={() => openNewTab("https://github.com/Khangdao0311")}
+            className="flex gap-10 items-center cursor-pointer"
           >
             <FaGithub className="w-10 h-10" />
             <span className="text-xl font-bold ">github.com/khangdao0311</span>
-          </a>
+          </div>
         </div>
       </div>
       <div
@@ -224,7 +225,7 @@ function Contact() {
                   ></textarea>
                 </Popover>
               </div>
-              <button className="w-full center-flex gap-2 text-2xl font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] bg-black text-white hover:text-[theme(--primary-dark)] border-2 border-[theme(--primary-light)] transition-all hover:scale-105 duration-300">
+              <button className="w-full center-flex gap-2 text-2xl font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border-2 border-[theme(--primary-light)] transition-all hover:scale-105 duration-300">
                 {t("sendMessage")}
               </button>
             </Form>
