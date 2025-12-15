@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -91,13 +92,19 @@ export default function Home() {
             <FaGithub className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </div>
           <div
-            onClick={() => openNewTab("https://www.linkedin.com/in/khangdao0311/")}
+            onClick={() =>
+              openNewTab("https://www.linkedin.com/in/khangdao0311/")
+            }
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaLinkedinIn className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
           </div>
           <div
-            onClick={() => openNewTab("https://www.facebook.com/profile.php?id=61564139123358")}
+            onClick={() =>
+              openNewTab(
+                "https://www.facebook.com/profile.php?id=61564139123358"
+              )
+            }
             className="p-2 border-2 border-[theme(--primary-light)] group hover:bg-[theme(--primary-light)] bg-black rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
           >
             <FaFacebookF className="w-9 h-9 text-white group-hover:text-[theme(--primary-dark)]" />
@@ -177,11 +184,14 @@ export default function Home() {
           </div>
           {/* avatar */}
           <div className="relative center-flex bg-[radial-gradient(circle_at_center,_#000,_#162556)] w-4/5 aspect-square rounded-full border-4 border-[theme(--primary-light)]">
-            <img
-              className="absolute bottom-0 w-full h-auto object-center rounded-full select-none"
-              src={images.avatar4x6}
-              alt="Avatar"
-            />
+            <div className="absolute bottom-0 w-full aspect-[4/6] object-center rounded-full select-none">
+              <Image
+                fill
+                className="rounded-full select-none"
+                src={images.avatar4x6}
+                alt="Avatar"
+              />
+            </div>
           </div>
         </div>
       </div>

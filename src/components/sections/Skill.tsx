@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Image, Popover, Tabs } from "antd";
+import { Image as ImageAntd, Popover, Tabs } from "antd";
+import Image from "next/image";
 import { AnimatePresence } from "motion/react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -24,13 +25,13 @@ function Skill() {
   const projectCard = (project: any) => (
     <div className="overflow-hidden relative p-4 rounded-xl group !bg-black border border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] h-full hover:scale-105 transition-all duration-300">
       <div className="relative z-20 flex flex-col gap-2.5 ">
-        <Image.PreviewGroup items={project.gallery}>
-          <Image
+        <ImageAntd.PreviewGroup items={project.gallery}>
+          <ImageAntd
             className="w-full aspect-square relative overflow-hidden rounded-md"
             src={project.image}
             alt={project.name}
           />
-        </Image.PreviewGroup>
+        </ImageAntd.PreviewGroup>
         <div
           onClick={() => openNewTab(project.href)}
           className="text-lg font-bold line-clamp-2 cursor-pointer text-[theme(--primary-light)] hover:text-[theme(--secondary)] transition-all duration-300"
@@ -187,8 +188,8 @@ function Skill() {
                     >
                       <Link href={`/${locale}${demo.link}`}>
                         <div className="w-full flex items-center gap-4 p-2.5 rounded-lg border-2 border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)] overflow-hidden group bg-black select-none hover:scale-110 transition-all duration-300">
-                          <div className="w-1/4 aspect-square p-2 rounded center-flex">
-                            <img src={demo.image} alt={demo.name} />
+                          <div className="w-1/4 aspect-square p-2 rounded center-flex relative">
+                            <Image fill src={demo.image} alt={demo.name} />
                           </div>
                           <p className="text-2xl sm:text-xl font-bold line-clamp-1 text-[theme(--primary-light)] sm:text-white group-hover:text-[theme(--primary-light)] transition-all duration-300">
                             {demo.name}
