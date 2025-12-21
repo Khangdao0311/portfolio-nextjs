@@ -27,7 +27,7 @@ function Education() {
               className="flex flex-col gap-0 relative "
             >
               <div className="text-lg font-bold text-center lg:text-justify text-[theme(--primary-light)]">
-                Trường Cao đẳng FPT Polytechnic
+                {t("fpoly.nameSchool")}
               </div>
               <div className="text-sm font-black text-center lg:text-justify text-gray-300">
                 {t("fpoly.major")}: {t("fpoly.myMajor")} | {t("fpoly.time")}
