@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Khang Dao - Front End Developer",
-    "description": "Information about Khang Dao - Front End Developer. With skills, experience and also personal and group projects.",
+    "description": "Information about Khang Dao - Front End Developer. With showcases, experience and also personal and group projects.",
     "calculator": {
       "title": "Calculator",
       "description": "Simple and fast online calculator – supports addition, subtraction, multiplication, division, percentages and many advanced functions"
@@ -15,15 +15,18 @@
       "description": "Todo List – Simple and effective task management"
     }
   },
-  "header": {
+  "navigation": {
     "home": "Home",
     "about": "About",
-    "skill": "Skills",
-    "contact": "Contact",
+    "showcase": "Showcase",
+    "experience": "Experience",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "header": {
     "languages": "Languages",
     "vi": "Vietnamese",
-    "en": "English",
-    "locale": "en"
+    "en": "English"
   },
   "footer": {
     "text": "© {year} - Portfolio Khang Dao | Front-End Developer"
@@ -39,16 +42,21 @@
     "cv": "CV_FRONT_END_DEVELOPER.pdf"
   },
   "about": {
-    "1": "Hi ! My name is Dao Vinh Khang, born in 2004, graduated from FPT Polytechnic College with a major in Web Development.",
-    "2": "Currently, I am looking for a Fresher Front-End Developer position to have the opportunity to learn, practice and improve my professional knowledge. In the next 1-2 years, I hope to work in the position of Junior Front-End Developer to improve my professional skills, get acquainted with the real environment and accumulate experience and gradually develop into a Fullstack programmer in the future.",
-    "3": "I am a cheerful, sociable, responsible person at work and always ready to learn new knowledge. I wish to work in a professional environment where I can apply the knowledge I have learned and develop practical skills, while contributing to the overall development of the team and the company.",
-    "4": "In terms of experience, I had a 4-month internship as an Intern Front end developer at Tin Viet software solutions company and a 2-month internship as an Intern Front end developer at DXD Labs Company Limited."
+    "title": "About Me",
+    "text-1": "Hello! My name is <strong>Dao Vinh Khang</strong>, born in 2004, and I graduated from <strong>FPT Polytechnic College</strong> with a major in <strong>Web Development</strong>.",
+    "text-2": "Currently, I am seeking an <strong>Intern/Fresher Front-End Developer</strong> position to gain opportunities to learn, practice, and improve my knowledge and professional skills.",
+    "text-3": "In the next 1–2 years, my goal is to advance to a <strong>Junior Front-End Developer</strong> role, focusing on strengthening my technical capabilities, adapting to a real working environment, and accumulating experience through practical projects.",
+    "text-4": "After that, I plan to learn <strong>Back-End</strong> development to expand my understanding of systems, improve myself, and gradually move toward becoming a <strong>Full-Stack Developer</strong>.",
+    "text-5": "In the long term, I aim to become a <strong>Senior Front-End Developer</strong> (or <strong>Full-Stack Developer</strong>), capable of building high-quality products and contributing sustainable value to businesses.",
+    "text-6": "<strong>A few things about myself:</strong> I am a cheerful, sociable person who is always eager to learn new things. I aspire to work in a professional environment where I can apply what I have learned, develop practical skills, and actively contribute to the overall growth of the team and the company."
   },
-  "skill": {
+  "showcase": {
+    "title": "Showcase",
+    "description": "An overview of my skills, projects, and demos in website development.",
     "skills": "Skills",
     "projects": "Projects",
     "demos": "Demos",
-    "skillList": {
+    "showcaseList": {
       "html": {
         "name": "HTML",
         "level": "advanced"
@@ -66,15 +74,15 @@
         "level": "intermediate"
       },
       "reactjs": {
-        "name": "ReactJS",
+        "name": "React.js",
         "level": "intermediate"
       },
       "nextjs": {
-        "name": "NextJS",
+        "name": "Next.js",
         "level": "intermediate"
       },
       "expressjs": {
-        "name": "ExpressJS",
+        "name": "Express.js",
         "level": "intermediate"
       },
       "mongodb": {
@@ -97,7 +105,7 @@
     "projectList": {
       "portfolio": {
         "name": "Portfolio",
-        "description": "The website introduces me, my professional skills, frameworks, experiences as well as my team and personal projects."
+        "description": "The website introduces me, my professional showcases, frameworks, experiences as well as my team and personal projects."
       },
       "elecking": {
         "name": "Elecking website",
@@ -124,10 +132,71 @@
       }
     }
   },
+  "experience": {
+    "title": "Experience",
+    "description": "An overview of my learning journey and skill development in web development.",
+    "workStages": {
+      "tinviet": {
+        "time": "12/2024 - 04/2025",
+        "position": "Intern Front-End Developer",
+        "company": "Tin Viet Software Solutions",
+        "description": {
+          "text-1": "During my internship, I had the opportunity to work in a professional Front-End development environment and gain exposure to team-based product development processes. I became familiar with task assignment, requirements discussion, and collaboration with team members to efficiently complete assigned tasks.",
+          "text-2": "I was guided through various stages of the Front-End development process, including requirements analysis, user interface development, and supporting the refinement of application features by working with experienced developers.",
+          "text-3": "I improved my teamwork skills, problem-solving thinking, and gained a deeper understanding of the web application development process in a professional business environment."
+        },
+        "projects": {
+          "vieclamsanxuat": {
+            "name": "Vieclamsanxuat",
+            "position": "Front-End Developer",
+            "description": "Develop website interfaces according to requirements and implement features such as data display, search, filtering, sorting, responsive design, and validate forms."
+          }
+        }
+      },
+      "dxdlabs": {
+        "time": "09/2025 - 11/2025",
+        "position": "Intern Front-End Developer",
+        "company": "DXD Labs Company Limited",
+        "description": {
+          "text-1": "During my internship, I worked remotely, focusing on assigned Front-End tasks through an online work management and communication system (Slack). I proactively received requests, communicated with team members, and regularly reported on progress to ensure work was completed on time.",
+          "text-2": "Working remotely helped me improve my self-learning abilities, time management skills, and problem-solving skills. Simultaneously, I honed my professional communication skills in an online environment and adapted to a distributed workflow, which differed significantly from working in an office."
+        },
+        "projects": {
+          "luxdao": {
+            "name": "LUX DAO",
+            "position": "Front-End Developer",
+            "description": "Edit and develop website interfaces according to requirements, including responsive design implementation, form validation, and CSS bug fixing."
+          },
+          "vangxanh": {
+            "name": "Vang Xanh",
+            "position": "Front-End Developer",
+            "description": "Build and develop website interfaces based on designs from Figma, integrate and call APIs to display data, implement responsive design, and handle form validation."
+          }
+        }
+      }
+    }
+  },
+  "education": {
+    "title": "Education",
+    "description": "An overview of my learning and development journey in the field of web development.",
+    "fpoly": {
+      "nameSchool": "FPT Polytechnic College",
+      "major": "Major",
+      "myMajor": "Web Developer",
+      "time": "11/2022 - 05/2025",
+      "text-1": "During my studies, I have built a solid foundation in Front-End web development, including <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong>TypeScript</strong>, and <strong>Figma</strong>, along with modern libraries and frameworks such as <strong>React.js</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong>, and <strong>Ant Design</strong>. I use Git for source code management and effective collaboration throughout the development process.",
+      "text-2": "In addition, I have basic knowledge of <strong>Back-End</strong> technologies such as <strong>JSON Server</strong>, <strong>RESTful APIs</strong>, <strong>Node.js</strong>, <strong>Express.js</strong>, and <strong>MongoDB</strong>, which helps me better understand how the Front-End interacts with server-side systems and enables me to build complete web applications.",
+      "text-3": "Throughout my learning journey and project implementations, I frequently use development tools such as <strong>Fork</strong>, <strong>Postman</strong>, <strong>Docker</strong>, <strong>GitHub</strong>, and <strong>GitLab</strong> to optimize workflows and improve product deployment efficiency.",
+      "text-4": "Beyond technical skills, I have developed strong logical thinking, self-learning ability, and a high sense of responsibility. I consistently meet deadlines to ensure both academic progress and team schedules, while proactively collaborating with and supporting team members to achieve the best possible outcomes."
+    }
+  },
   "contact": {
-    "contactMe": "Contact Me",
-    "profile": "Profile",
-    "address": "District 12, Ho Chi Minh City",
+    "title": "Contact Me",
+    "description": "Are you interested in collaborating or do you have any questions? Please contact me using the form below or through any of the contact methods provided. I look forward to hearing from you!",
+    "myAddress": "District 12, Ho Chi Minh City",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
     "yourName": "Your Name",
     "placeholderName": "Enter your name",
     "matchesName": "Invalid name. Please write in correct format (with accents, capitalize each letter).",

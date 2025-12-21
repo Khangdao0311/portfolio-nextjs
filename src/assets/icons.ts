@@ -10,6 +10,9 @@ import LogoTailwindCSS from "./icons/logoTailwindCSS";
 import LogoTS from "./icons/logoTS";
 import LogoZalo from "./icons/logoZalo";
 import LogoFigma from "./icons/logoFigma";
+import About from "./icons/about";
+import Contact from "./icons/contact";
+import Experience from "./icons/experience";
 
 const icons = {
   html: LogoHTML,
@@ -24,6 +27,9 @@ const icons = {
   github: LogoGitHub,
   zalo: LogoZalo,
   figma: LogoFigma,
+  about: About,
+  contact: Contact,
+  experience: Experience,
 };
 
 export default icons;

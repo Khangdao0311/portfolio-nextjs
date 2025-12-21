@@ -1,6 +1,8 @@
 import Home from "@/components/sections/Home";
 import About from "@/components/sections/About";
-import Skill from "@/components/sections/Skill";
+import Showcase from "@/components/sections/Showcase";
+import Experience from "@/components/sections/Experience";
+import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
 
 function Page() {
@@ -8,7 +10,9 @@ function Page() {
     <>
       <Home />
       <About />
-      <Skill />
+      <Showcase />
+      <Experience />
+      <Education />
       <Contact />
     </>
   );

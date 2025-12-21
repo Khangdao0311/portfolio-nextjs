@@ -15,15 +15,18 @@
       "description": "Danh sách công việc – Quản lý công việc đơn giản và hiệu quả"
     }
   },
-  "header": {
+  "navigation": {
     "home": "Trang chủ",
     "about": "Giới thiệu",
-    "skill": "Kỹ năng",
-    "contact": "Liên hệ",
+    "showcase": "Năng lực",
+    "experience": "Kinh nghiệm",
+    "education": "Học vấn",
+    "contact": "Liên hệ"
+  },
+  "header": {
     "languages": "Ngôn ngữ",
     "vi": "Tiếng Việt",
-    "en": "Tiếng Anh",
-    "locale": "vi"
+    "en": "Tiếng Anh"
   },
   "footer": {
     "text": "© {year} – Portfolio Khang Đào | Lập Trình Viên Front-End"
@@ -39,16 +42,21 @@
     "cv": "CV_FRONT_END_DEVELOPER_VI.pdf"
   },
   "about": {
-    "1": "Xin chào! Tôi tên là Đào Vĩnh Khang, sinh năm 2004, tốt nghiệp trường Cao đẳng FPT Polytechnic chuyên ngành Web Development.",
-    "2": "Hiện tại, tôi đang tìm kiếm vị trí Fresher Front-End Developer để có cơ hội học hỏi, thực hành và nâng cao kiến thức chuyên môn. Trong 1-2 năm tới, tôi hy vọng sẽ làm việc ở vị trí Junior Front-End Developer để cải thiện kỹ năng chuyên môn, làm quen với môi trường thực tế và tích lũy kinh nghiệm, dần dần phát triển thành lập trình viên Fullstack trong tương lai.",
-    "3": "Tôi là người vui vẻ, hòa đồng, có trách nhiệm trong công việc và luôn sẵn sàng học hỏi kiến thức mới. Tôi mong muốn làm việc trong môi trường chuyên nghiệp, nơi tôi có thể áp dụng kiến thức đã học và phát triển kỹ năng thực tiễn, đồng thời đóng góp vào sự phát triển chung của đội ngũ và công ty.",
-    "4": "Về kinh nghiệm, tôi đã có 4 tháng thực tập với vị trí Intern Front end developer tại công ty giải pháp phần mền Tín Việt và 2 tháng thực tập với vị trí Intern Front end developer tại công ty TNHH DXD Labs."
+    "title": "Giới thiệu về tôi",
+    "text-1": "Xin chào! Tôi tên là <strong>Đào Vĩnh Khang</strong>, sinh năm 2004, tốt nghiệp <strong>Cao đẳng FPT Polytechnic</strong> với chuyên ngành <strong>Web Development</strong>.",
+    "text-2": "Hiện tại, tôi mong muốn được làm việc ở vị trí <strong>Intern/Fresher Front-End Developer</strong> để có cơ hội học hỏi, thực hành và nâng cao kiến thức cũng như kỹ năng chuyên môn.",
+    "text-3": "Trong 1–2 năm tới, tôi đặt mục tiêu phát triển lên vị trí <strong>Junior Front-End Developer</strong>, tập trung cải thiện năng lực kỹ thuật, làm quen với môi trường làm việc thực tế và tích lũy kinh nghiệm thông qua các dự án thực tiễn.",
+    "text-4": "Sau đó, tôi dự định học thêm <strong>Back-End</strong> để mở rộng kiến thức về hệ thống, hoàn thiện bản thân và từng bước hướng tới định hướng <strong>Full-Stack Developer</strong>.",
+    "text-5": "Về dài hạn, tôi hướng tới mục tiêu trở thành <strong>Senior Front-End Developer</strong> (hoặc <strong>Full-Stack Developer</strong>), có khả năng xây dựng các sản phẩm chất lượng và đóng góp giá trị bền vững cho doanh nghiệp.",
+    "text-6": "<strong>Vài điều về bản thân:</strong> Tôi là người vui vẻ, hòa đồng và luôn sẵn sàng học hỏi kiến ​​thức mới. Tôi mong muốn được làm việc trong một môi trường chuyên nghiệp, nơi tôi có thể áp dụng những gì đã học, phát triển các kỹ năng thực tiễn và tích cực đóng góp vào sự phát triển chung của nhóm và công ty."
   },
-  "skill": {
+  "showcase": {
+    "title": "Năng lực",
+    "description": "Tổng quan về các kỹ năng, dự án và sản phẩm mẫu của tôi trong lĩnh vực phát triển website.",
     "skills": "Kỹ năng",
     "projects": "Dự án",
     "demos": "Demo",
-    "skillList": {
+    "showcaseList": {
       "html": {
         "name": "HTML",
         "level": "cao cấp"
@@ -66,15 +74,15 @@
         "level": "trung cấp"
       },
       "reactjs": {
-        "name": "ReactJS",
+        "name": "React.js",
         "level": "trung cấp"
       },
       "nextjs": {
-        "name": "NextJS",
+        "name": "Next.js",
         "level": "trung cấp"
       },
       "expressjs": {
-        "name": "ExpressJS",
+        "name": "Express.js",
         "level": "trung cấp"
       },
       "mongodb": {
@@ -124,10 +132,71 @@
       }
     }
   },
+  "experience": {
+    "title": "Kinh nghiệm",
+    "description": "Tổng quan về hành trình học tập và phát triển kỹ năng của tôi trong lĩnh vực phát triển web.",
+    "workStages": {
+      "tinviet": {
+        "time": "12/2024 - 04/2025",
+        "position": "Thực tập sinh Front-End",
+        "company": "Công ty giải pháp phần mền Tín Việt",
+        "description": {
+          "text-1": "Trong thời gian thực tập, tôi có cơ hội làm việc trong môi trường phát triển Front-End chuyên nghiệp và được tiếp xúc với quy trình phát triển sản phẩm theo nhóm. Tôi đã làm quen với việc phân công nhiệm vụ, thảo luận yêu cầu và cộng tác với các thành viên trong nhóm để hoàn thành các nhiệm vụ được giao một cách hiệu quả.",
+          "text-2": "Tôi được hướng dẫn qua nhiều giai đoạn của quá trình phát triển Front-End, bao gồm phân tích yêu cầu, phát triển giao diện người dùng và hỗ trợ hoàn thiện các tính năng của ứng dụng bằng cách làm việc với các nhà phát triển giàu kinh nghiệm.",
+          "text-3": "Tôi đã nâng cao kỹ năng làm việc nhóm, tư duy giải quyết vấn đề và hiểu sâu hơn về quy trình phát triển ứng dụng web trong môi trường kinh doanh chuyên nghiệp."
+        },
+        "projects": {
+          "vieclamsanxuat": {
+            "name": "Vieclamsanxuat",
+            "position": "Front-End Developer",
+            "description": "Phát triển giao diện website theo yêu cầu và triển khai các tính năng như hiển thị dữ liệu, tìm kiếm, lọc, sắp xếp, thiết kế đáp ứng và xác thực biểu mẫu."
+          }
+        }
+      },
+      "dxdlabs": {
+        "time": "09/2025 - 11/2025",
+        "position": "Thực tập sinh Front-End",
+        "company": "Công ty TNHH DXD Labs",
+        "description": {
+          "text-1": "Trong thời gian thực tập, tôi làm việc theo hình thức remote, tập trung thực hiện các nhiệm vụ Front-End được giao thông qua hệ thống quản lý và trao đổi công việc trực tuyến (Slack). Tôi chủ động tiếp nhận yêu cầu, trao đổi với các thành viên trong nhóm và báo cáo tiến độ thường xuyên nhằm đảm bảo công việc được hoàn thành đúng thời hạn.",
+          "text-2": "Quá trình làm việc từ xa giúp tôi nâng cao khả năng tự học, tự quản lý thời gian và giải quyết vấn đề một cách độc lập. Đồng thời, tôi rèn luyện kỹ năng giao tiếp chuyên nghiệp trong môi trường trực tuyến và thích nghi với quy trình làm việc phân tán, khác biệt so với hình thức làm việc trực tiếp tại văn phòng.  "
+        },
+        "projects": {
+          "luxdao": {
+            "name": "LUX DAO",
+            "position": "Front-End Developer",
+            "description": "Chỉnh sửa và phát triển giao diện website theo yêu cầu, bao gồm xây dựng và triển khai thiết kế đáp ứng (responsive design), xử lý xác thực biểu mẫu và khắc phục các lỗi CSS."
+          },
+          "vangxanh": {
+            "name": "Vàng Xanh",
+            "position": "Front-End Developer",
+            "description": "Xây dựng và phát triển giao diện website dựa trên các thiết kế từ Figma, tích hợp và gọi API để hiển thị dữ liệu, triển khai thiết kế đáp ứng (responsive design) và xử lý xác thực biểu mẫu."
+          }
+        }
+      }
+    }
+  },
+  "education": {
+    "title": "Học Vấn",
+    "description": "Tổng quan về hành trình học tập và phát triển của tôi trong lĩnh vực phát triển web.",
+    "fpoly": {
+      "nameSchool": "Trường Cao đẳng FPT Polytechnic",
+      "major": "Major",
+      "myMajor": "Web Developer",
+      "time": "11/2022 - 05/2025",
+      "text-1": "Trong quá trình học tập, tôi được trang bị nền tảng vững chắc về phát triển web Front-End, bao gồm <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong>TypeScript</strong>, <strong>Figma</strong> cùng các thư viện và framework hiện đại như <strong>React.js</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong> và <strong>Ant Design</strong>. Tôi luôn sử dụng <strong>Git</strong> để quản lý mã nguồn và phối hợp làm việc trong quá trình phát triển dự án.",
+      "text-2": "Bên cạnh đó, tôi cũng có kiến thức cơ bản về <strong>Back-End</strong> như <strong>JSON Server</strong>, <strong>RESTful API</strong>, <strong>Node.js</strong>, <strong>Express.js</strong> và <strong>MongoDB</strong>, giúp tôi hiểu rõ hơn cách Front-End tương tác với hệ thống phía server và xây dựng các ứng dụng web hoàn chỉnh.",
+      "text-3": "Trong quá trình học tập và thực hiện dự án, tôi thường xuyên sử dụng các công cụ hỗ trợ phát triển như <strong>Fork</strong>, <strong>Postman</strong>, <strong>Docker</strong>, <strong>GitHub</strong> và <strong>GitLab</strong> nhằm tối ưu quy trình làm việc và nâng cao hiệu quả triển khai sản phẩm.",
+      "text-4": "Ngoài kiến thức chuyên môn, tôi rèn luyện được tư duy logic, khả năng tự học và tinh thần trách nhiệm cao, luôn hoàn thành công việc đúng thời hạn để đảm bảo tiến độ học tập cũng như kế hoạch làm việc của nhóm, đồng thời chủ động phối hợp và hỗ trợ các thành viên nhằm đạt được hiệu quả tốt nhất."
+    }
+  },
   "contact": {
-    "contactMe": "Liên hệ với tôi",
-    "profile": "Thông tin cá nhân",
-    "address": "Quận 12, Thành phố Hồ Chí Minh",
+    "title": "Liên hệ với tôi",
+    "description": "Bạn có hứng thú hợp tác hoặc có câu hỏi nào không? Vui lòng liên hệ với tôi bằng cách sử dụng biểu mẫu bên dưới hoặc qua bất kỳ phương thức liên hệ nào được cung cấp. Tôi rất mong nhận được phản hồi từ bạn!",
+    "myAddress": "Quận 12, Thành phố Hồ Chí Minh",
+    "phone": "Số điện thoại",
+    "email": "Email",
+    "address": "Địa chỉ",
     "yourName": "Tên của bạn",
     "placeholderName": "Nhập tên của bạn",
     "matchesName": "Tên không hợp lệ. Vui lòng viết đúng định dạng (có dấu, viết hoa chữ cái đầu).",

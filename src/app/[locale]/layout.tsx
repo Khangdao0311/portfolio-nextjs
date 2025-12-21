@@ -7,6 +7,14 @@ import ModalNotification from "@/components/ModalNotification";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ToastContainer } from "react-toastify";
+
+import GroupBtn from "@/components/GroupBtn";
+import ReduxProvider from "@/redux/index";
+import AOSProvider from "@/components/AOSProvider";
+import BackGroundParticles from "@/components/BackGroundParticles";
+
 export default async function LocaleLayout({
   children,
   params,
@@ -21,14 +29,33 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        <NotiProvider>
+        <AntdRegistry>
           <NextIntlClientProvider>
-            <ModalNotification />
-            <Header />
-            <main className="container-custom px-2.5 xl:px-1">{children}</main>
-            <Footer />
+            <ReduxProvider>
+              <NotiProvider>
+                <Header />
+                <main className="container-custom px-4 lg:px-0">
+                  {children}
+                </main>
+                <Footer />
+                <GroupBtn />
+                <ModalNotification />
+                <ToastContainer
+                  position="top-right"
+                  autoClose={3000}
+                  hideProgressBar={false}
+                  newestOnTop={true}
+                  closeOnClick
+                  pauseOnHover
+                  draggable
+                  theme="colored"
+                />
+                <AOSProvider />
+                <BackGroundParticles />
+              </NotiProvider>
+            </ReduxProvider>
           </NextIntlClientProvider>
-        </NotiProvider>
+        </AntdRegistry>
       </body>
     </html>
   );

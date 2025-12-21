@@ -1,8 +1,7 @@
 import { Metadata } from "next";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { ToastContainer } from "react-toastify";
-import "./globals.css";
 import { getLocale, getTranslations } from "next-intl/server";
+
+import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -43,19 +42,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <AntdRegistry>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        pauseOnHover
-        draggable
-        theme="colored"
-      />
-      {children}
-    </AntdRegistry>
-  );
+  return <>{children}</>;
 }
