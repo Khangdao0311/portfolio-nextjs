@@ -181,9 +181,9 @@
     "description": "Tổng quan về hành trình học tập và phát triển của tôi trong lĩnh vực phát triển web.",
     "fpoly": {
       "nameSchool": "Trường Cao đẳng FPT Polytechnic",
-      "major": "Major",
-      "myMajor": "Web Developer",
-      "time": "11/2022 - 05/2025",
+      "major": "Chuyên ngành",
+      "myMajor": "Phát triển Website",
+      "time": "11/2022 - 08/2025",
       "text-1": "Trong quá trình học tập, tôi được trang bị nền tảng vững chắc về phát triển web Front-End, bao gồm <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong>TypeScript</strong>, <strong>Figma</strong> cùng các thư viện và framework hiện đại như <strong>React.js</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong> và <strong>Ant Design</strong>. Tôi luôn sử dụng <strong>Git</strong> để quản lý mã nguồn và phối hợp làm việc trong quá trình phát triển dự án.",
       "text-2": "Bên cạnh đó, tôi cũng có kiến thức cơ bản về <strong>Back-End</strong> như <strong>JSON Server</strong>, <strong>RESTful API</strong>, <strong>Node.js</strong>, <strong>Express.js</strong> và <strong>MongoDB</strong>, giúp tôi hiểu rõ hơn cách Front-End tương tác với hệ thống phía server và xây dựng các ứng dụng web hoàn chỉnh.",
       "text-3": "Trong quá trình học tập và thực hiện dự án, tôi thường xuyên sử dụng các công cụ hỗ trợ phát triển như <strong>Fork</strong>, <strong>Postman</strong>, <strong>Docker</strong>, <strong>GitHub</strong> và <strong>GitLab</strong> nhằm tối ưu quy trình làm việc và nâng cao hiệu quả triển khai sản phẩm.",

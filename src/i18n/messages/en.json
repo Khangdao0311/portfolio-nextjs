@@ -182,8 +182,8 @@
     "fpoly": {
       "nameSchool": "FPT Polytechnic College",
       "major": "Major",
-      "myMajor": "Web Developer",
-      "time": "11/2022 - 05/2025",
+      "myMajor": "Web Development",
+      "time": "11/2022 - 08/2025",
       "text-1": "During my studies, I have built a solid foundation in Front-End web development, including <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong>TypeScript</strong>, and <strong>Figma</strong>, along with modern libraries and frameworks such as <strong>React.js</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong>, and <strong>Ant Design</strong>. I use Git for source code management and effective collaboration throughout the development process.",
       "text-2": "In addition, I have basic knowledge of <strong>Back-End</strong> technologies such as <strong>JSON Server</strong>, <strong>RESTful APIs</strong>, <strong>Node.js</strong>, <strong>Express.js</strong>, and <strong>MongoDB</strong>, which helps me better understand how the Front-End interacts with server-side systems and enables me to build complete web applications.",
       "text-3": "Throughout my learning journey and project implementations, I frequently use development tools such as <strong>Fork</strong>, <strong>Postman</strong>, <strong>Docker</strong>, <strong>GitHub</strong>, and <strong>GitLab</strong> to optimize workflows and improve product deployment efficiency.",
