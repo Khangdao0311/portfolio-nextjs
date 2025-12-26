@@ -6,6 +6,18 @@ import "./globals.css";
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "metadata" });
+
+  const baseUrl = "https://khangdao0311-portfolio.vercel.app";
+
+  // Open Graph image theo locale
+  const ogImages: Record<string, string> = {
+    en: `${baseUrl}/portfolio-en.png`,
+    vi: `${baseUrl}/portfolio-vi.png`,
+  };
+
+  // fallback về en nếu locale không hợp lệ
+  const ogImage = ogImages[locale] ?? ogImages.en;
+
   return {
     title: t("title"),
     description: t("description"),
@@ -22,12 +34,12 @@ export async function generateMetadata(): Promise<Metadata> {
       "khangdao",
       "0311",
     ],
-    metadataBase: new URL("https://khangdao0311-portfolio.vercel.app"),
+    metadataBase: new URL(baseUrl),
     openGraph: {
       title: t("title"),
       description: t("description"),
-      images: ["https://khangdao0311-portfolio.vercel.app/portfolio.png"],
-      url: "https://khangdao0311-portfolio.vercel.app",
+      images: [ogImage],
+      url: locale === "en" ? baseUrl : `${baseUrl}/${locale}`,
       siteName: "Khang Đào Portfolio",
       type: "website",
     },
