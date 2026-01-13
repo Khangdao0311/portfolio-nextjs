@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -29,7 +30,7 @@ function Navigation() {
   return (
     <div className="flex flex-col lg:flex-row gap-2 items-start lg:items-center justify-center">
       {NavItems.map((item) => (
-        <a
+        <Link
           key={item.id}
           href={`/${locale}#${item.id}`}
           className={`w-full lg:w-auto group relative font-semibold pl-0 lg:!px-4 py-2 select-none !text-white hover:!text-[theme(--primary-light)] transition-all duration-300 ${
@@ -42,7 +43,7 @@ function Navigation() {
               activeSection === item.id ? "w-full" : " w-[0%]"
             }`}
           ></span>
-        </a>
+        </Link>
       ))}
     </div>
   );
