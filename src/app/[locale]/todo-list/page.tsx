@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-import TodoList from "@/components/demos/todoList";
+import TodoList from "@/components/demos/TodoList";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.todoList");
@@ -9,26 +9,29 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title"),
     description: t("description"),
     keywords: [
+      // Vietnamese
       "todo list",
-      "to-do list",
-      "task manager",
-      "task list",
-      "daily planner",
-      "checklist app",
-      "todo app",
+      "to do list",
+      "danh sách công việc",
+      "ứng dụng quản lý công việc",
+      "ghi chú công việc",
+      "quản lý task cá nhân",
+      "theo dõi công việc hằng ngày",
+      "ứng dụng năng suất",
+      "lập kế hoạch công việc",
+      "công cụ quản lý nhiệm vụ",
+
+      // English
+      "todo list app",
+      "task management app",
+      "daily planner app",
       "productivity app",
       "task tracker",
-      "personal organizer",
-      "note and task app",
-      "simple todo list",
-      "free todo app",
-      "ứng dụng ghi chú",
-      "ứng dụng việc cần làm",
-      "quản lý công việc",
-      "danh sách việc cần làm",
-      "ứng dụng nhắc việc",
-      "trình quản lý nhiệm vụ",
-      "lập kế hoạch cá nhân",
+      "react todo app",
+      "nextjs todo project",
+      "typescript todo list",
+      "frontend portfolio project",
+      "crud application example",
     ],
   };
 }

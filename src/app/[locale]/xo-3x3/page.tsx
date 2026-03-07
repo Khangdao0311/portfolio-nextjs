@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-import XO3x3 from "@/components/demos/xo3x3";
+import XO3x3 from "@/components/demos/XO3x3";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.xo3x3Game");
@@ -9,26 +9,29 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title"),
     description: t("description"),
     keywords: [
-      "tic tac toe",
-      "xo game",
-      "x o game",
+      // Vietnamese
       "xo 3x3",
+      "cờ caro 3x3",
+      "game xo",
+      "trò chơi xo",
+      "tic tac toe",
+      "game cờ caro online",
+      "game hai người",
+      "trò chơi logic đơn giản",
+      "game javascript",
+      "game frontend project",
+
+      // English
+      "tic tac toe game",
       "tic tac toe 3x3",
-      "xo board game",
-      "tic tac toe online",
-      "tic tac toe app",
-      "simple xo game",
-      "classic tic tac toe",
-      "free tic tac toe",
-      "play xo",
-      "trò chơi caro",
-      "game caro",
-      "caro 3x3",
-      "trò chơi x o",
-      "game x o đơn giản",
-      "trò chơi ô vuông",
-      "game giải trí ngắn",
-      "game vui đơn giản",
+      "react tic tac toe",
+      "nextjs game project",
+      "javascript game logic",
+      "two player game",
+      "frontend mini game",
+      "game state management",
+      "algorithm based game",
+      "portfolio game project",
     ],
   };
 }
