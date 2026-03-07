@@ -1,6 +1,8 @@
 import avatar4x6 from "./images/avatar4x6.png";
 import avatar1x1 from "./images/avatar1x1.png";
 import code from "./images/code.png";
+import fpolyP from "./images/fpoly/fpolyP.png";
+import fpolyF from "./images/fpoly/fpolyF.png";
 import elecking from "./images/elecking/elecking.png";
 import elecking1 from "./images/elecking/elecking1.png";
 import elecking2 from "./images/elecking/elecking2.png";
@@ -45,13 +47,14 @@ import chatApp from "./images/chat-app.png";
 import calculator from "./images/calculator.png";
 import xo3x3 from "./images/xo3x3.png";
 import todolist from "./images/todolist.png";
-import fpolyP from "./images/fpoly/fpolyP.png";
-import fpolyF from "./images/fpoly/fpolyF.png";
+import kanbanBoard from "./images/kanbanBoard.png";
 
 const images = {
   avatar4x6: avatar4x6.src,
   avatar1x1: avatar1x1.src,
   code: code.src,
+  fpolyP: fpolyP.src,
+  fpolyF: fpolyF.src,
   elecking: elecking.src,
   elecking1: elecking1.src,
   elecking2: elecking2.src,
@@ -96,8 +99,7 @@ const images = {
   todolist: todolist.src,
   xo3x3: xo3x3.src,
   calculator: calculator.src,
-  fpolyP: fpolyP.src,
-  fpolyF: fpolyF.src,
+  kanbanBoard: kanbanBoard.src,
 };
 
 export default images;

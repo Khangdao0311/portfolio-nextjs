@@ -154,6 +154,11 @@ export const getDemos = (t: (key: string) => any) => [
     name: t("demoList.todolist.name"),
     href: "/todo-list",
   },
+  {
+    image: images.kanbanBoard,
+    name: t("demoList.kanbanBoard.name"),
+    href: "/kanban-board",
+  },
 ];
 
 export const getNavItems = (t: (key: string) => any) => [
@@ -198,7 +203,7 @@ export const getExperiences = (t: (key: string) => any) => [
         name: t("workStages.tinviet.projects.vieclamsanxuat.name"),
         position: t("workStages.tinviet.projects.vieclamsanxuat.position"),
         description: t(
-          "workStages.tinviet.projects.vieclamsanxuat.description"
+          "workStages.tinviet.projects.vieclamsanxuat.description",
         ),
         technologies: ["React.js", "Tailwind CSS", "Bootstrap", "Ant Design"],
       },

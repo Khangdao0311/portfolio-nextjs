@@ -13,6 +13,10 @@
     "todoList": {
       "title": "Todo List",
       "description": "Todo List – Simple and effective task management"
+    },
+    "kanbanBoard": {
+      "title": "Kanban Board | Drag & Drop Task Management",
+      "description": "Manage tasks visually with an Agile-style Kanban Board, supporting drag & drop, progress tracking, and workflow optimization. Suitable for individuals and teams."
     }
   },
   "navigation": {
@@ -129,6 +133,9 @@
       },
       "todolist": {
         "name": "ToDo List"
+      },
+      "kanbanBoard": {
+        "name": "Kanban Board"
       }
     }
   },
@@ -233,5 +240,15 @@
     "noTasks": "No tasks available",
     "deleteTask": "Delete",
     "deleteSelectedTasks": "Delete selected tasks"
+  },
+  "kanbanBoard": {
+    "addList": "Add List",
+    "enterListName": "Enter list name",
+    "addCard": "Add card",
+    "enterCardContent": "Enter content...",
+    "delete": "Delete",
+    "save": "Save",
+    "areYouSureDeleteList": "Are you sure you want to delete the \"{title}\" list?",
+    "areYouSureDeleteCard": "Are you sure you want to delete the this card?"
   }
 }

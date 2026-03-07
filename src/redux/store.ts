@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import activeSectionReducer from "./slices/activeSection";
+import overlayReducer from "./slices/overlay";
 
 export const store = configureStore({
   reducer: {
     activeSection: activeSectionReducer,
+    overlay: overlayReducer,
   },
 });
 

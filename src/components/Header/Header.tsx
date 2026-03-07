@@ -1,13 +1,18 @@
 "use client";
 import { useLocale } from "next-intl";
 import { useInView } from "react-intersection-observer";
+import { useDispatch, useSelector } from "react-redux";
 
 import Navigation from "./Navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Sidebar from "./Sidebar";
+import { RootState } from "@/redux";
+import { setToggle } from "@/redux/slices/overlay";
 
 function Header() {
   const locale = useLocale();
+  const dispatch = useDispatch();
+  const isOverlayOpen = useSelector((state: RootState) => state.overlay.isOpen);
 
   const { ref, inView } = useInView({
     threshold: 0,
@@ -42,6 +47,12 @@ function Header() {
           </div>
         </div>
       </header>
+      {isOverlayOpen && (
+        <div
+          onClick={() => dispatch(setToggle(false))}
+          className="fixed inset-0 bg-black/80 z-50 center-flex"
+        ></div>
+      )}
     </>
   );
 }

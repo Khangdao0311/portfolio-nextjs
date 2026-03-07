@@ -13,6 +13,10 @@
     "todoList": {
       "title": "Danh sách công việc",
       "description": "Danh sách công việc – Quản lý công việc đơn giản và hiệu quả"
+    },
+    "kanbanBoard": {
+      "title": "Bảng Kanban | Quản Lý Công Việc Kéo Thả",
+      "description": "Quản lý công việc trực quan theo mô hình Agile với bảng Kanban, hỗ trợ kéo thả (drag & drop), theo dõi tiến độ và tối ưu workflow. Phù hợp cho cá nhân và nhóm."
     }
   },
   "navigation": {
@@ -129,6 +133,9 @@
       },
       "todolist": {
         "name": "Danh sách công việc"
+      },
+      "kanbanBoard": {
+        "name": "Bảng quản lý công việc"
       }
     }
   },
@@ -233,5 +240,15 @@
     "noTasks": "Không có công việc nào",
     "deleteTask": "Xóa",
     "deleteSelectedTasks": "Xóa các công việc đã chọn"
+  },
+  "kanbanBoard": {
+    "addList": "Thêm danh sách",
+    "enterListName": "Nhập tên danh sách",
+    "addCard": "Thêm thẻ",
+    "enterCardContent": "Nhập nội dung...",
+    "delete": "Xóa",
+    "save": "Lưu",
+    "areYouSureDeleteList": "Bạn có chắc chắn muốn xóa danh sách \"{title}\" không?",
+    "areYouSureDeleteCard": "Bạn có chắc chắn muốn xóa thẻ này không?"
   }
 }
