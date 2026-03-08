@@ -46,7 +46,7 @@ import portfolio from "./images/portfolio.png";
 import chatApp from "./images/chat-app.png";
 import calculator from "./images/calculator.png";
 import xo3x3 from "./images/xo3x3.png";
-import todoList from "./images/todo-list.png";
+import todoList from "./images/todoList.png";
 import kanbanBoard from "./images/kanbanBoard.png";
 
 const images = {
