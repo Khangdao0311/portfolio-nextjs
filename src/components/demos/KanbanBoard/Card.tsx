@@ -87,7 +87,9 @@ export default function Card({
           </button>
         </div>
         <span
-          className={`flex-1 text-base text-white ${card.completed ? "ml-5" : "ml-0 group-hover:ml-5"}  transition-all duration-200`}
+          {...attributes}
+          {...listeners}
+          className={`flex-1 text-base text-white ${overlayDragging ? "cursor-grabbing" : "cursor-grab"} ${card.completed ? "ml-5" : "ml-0 group-hover:ml-5"}  transition-all duration-200`}
         >
           {card.content}
         </span>
@@ -127,6 +129,7 @@ export default function Card({
             <div className="flex gap-2 items-stretch">
               <button
                 onClick={() => {
+                  if (!content.trim()) return;
                   onChangeContent(card.id, content);
                   setShowEdit(false);
                   dispatch(setToggle(false));

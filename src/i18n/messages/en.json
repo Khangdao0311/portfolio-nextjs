@@ -4,18 +4,18 @@
     "description": "Information about Khang Dao - Front End Developer. With showcases, experience and also personal and group projects.",
     "calculator": {
       "title": "Calculator",
-      "description": "Simple and fast online calculator – supports addition, subtraction, multiplication, division, percentages and many advanced functions"
+      "description": "A simple and fast online calculator that supports addition, subtraction, multiplication, division, percentages, and other useful functions."
     },
     "xo3x3Game": {
       "title": "XO 3x3 Game",
-      "description": "XO 3x3 - Simple, intellectual checkers game"
+      "description": "Play the classic 3x3 Tic-Tac-Toe game that challenges your strategy and logical thinking."
     },
     "todoList": {
       "title": "Todo List",
-      "description": "Todo List – Simple and effective task management"
+      "description": "A simple and efficient task management tool to organize and track your daily tasks."
     },
     "kanbanBoard": {
-      "title": "Kanban Board | Drag & Drop Task Management",
+      "title": "Kanban Board",
       "description": "Manage tasks visually with an Agile-style Kanban Board, supporting drag & drop, progress tracking, and workflow optimization. Suitable for individuals and teams."
     }
   },
@@ -131,7 +131,7 @@
       "xo3x3": {
         "name": "XO 3x3 Game"
       },
-      "todolist": {
+      "todoList": {
         "name": "ToDo List"
       },
       "kanbanBoard": {
@@ -231,7 +231,7 @@
     "draw": "Draw!",
     "currentTurn": "Current Turn"
   },
-  "todolist": {
+  "todoList": {
     "title": "ToDo List",
     "task": "Task",
     "add": "Add",

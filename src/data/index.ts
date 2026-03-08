@@ -150,8 +150,8 @@ export const getDemos = (t: (key: string) => any) => [
     href: "/xo-3x3",
   },
   {
-    image: images.todolist,
-    name: t("demoList.todolist.name"),
+    image: images.todoList,
+    name: t("demoList.todoList.name"),
     href: "/todo-list",
   },
   {

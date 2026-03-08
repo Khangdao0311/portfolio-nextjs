@@ -1,4 +1,6 @@
 "use client";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +15,11 @@ function Header() {
   const locale = useLocale();
   const dispatch = useDispatch();
   const isOverlayOpen = useSelector((state: RootState) => state.overlay.isOpen);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
 
   const { ref, inView } = useInView({
     threshold: 0,

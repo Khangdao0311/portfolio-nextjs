@@ -46,7 +46,7 @@ import portfolio from "./images/portfolio.png";
 import chatApp from "./images/chat-app.png";
 import calculator from "./images/calculator.png";
 import xo3x3 from "./images/xo3x3.png";
-import todolist from "./images/todolist.png";
+import todoList from "./images/todoList.png";
 import kanbanBoard from "./images/kanbanBoard.png";
 
 const images = {
@@ -96,7 +96,7 @@ const images = {
   cellphones: cellphones.src,
   portfolio: portfolio.src,
   chatApp: chatApp.src,
-  todolist: todolist.src,
+  todoList: todoList.src,
   xo3x3: xo3x3.src,
   calculator: calculator.src,
   kanbanBoard: kanbanBoard.src,

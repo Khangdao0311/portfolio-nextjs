@@ -1,15 +1,17 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Popover } from "antd";
+import { FaTrash } from "react-icons/fa6";
 
 export default function TodoList() {
   const [tasks, setTasks] = useState<string[]>([]);
   const [selectedTasks, setSelectedTasks] = useState<Set<number>>(new Set());
-  const t = useTranslations("todolist");
+  const t = useTranslations("todoList");
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -29,6 +31,7 @@ export default function TodoList() {
     if (!values.task.trim()) return;
     setTasks([...tasks, values.task]);
     resetForm();
+    if (inputRef.current !== null) inputRef.current.focus();
   };
 
   const deleteTask = (index: number) => {
@@ -67,13 +70,13 @@ export default function TodoList() {
       Yup.object().shape({
         task: Yup.string().required(t("taskRequired")),
       }),
-    []
+    [],
   );
 
   return (
     <section className="h-screen center-flex pt-20 pb-4">
-      <div className="max-w-[500px] w-[95%] h-full p-4 rounded-lg flex flex-col gap-4 border border-[theme(--primary-light)]">
-        <h1 className="text-3xl w-full text-center font-bold">{t("title")}</h1>
+      <div className="max-w-125 w-[95%] h-full p-4 rounded-lg flex flex-col gap-4 border-4 border-[theme(--primary-light)] bg-black/50">
+        <h1 className="text-xl w-full text-center font-bold">{t("title")}</h1>
         <Formik
           initialValues={{
             task: "",
@@ -93,26 +96,27 @@ export default function TodoList() {
                 open={!!(errors.task && touched.task)}
               >
                 <input
+                  ref={inputRef}
                   name="task"
                   value={values.task}
                   type="text"
-                  className="border border-gray-700 flex-1 px-4 py-2.5 rounded"
+                  className="border-2 border-white/50 flex-1 px-4 py-2 rounded outline-none focus:border-[theme(--primary-light)]"
                   placeholder={t("taskPlaceholder")}
                   autoComplete="task"
                   onChange={handleChange}
                 />
               </Popover>
 
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+              <button className="text-white hover:text-black px-6 py-2 rounded border border-white/50 font-bold hover:border-transparent hover:bg-[theme(--primary-light)] active:translate-0.5 cursor-pointer shadow-[2px_2px_1px_rgba(255,255,255,.5)] active:shadow-none">
                 {t("add")}
               </button>
             </Form>
           )}
         </Formik>
 
-        <div className="border border-gray-700 rounded w-full flex flex-col flex-1 overflow-hidden">
+        <div className="border-2 border-white/50 rounded w-full flex flex-col flex-1 overflow-hidden">
           {tasks.length > 0 && (
-            <div className="flex items-center gap-2 p-4 bg-gray-700">
+            <div className="flex items-center gap-2 p-4 bg-black/50 border-b-2 border-white/50">
               <input
                 type="checkbox"
                 checked={
@@ -133,7 +137,7 @@ export default function TodoList() {
             </div>
           )}
 
-          <ul className="w-full flex h-full flex-col divide-y divide-gray-700 overflow-y-auto scroll-visible p-1.5">
+          <ul className="w-full flex h-full flex-col divide-y divide-white/50 overflow-y-auto scroll-visible p-1.5">
             {tasks.length === 0 && (
               <li className="text-white center-flex h-full">{t("noTasks")}</li>
             )}
@@ -162,9 +166,10 @@ export default function TodoList() {
                 </label>
                 <button
                   onClick={() => deleteTask(index)}
-                  className="text-red-500 hover:text-red-400 hover:underline"
+                  className="text-red-500 hover:text-red-600 hover:bg-red-200 w-8 h-8 rounded center-flex transition-all duration-200 cursor-pointer"
                 >
-                  {t("deleteTask")}
+                  {/* {t("deleteTask")} */}
+                  <FaTrash className="w-4 h-4" />
                 </button>
               </motion.li>
             ))}

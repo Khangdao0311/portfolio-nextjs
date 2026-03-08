@@ -15,6 +15,7 @@ import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 
 import isNumber from "@/utils/isNumber";
+import Button from "./Button";
 
 function Calculator() {
   const t = useTranslations("calculator");
@@ -78,7 +79,7 @@ function Calculator() {
   function operate(numberOne: string, numberTwo: string, operation: string) {
     const one = Big(numberOne || "0");
     const two: any = Big(
-      numberTwo || (operation === "÷" || operation === "x" ? "1" : "0")
+      numberTwo || (operation === "÷" || operation === "x" ? "1" : "0"),
     );
 
     if (operation === "+") {
@@ -110,8 +111,8 @@ function Calculator() {
 
     const num = parseFloat(currentValue);
 
-    // 1/x - nghịch đảo
-    if (buttonName === "1/x") {
+    // ½   - nghịch đảo
+    if (buttonName === "½ ") {
       if (num === 0) {
         toast.error(t("divideByZero"));
         return { ...result, currentValue: "0" };
@@ -268,10 +269,10 @@ function Calculator() {
   }
 
   return (
-    <section className="min-h-screen center-flex pt-20">
-      <div className="max-w-[400px] w-[95%] flex gap-4 flex-col bg-gray-950 p-6 rounded-xl border border-[theme(--primary-light)] shadow-[0_0_5px_theme(--primary-light)]">
-        <h1 className="uppercase text-2xl font-bold ">{t("title")}</h1>
-        <div className="w-full aspect-[3/1] p-4 bg-black border border-gray-700 rounded-lg flex flex-col">
+    <section className="min-h-screen flex items-start justify-center pt-20">
+      <div className="max-w-100 w-[95%] flex gap-4 flex-col bg-black/50 p-6 rounded-xl border-4 border-[theme(--primary-light)] shadow-[1px_1px_1px_rgba(255,255,255,0.5)]">
+        <h1 className="uppercase text-xl font-black">{t("title")}</h1>
+        <div className="w-full aspect-3/1 p-4 bg-black/50 border-2 border-white/50 rounded flex flex-col">
           <div className="h-2/5 flex items-center">
             <p className="w-full overflow-x-auto text-right text-base font-light text-gray-400">
               {result.previousValue &&
@@ -281,155 +282,133 @@ function Calculator() {
           </div>
           <div className="h-3/5 flex items-center">
             <p className="w-full text-4xl font-bold text-white overflow-x-auto text-right">
-              {Number(result.currentValue).toLocaleString("en-US")}
+              {/* {Number(result.currentValue).toLocaleString("en-US")} */}
+              {result.currentValue}
             </p>
           </div>
         </div>
         <div className="w-full grid grid-cols-4 gap-2">
-          <button
+          <Button
+            type={2}
+            content={<FaPercent />}
             onClick={() => setResult(calculate(result, "%"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            <FaPercent />
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={"CE"}
             onClick={() => setResult(calculate(result, "CE"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            CE
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={"C"}
             onClick={() => setResult(calculate(result, "C"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            C
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={<FaBackspace />}
             onClick={() => setResult(calculate(result, "<="))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            <FaBackspace />
-          </button>
-          <button
-            onClick={() => setResult(calculate(result, "1/x"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            1/x
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={"½ "}
+            onClick={() => setResult(calculate(result, "½ "))}
+          />
+          <Button
+            type={2}
+            content={"x²"}
             onClick={() => setResult(calculate(result, "x²"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            x²
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={"√x"}
             onClick={() => setResult(calculate(result, "√x"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            √x
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={<FaDivide />}
             onClick={() => setResult(calculate(result, "÷"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            <FaDivide />
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"7"}
             onClick={() => setResult(calculate(result, "7"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            7
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"8"}
             onClick={() => setResult(calculate(result, "8"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            8
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"9"}
             onClick={() => setResult(calculate(result, "9"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            9
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={<FaXmark />}
             onClick={() => setResult(calculate(result, "x"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            <FaXmark />
-          </button>
-          <button
+          />
+
+          <Button
+            type={1}
+            content={"4"}
             onClick={() => setResult(calculate(result, "4"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            4
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"5"}
             onClick={() => setResult(calculate(result, "5"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            5
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"6"}
             onClick={() => setResult(calculate(result, "6"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            6
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={<FaMinus />}
             onClick={() => setResult(calculate(result, "-"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            <FaMinus />
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"1"}
             onClick={() => setResult(calculate(result, "1"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            1
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"2"}
             onClick={() => setResult(calculate(result, "2"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            2
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"3"}
             onClick={() => setResult(calculate(result, "3"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            3
-          </button>
-          <button
+          />
+          <Button
+            type={2}
+            content={<FaPlus />}
             onClick={() => setResult(calculate(result, "+"))}
-            className="center-flex aspect-[1.5/1] bg-gray-800 hover:bg-gray-900 rounded-lg cursor-pointer select-none"
-          >
-            <FaPlus />
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={<FaPlusMinus />}
             onClick={() => setResult(calculate(result, "+/-"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            <FaPlusMinus />
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"0"}
             onClick={() => setResult(calculate(result, "0"))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            0
-          </button>
-          <button
+          />
+          <Button
+            type={1}
+            content={"."}
             onClick={() => setResult(calculate(result, "."))}
-            className="center-flex aspect-[1.5/1] bg-gray-700 hover:bg-gray-800 rounded-lg cursor-pointer select-none"
-          >
-            .
-          </button>
-          <button
+          />
+          <Button
+            type={3}
+            content={<FaEquals />}
             onClick={() => setResult(calculate(result, "="))}
-            className="center-flex aspect-[1.5/1] bg-blue-700 hover:bg-blue-800 rounded-lg cursor-pointer select-none"
-          >
-            <FaEquals />
-          </button>
+          />
         </div>
       </div>
     </section>

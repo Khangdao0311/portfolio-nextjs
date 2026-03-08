@@ -4,18 +4,18 @@
     "description": "Thông tin về Khang Đào - Lập trình viên giao diện website (Front End Developer). Với các kỹ năng, kinh nghiệm và cũng như là án cá nhân và dự án nhóm.",
     "calculator": {
       "title": "Máy tính",
-      "description": "Máy tính trực tuyến đơn giản và nhanh chóng – hỗ trợ cộng, trừ, nhân, chia, phần trăm và nhiều chức năng nâng cao,"
+      "description": "Máy tính trực tuyến đơn giản và nhanh chóng, hỗ trợ cộng, trừ, nhân, chia, phần trăm và nhiều chức năng hữu ích khác."
     },
     "xo3x3Game": {
-      "title": "XO 3x3",
-      "description": "XO 3x3 - Trò chơi cờ đam đơn giản, trí tuệ"
+      "title": "Game XO 3x3",
+      "description": "Chơi game XO 3x3 cổ điển giúp rèn luyện tư duy chiến thuật và logic."
     },
     "todoList": {
-      "title": "Danh sách công việc",
-      "description": "Danh sách công việc – Quản lý công việc đơn giản và hiệu quả"
+      "title": "Danh sách công việ",
+      "description": "Công cụ quản lý công việc đơn giản và hiệu quả giúp bạn tổ chức và theo dõi các nhiệm vụ hằng ngày."
     },
     "kanbanBoard": {
-      "title": "Bảng Kanban | Quản Lý Công Việc Kéo Thả",
+      "title": "Bảng Kanban",
       "description": "Quản lý công việc trực quan theo mô hình Agile với bảng Kanban, hỗ trợ kéo thả (drag & drop), theo dõi tiến độ và tối ưu workflow. Phù hợp cho cá nhân và nhóm."
     }
   },
@@ -131,7 +131,7 @@
       "xo3x3": {
         "name": "Trò Chơi XO 3x3"
       },
-      "todolist": {
+      "todoList": {
         "name": "Danh sách công việc"
       },
       "kanbanBoard": {
@@ -231,7 +231,7 @@
     "draw": "Hòa!",
     "currentTurn": "Lượt hiện tại"
   },
-  "todolist": {
+  "todoList": {
     "title": "Danh sách công việc",
     "task": "Công việc",
     "add": "Thêm",

@@ -16,6 +16,7 @@ import {
   SortableContext,
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { motion } from "framer-motion";
 
 import Column from "./Column";
 import Card from "./Card";
@@ -249,17 +250,24 @@ export default function KanbanBoard() {
           strategy={horizontalListSortingStrategy}
         >
           {columns.map((col) => (
-            <Column
+            <motion.div
               key={col.id}
-              column={col}
-              cards={cards.filter((c) => c.columnId === col.id)}
-              onAddCard={handleAddCard}
-              onChangeTitle={handleChangeTitleColumn}
-              onDelete={handleDeleteColumn}
-              onToggleCompleteCard={handleToggleCompleteCard}
-              onChangeContentCard={handleChangeContentCard}
-              onDeleteCard={handleDeleteCard}
-            />
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Column
+                column={col}
+                cards={cards.filter((c) => c.columnId === col.id)}
+                onAddCard={handleAddCard}
+                onChangeTitle={handleChangeTitleColumn}
+                onDelete={handleDeleteColumn}
+                onToggleCompleteCard={handleToggleCompleteCard}
+                onChangeContentCard={handleChangeContentCard}
+                onDeleteCard={handleDeleteCard}
+              />
+            </motion.div>
           ))}
         </SortableContext>
 

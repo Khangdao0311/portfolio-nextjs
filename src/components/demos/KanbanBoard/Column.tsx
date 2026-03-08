@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, Dispatch, SetStateAction } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { FaPlus, FaTrash, FaXmark } from "react-icons/fa6";
 import { HiDotsHorizontal } from "react-icons/hi";
@@ -152,8 +152,18 @@ export default function Column({
           <Popover
             open={openPopover}
             onOpenChange={(open) => setOpenPopover(open)}
+            trigger="click"
+            placement="bottomLeft"
+            overlayClassName="popover-primary-light"
+            styles={{
+              body: {
+                backgroundColor: "black",
+                color: "white",
+                boxShadow: "0 0 2px #34ffec",
+              },
+            }}
             content={
-              <div className="min-w-[160px] flex flex-col items-start gap-2 ">
+              <div className="min-w-40 flex flex-col items-start gap-2 ">
                 <button
                   onClick={() => {
                     setShowAddCard(true);
@@ -174,16 +184,6 @@ export default function Column({
                 </button>
               </div>
             }
-            trigger="click"
-            placement="bottomLeft"
-            overlayClassName="popover-primary-light"
-            styles={{
-              body: {
-                backgroundColor: "black",
-                color: "white",
-                boxShadow: "0 0 2px #34ffec",
-              },
-            }}
           >
             <button className="shrink-0 h-full aspect-square rounded transition-all duration-200 cursor-pointer p-2 center-flex hover:bg-white/20 [&.ant-popover-open]:bg-white/20">
               <HiDotsHorizontal className="w-full h-full" />
