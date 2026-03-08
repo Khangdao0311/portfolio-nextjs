@@ -39,10 +39,7 @@ export default function KanbanBoard() {
   const t = useTranslations("kanbanBoard");
   const [columns, setColumns] = useState<ColumnType[]>([]);
   const [cards, setCards] = useState<CardType[]>([]);
-  const [dataLocal, setDataLocal] = useState<any>({
-    savedColumns: null,
-    savedCards: null,
-  });
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const [activeCard, setActiveCard] = useState<CardType | null>(null);
   const [activeColumn, setActiveColumn] = useState<ColumnType | null>(null);
@@ -56,25 +53,22 @@ export default function KanbanBoard() {
   useEffect(() => {
     const savedColumns = localStorage.getItem("kanban_columns");
     const savedCards = localStorage.getItem("kanban_cards");
-    if (savedColumns !== null) setColumns(JSON.parse(savedColumns));
-    if (savedCards !== null) setCards(JSON.parse(savedCards));
-    setDataLocal({
-      savedColumns,
-      savedCards,
-    });
+
+    if (savedColumns) setColumns(JSON.parse(savedColumns));
+    if (savedCards) setCards(JSON.parse(savedCards));
+
+    setIsLoaded(true);
   }, []);
 
   useEffect(() => {
-    if (dataLocal.savedColumns !== null) {
-      localStorage.setItem("kanban_columns", JSON.stringify(columns));
-    }
-  }, [columns]);
+    if (!isLoaded) return;
+    localStorage.setItem("kanban_columns", JSON.stringify(columns));
+  }, [columns, isLoaded]);
 
   useEffect(() => {
-    if (dataLocal.savedCards !== null) {
-      localStorage.setItem("kanban_cards", JSON.stringify(cards));
-    }
-  }, [cards]);
+    if (!isLoaded) return;
+    localStorage.setItem("kanban_cards", JSON.stringify(cards));
+  }, [cards, isLoaded]);
 
   // Click outside form thêm column
   useEffect(() => {
