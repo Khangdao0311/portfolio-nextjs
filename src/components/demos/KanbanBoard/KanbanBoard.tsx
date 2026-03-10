@@ -10,6 +10,9 @@ import {
   DragOverEvent,
   DragOverlay,
   pointerWithin,
+  useSensors,
+  useSensor,
+  PointerSensor,
 } from "@dnd-kit/core";
 import {
   arrayMove,
@@ -17,11 +20,14 @@ import {
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import * as Yup from "yup";
+import { Formik, Form, Field } from "formik";
 
 import Column from "./Column";
 import Card from "./Card";
-import { useDispatch } from "react-redux";
 import { setToggle } from "@/redux/slices/overlay";
+import { Popover } from "antd";
 
 export interface CardType {
   id: string;
@@ -37,26 +43,20 @@ export interface ColumnType {
 
 export default function KanbanBoard() {
   const t = useTranslations("kanbanBoard");
+  const dispatch = useDispatch();
   const [columns, setColumns] = useState<ColumnType[]>([]);
   const [cards, setCards] = useState<CardType[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
-
   const [activeCard, setActiveCard] = useState<CardType | null>(null);
   const [activeColumn, setActiveColumn] = useState<ColumnType | null>(null);
-
   const [showAddColumn, setShowAddColumn] = useState(false);
-  const [newColumnTitle, setNewColumnTitle] = useState("");
-  const formRef = useRef<HTMLFormElement | null>(null);
-
-  const dispatch = useDispatch();
+  const formRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const savedColumns = localStorage.getItem("kanban_columns");
     const savedCards = localStorage.getItem("kanban_cards");
-
     if (savedColumns) setColumns(JSON.parse(savedColumns));
     if (savedCards) setCards(JSON.parse(savedCards));
-
     setIsLoaded(true);
   }, []);
 
@@ -79,20 +79,16 @@ export default function KanbanBoard() {
         !formRef.current.contains(event.target as Node)
       ) {
         setShowAddColumn(false);
-        setNewColumnTitle("");
+        // setNewColumnTitle("");
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showAddColumn]);
 
-  const handleAddColumn = () => {
-    if (!newColumnTitle.trim()) return;
-    setColumns((prev) => [
-      ...prev,
-      { id: `col-${Date.now()}`, title: newColumnTitle },
-    ]);
-    setNewColumnTitle("");
+  const handleAddColumn = (title: string) => {
+    // if (!title.trim()) return;
+    setColumns((prev) => [...prev, { id: `col-${Date.now()}`, title: title }]);
     const input = formRef.current?.querySelector<HTMLInputElement>("input");
     input?.focus();
   };
@@ -231,9 +227,27 @@ export default function KanbanBoard() {
     setActiveCard(null);
   };
 
+  // Sensor cho DnD-kit dùng pointer (chuột, touch, pen)
+  // distance: 0.1 → di chuyển 0.1px là bắt đầu drag
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 0.1,
+      },
+    }),
+  );
+
+  const columnSchema = Yup.object({
+    title: Yup.string()
+      .trim()
+      .required(t("enterListName"))
+      .max(50, "Max 50 characters"),
+  });
+
   return (
     <div className="flex items-start gap-4 w-full overflow-auto mt-20 min-h-[80vh]">
       <DndContext
+        sensors={sensors}
         collisionDetection={pointerWithin}
         onDragStart={handleDragStart}
         onDragOver={handleDragOver}
@@ -268,12 +282,12 @@ export default function KanbanBoard() {
         <DragOverlay>
           {activeCard ? (
             <Card
-              overlayDragging={true}
               key={activeCard.id}
+              card={activeCard}
               onToggleComplete={handleToggleCompleteCard}
               onChangeContent={handleChangeContentCard}
               onDelete={handleDeleteCard}
-              card={activeCard}
+              overlayDragging={true}
             />
           ) : activeColumn ? (
             <Column
@@ -282,17 +296,17 @@ export default function KanbanBoard() {
               onAddCard={() => {}}
               onChangeTitle={() => {}}
               onDelete={() => {}}
-              overlayDragging={true}
               onToggleCompleteCard={handleToggleCompleteCard}
               onChangeContentCard={handleChangeContentCard}
               onDeleteCard={handleDeleteCard}
+              overlayDragging={true}
             />
           ) : null}
         </DragOverlay>
       </DndContext>
 
       {/* Thêm column */}
-      <div className="min-w-[280px]">
+      <div className="min-w-70">
         {!showAddColumn ? (
           <button
             onClick={() => setShowAddColumn(true)}
@@ -304,40 +318,66 @@ export default function KanbanBoard() {
             </span>
           </button>
         ) : (
-          <form
+          <div
             ref={formRef}
             className="bg-black/20 border-2 border-[theme(--primary-light)] p-4 rounded-lg w-full"
           >
-            <input
-              autoFocus
-              value={newColumnTitle}
-              onChange={(e) => setNewColumnTitle(e.target.value)}
-              placeholder={t("enterListName")}
-              className="border w-full p-2 rounded mb-2.5"
-            />
-            <div className="flex gap-2 items-stretch">
-              <button
-                type="submit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleAddColumn();
-                }}
-                className="border border-[theme(--primary-light)] text-white transition-all duration-200 hover:bg-[theme(--primary-light)] hover:text-black px-4 py-1 cursor-pointer rounded"
-              >
-                {t("addList")}
-              </button>
+            <Formik
+              initialValues={{ title: "" }}
+              enableReinitialize
+              validationSchema={columnSchema}
+              onSubmit={(values, { resetForm }) => {
+                handleAddColumn(values.title);
+                resetForm();
+              }}
+            >
+              {({ errors, touched }) => (
+                <Form>
+                  <Popover
+                    placement="bottom"
+                    overlayClassName="popover-error"
+                    styles={{
+                      body: {
+                        backgroundColor: "#ffc9c9",
+                        boxShadow: "0 0 2px #e7000b",
+                        padding: 0,
+                      },
+                    }}
+                    content={
+                      <div className="text-red-600 text-sm font-semibold px-6 py-2">
+                        {errors.title}
+                      </div>
+                    }
+                    open={!!(errors.title && touched.title)}
+                  >
+                    <Field
+                      name="title"
+                      autoFocus
+                      placeholder={t("enterListName")}
+                      className="border w-full p-2 rounded mb-2.5"
+                    />
+                  </Popover>
+                  <div className="flex gap-2 items-stretch">
+                    <button
+                      type="submit"
+                      className="border border-[theme(--primary-light)] text-white transition-all duration-200 hover:bg-[theme(--primary-light)] hover:text-black px-4 py-1 cursor-pointer rounded"
+                    >
+                      {t("addList")}
+                    </button>
 
-              <button
-                onClick={() => {
-                  setShowAddColumn(false);
-                  setNewColumnTitle("");
-                }}
-                className="w-10 flex items-center justify-center rounded hover:bg-red-400 cursor-pointer transition-all duration-200"
-              >
-                <FaXmark className="w-5 h-5 text-white" />
-              </button>
-            </div>
-          </form>
+                    <button
+                      onClick={() => {
+                        setShowAddColumn(false);
+                      }}
+                      className="w-10 flex items-center justify-center rounded hover:bg-red-400 cursor-pointer transition-all duration-200"
+                    >
+                      <FaXmark className="w-5 h-5 text-white" />
+                    </button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
         )}
       </div>
     </div>

@@ -88,8 +88,16 @@ export default function TodoList() {
             <Form className="w-full flex gap-2">
               <Popover
                 placement="bottom"
+                overlayClassName="popover-error"
+                styles={{
+                  body: {
+                    backgroundColor: "#ffc9c9",
+                    boxShadow: "0 0 2px #e7000b",
+                    padding: 0,
+                  },
+                }}
                 content={
-                  <div className="text-red-500 text-sm font-semibold">
+                  <div className="text-red-600 text-sm font-semibold px-6 py-2">
                     {errors.task}
                   </div>
                 }

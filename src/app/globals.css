@@ -71,12 +71,17 @@ html {
   width: 4px;
 }
 
-.popover-primary-light .ant-popover-arrow::before {
+.ant-popover-arrow::before {
   background-color: transparent !important;
 }
 .popover-primary-light .ant-popover-arrow::after {
   box-shadow: 0 0 2px var(--primary-light) !important;
   background-color: black !important;
+}
+
+.popover-error .ant-popover-arrow::after {
+  box-shadow: 0 0 2px #e7000b !important;
+  background-color: #ffc9c9 !important;
 }
 
 .popover-none .ant-popover-arrow {

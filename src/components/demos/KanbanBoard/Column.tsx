@@ -4,17 +4,20 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { FaPlus, FaTrash, FaXmark } from "react-icons/fa6";
 import { HiDotsHorizontal } from "react-icons/hi";
-import { useDroppable } from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-
-import { CardType, ColumnType } from "./KanbanBoard";
-import Card from "./Card";
+import { useDroppable } from "@dnd-kit/core";
 import { Popover } from "antd";
+import * as Yup from "yup";
+import { Formik, Form, Field } from "formik";
+import { motion } from "framer-motion";
+
+import Card from "./Card";
+import { CardType, ColumnType } from "./KanbanBoard";
 
 interface Props {
   column: ColumnType;
@@ -25,30 +28,27 @@ interface Props {
   onToggleCompleteCard: (cardId: string) => void;
   onChangeContentCard: (cardId: string, content: string) => void;
   onDeleteCard: (cardId: string) => void;
-  overlayDragging?: boolean; // overlay column đang kéo
+  overlayDragging?: boolean;
 }
 
 export default function Column({
   column,
   cards,
-  onAddCard,
   onChangeTitle,
   onDelete,
+  onAddCard,
   onToggleCompleteCard,
   onChangeContentCard,
   onDeleteCard,
   overlayDragging,
 }: Props) {
   const t = useTranslations("kanbanBoard");
-  const [title, setTitle] = useState(column.title);
   const [showTitle, setShowTitle] = useState(false);
   const [showAddCard, setShowAddCard] = useState(false);
-  const [cardContent, setCardContent] = useState("");
+  const [openPopover, setOpenPopover] = useState<boolean>(false);
   const formRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLDivElement | null>(null);
-  const [openPopover, setOpenPopover] = useState<boolean>(false);
-
-  // SORTABLE (COLUMN)
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const {
     attributes,
     listeners,
@@ -58,8 +58,8 @@ export default function Column({
     isDragging,
   } = useSortable({ id: column.id });
 
-  // DROPPABLE (CARD)
   const { setNodeRef: setDroppableRef } = useDroppable({ id: column.id });
+
   const setRefs = (node: HTMLDivElement | null) => {
     setSortableRef(node);
     setDroppableRef(node);
@@ -79,7 +79,6 @@ export default function Column({
         !formRef.current.contains(event.target as Node)
       ) {
         setShowAddCard(false);
-        setCardContent("");
       }
 
       if (
@@ -88,164 +87,251 @@ export default function Column({
         !titleRef.current.contains(event.target as Node)
       ) {
         setShowTitle(false);
-        setTitle(column.title);
       }
     }
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showAddCard, showTitle]);
 
-  const handleAdd = () => {
-    if (!cardContent.trim()) return;
-    onAddCard(column.id, cardContent);
-    setCardContent("");
-    const textarea =
-      formRef.current?.querySelector<HTMLTextAreaElement>("textarea");
-    textarea?.focus(); // đặt con trỏ vào textarea sau khi thêm card
-  };
+  const columnSchema = Yup.object({
+    title: Yup.string()
+      .trim()
+      .required(t("enterListName"))
+      .max(50, "Max 50 characters"),
+  });
+
+  const cardSchema = Yup.object({
+    content: Yup.string().trim().required(t("enterCardContent")),
+  });
 
   return (
     <div
+      {...attributes}
+      {...listeners}
       ref={setRefs}
       style={style}
-      className={`relative border-2 border-[theme(--primary-light)] p-4 rounded-lg shrink-0 w-[280px] ${
-        overlayDragging ? "bg-black/80" : "bg-black/50"
+      className={`relative border-2 border-[theme(--primary-light)] p-4 rounded-lg shrink-0 w-70 ${
+        overlayDragging
+          ? "bg-black/80 cursor-grabbing"
+          : "bg-black/50 cursor-grab"
       }`}
     >
-      <div
-        {...attributes}
-        {...listeners}
-        className={`absolute inset-0  ${
-          overlayDragging ? "cursor-grabbing" : "cursor-grab"
-        }`}
-      />
-
-      <div className="relative">
-        <div className={`font-bold mb-2 flex items-center gap-2`}>
-          <div
-            ref={titleRef}
-            onDoubleClick={() => setShowTitle(true)}
-            className="cursor-pointer flex-1 h-full"
-          >
-            {showTitle ? (
-              <input
-                type="text"
-                value={title}
-                autoFocus
-                placeholder={t("enterListName")}
-                onChange={(e) => setTitle(e.target.value)}
-                onKeyDown={(e) => {
-                  if (!title.trim()) return;
-                  if (e.key === "Enter") {
-                    setShowTitle(false);
-                    onChangeTitle(column.id, title);
-                  }
-                }}
-                className="px-2 py-1 rounded border border-[theme(--primary-light)]"
-              />
-            ) : (
-              <p className=" text-base px-2 py-1 border border-transparent">
-                {column.title}
-              </p>
-            )}
-          </div>
-          <Popover
-            open={openPopover}
-            onOpenChange={(open) => setOpenPopover(open)}
-            trigger="click"
-            placement="bottomLeft"
-            overlayClassName="popover-primary-light"
-            styles={{
-              body: {
-                backgroundColor: "black",
-                color: "white",
-                boxShadow: "0 0 2px #34ffec",
-              },
-            }}
-            content={
-              <div className="min-w-40 flex flex-col items-start gap-2 ">
-                <button
-                  onClick={() => {
-                    setShowAddCard(true);
-                    setOpenPopover(false);
-                  }}
-                  className="px-2 py-1 shadow-[0_0_2px_#34ffec] flex items-center gap-2 rounded hover:bg-[theme(--primary-light)] text-white hover:text-black hover:shadow-none cursor-pointer transition-all duration-200"
-                >
-                  <FaPlus className="w-4 h-4 font-bold" />
-                  <span className="text-base font-medium">{t("addCard")}</span>
-                </button>
-
-                <button
-                  onClick={() => onDelete(column.id)}
-                  className="px-2 py-1 shadow-[0_0_2px_#34ffec] flex items-center gap-2 rounded hover:bg-red-400 text-white hover:shadow-none cursor-pointer transition-all duration-200"
-                >
-                  <FaTrash className="w-4 h-4" />
-                  <span className="text-base font-medium">{t("delete")}</span>
-                </button>
-              </div>
-            }
-          >
-            <button className="shrink-0 h-full aspect-square rounded transition-all duration-200 cursor-pointer p-2 center-flex hover:bg-white/20 [&.ant-popover-open]:bg-white/20">
-              <HiDotsHorizontal className="w-full h-full" />
-            </button>
-          </Popover>
-        </div>
-
-        <SortableContext
-          items={cards.map((c) => c.id)}
-          strategy={verticalListSortingStrategy}
+      <div className={`font-bold mb-2 flex items-center gap-2`}>
+        <div
+          ref={titleRef}
+          onDoubleClick={() => setShowTitle(true)}
+          className={`${overlayDragging ? "cursor-grabbing" : "cursor-pointer"} flex-1 h-full`}
         >
-          <div className="space-y-2">
-            {cards.map((card) => (
+          {showTitle ? (
+            <div onPointerDown={(e) => e.stopPropagation()}>
+              <Formik
+                initialValues={{ title: column.title }}
+                enableReinitialize
+                validationSchema={columnSchema}
+                onSubmit={(values) => {
+                  setShowTitle(false);
+                  onChangeTitle(column.id, values.title);
+                }}
+              >
+                {({ errors, touched }) => (
+                  <Form>
+                    <Popover
+                      placement="bottom"
+                      overlayClassName="popover-error"
+                      styles={{
+                        body: {
+                          backgroundColor: "#ffc9c9",
+                          boxShadow: "0 0 2px #e7000b",
+                          padding: 0,
+                        },
+                      }}
+                      content={
+                        <div className="text-red-600 text-sm font-semibold px-6 py-2">
+                          {errors.title}
+                        </div>
+                      }
+                      open={!!(errors.title && touched.title)}
+                    >
+                      <Field
+                        name="title"
+                        autoFocus
+                        placeholder={t("enterListName")}
+                        className="px-2 py-1 rounded border border-[theme(--primary-light)]"
+                        onKeyDown={(e: React.KeyboardEvent) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            (
+                              e.target as HTMLInputElement
+                            ).form?.requestSubmit();
+                          }
+                        }}
+                      />
+                    </Popover>
+                  </Form>
+                )}
+              </Formik>
+            </div>
+          ) : (
+            <p className="text-base px-2 py-1 border border-transparent">
+              {column.title}
+            </p>
+          )}
+        </div>
+        <Popover
+          open={openPopover && !overlayDragging && !isDragging}
+          onOpenChange={(open) => setOpenPopover(open)}
+          trigger="click"
+          placement="bottomLeft"
+          overlayClassName="popover-primary-light"
+          styles={{
+            body: {
+              backgroundColor: "black",
+              color: "white",
+              boxShadow: "0 0 2px #34ffec",
+            },
+          }}
+          content={
+            <div
+              onPointerDown={(e) => e.stopPropagation()}
+              className="min-w-40 flex flex-col items-start gap-2"
+            >
+              <button
+                onClick={() => {
+                  setShowAddCard(true);
+                  setOpenPopover(false);
+                }}
+                className="px-2 py-1 shadow-[0_0_2px_#34ffec] flex items-center gap-2 rounded hover:bg-[theme(--primary-light)] text-white hover:text-black hover:shadow-none cursor-pointer transition-all duration-200"
+              >
+                <FaPlus className="w-4 h-4 font-bold" />
+                <span className="text-base font-medium">{t("addCard")}</span>
+              </button>
+
+              <button
+                onClick={() => onDelete(column.id)}
+                className="px-2 py-1 shadow-[0_0_2px_#34ffec] flex items-center gap-2 rounded hover:bg-red-400 text-white hover:shadow-none cursor-pointer transition-all duration-200"
+              >
+                <FaTrash className="w-4 h-4" />
+                <span className="text-base font-medium">{t("delete")}</span>
+              </button>
+            </div>
+          }
+        >
+          <button
+            className={`${overlayDragging ? "cursor-grabbing" : "cursor-pointer hover:bg-white/20"} shrink-0 h-full aspect-square rounded transition-all duration-200 p-2 center-flex [&.ant-popover-open]:bg-white/20`}
+          >
+            <HiDotsHorizontal className="w-full h-full" />
+          </button>
+        </Popover>
+      </div>
+
+      <SortableContext
+        items={cards.map((c) => c.id)}
+        strategy={verticalListSortingStrategy}
+      >
+        <div className="space-y-2">
+          {cards.map((card) => {
+            const cardList = (
               <Card
                 key={card.id}
+                card={card}
                 onToggleComplete={onToggleCompleteCard}
                 onChangeContent={onChangeContentCard}
                 onDelete={onDeleteCard}
-                card={card}
               />
-            ))}
-          </div>
-        </SortableContext>
+            );
 
-        <div className="mt-2">
-          {!showAddCard ? (
-            <button
-              onClick={() => setShowAddCard(true)}
-              className="select-none flex items-center gap-2 text-left w-full cursor-pointer px-1 py-1 rounded transition-all duration-200 hover:bg-white/20 hover:px-2"
-            >
-              <FaPlus className="w-4 h-4 font-bold" />
-              {t("addCard")}
-            </button>
-          ) : (
-            <div ref={formRef}>
-              <textarea
-                autoFocus
-                value={cardContent}
-                onChange={(e) => setCardContent(e.target.value)}
-                className="w-full border p-2 rounded mb-2"
-                placeholder={t("enterCardContent")}
-              />
-              <div className="flex gap-2">
-                <button
-                  onClick={handleAdd}
-                  className="select-none border border-[theme(--primary-light)] text-white transition-all duration-200 hover:bg-[theme(--primary-light)] hover:text-black px-4 py-1 cursor-pointer rounded"
-                >
-                  {t("addCard")}
-                </button>
-                <button
-                  onClick={() => {
-                    setShowAddCard(false);
-                    setCardContent("");
-                  }}
-                  className="select-none w-10 flex items-center justify-center rounded hover:bg-red-400 cursor-pointer transition-all duration-200"
-                >
-                  <FaXmark className="w-5 h-5 text-white" />
-                </button>
-              </div>
-            </div>
-          )}
+            return overlayDragging ? (
+              cardList
+            ) : (
+              <motion.div
+                key={card.id}
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.3 }}
+              >
+                {cardList}
+              </motion.div>
+            );
+          })}
         </div>
+      </SortableContext>
+
+      {/* ADD CARD */}
+      <div className="mt-2">
+        {!showAddCard ? (
+          <button
+            onClick={() => setShowAddCard(true)}
+            className={`${overlayDragging ? "cursor-grabbing" : "cursor-pointer hover:bg-white/20 hover:px-2"} select-none flex items-center gap-2 text-left w-full px-1 py-1 rounded transition-all duration-200`}
+          >
+            <FaPlus className="w-4 h-4 font-bold" />
+            {t("addCard")}
+          </button>
+        ) : (
+          <div
+            ref={formRef}
+            onPointerDown={(e) => e.stopPropagation()}
+            className="cursor-auto"
+          >
+            <Formik
+              initialValues={{ content: "" }}
+              validationSchema={cardSchema}
+              validateOnBlur={false}
+              validateOnChange={false}
+              onSubmit={(values, { resetForm }) => {
+                onAddCard(column.id, values.content);
+                resetForm();
+                textareaRef.current?.focus();
+              }}
+            >
+              {({ errors, touched }) => (
+                <Form>
+                  <Popover
+                    placement="bottom"
+                    overlayClassName="popover-error"
+                    styles={{
+                      body: {
+                        backgroundColor: "#ffc9c9",
+                        boxShadow: "0 0 2px #e7000b",
+                        padding: 0,
+                      },
+                    }}
+                    content={
+                      <div className="text-red-600 text-sm font-semibold px-6 py-2">
+                        {errors.content}
+                      </div>
+                    }
+                    open={!!errors.content}
+                  >
+                    <Field
+                      ref={textareaRef}
+                      as="textarea"
+                      name="content"
+                      autoFocus
+                      placeholder={t("enterCardContent")}
+                      className="w-full border p-2 rounded mb-2 text-white"
+                    />
+                  </Popover>
+                  <div className="flex gap-2">
+                    <button
+                      className={`cursor-pointer hover:bg-[theme(--primary-light)] hover:text-black border border-[theme(--primary-light)] px-4 py-1 rounded`}
+                    >
+                      {t("addCard")}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowAddCard(false)}
+                      className={`cursor-pointer hover:bg-red-400 w-10 flex items-center justify-center rounded `}
+                    >
+                      <FaXmark />
+                    </button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        )}
       </div>
     </div>
   );
