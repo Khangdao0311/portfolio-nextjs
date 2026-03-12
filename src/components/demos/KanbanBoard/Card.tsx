@@ -164,7 +164,7 @@ export default function Card({
                       <>
                         <FaCircleCheck className="w-4 h-4" />
                         <span className="text-base font-medium">
-                          {t("markAsCompletedx`")}
+                          {t("markAsCompleted")}
                         </span>
                       </>
                     ) : (
