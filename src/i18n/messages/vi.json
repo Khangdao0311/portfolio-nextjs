@@ -249,6 +249,8 @@
     "delete": "Xóa",
     "save": "Lưu",
     "areYouSureDeleteList": "Bạn có chắc chắn muốn xóa danh sách \"{title}\" không?",
-    "areYouSureDeleteCard": "Bạn có chắc chắn muốn xóa thẻ này không?"
+    "areYouSureDeleteCard": "Bạn có chắc chắn muốn xóa thẻ này không?",
+    "markAsCompleted": "Đánh dấu đã hoàn thành",
+    "markAsIncomplete": "Đánh dấu chưa hoàn thành"
   }
 }

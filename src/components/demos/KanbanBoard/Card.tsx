@@ -3,7 +3,12 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDispatch } from "react-redux";
-import { FaCircleCheck, FaTrash, FaXmark } from "react-icons/fa6";
+import {
+  FaCircleCheck,
+  FaCircleXmark,
+  FaTrash,
+  FaXmark,
+} from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
@@ -124,7 +129,7 @@ export default function Card({
             }}
           >
             {({ errors, touched }) => (
-              <Form>
+              <Form className="w-full h-full">
                 <Popover
                   placement="bottom"
                   overlayClassName="popover-error"
@@ -146,11 +151,31 @@ export default function Card({
                     as="textarea"
                     name="content"
                     placeholder={t("enterCardContent")}
-                    className="min-h-full w-full bg-black text-white p-2 border-2 border-white/60 rounded"
+                    className="min-h-[calc(100%+10px)] w-full bg-black text-white p-2 border-2 border-white/60 rounded"
                   />
                 </Popover>
-
+                {/* Chức năng */}
                 <div className="absolute top-0 -right-2 translate-x-full  min-w-40 flex flex-col items-start gap-2 text-white">
+                  <button
+                    onClick={() => onToggleComplete(card.id)}
+                    className={`px-2 py-1 border border-[theme(--primary-light)] ${!card.completed ? "hover:border-green-400 hover:bg-green-400" : "hover:border-red-400 hover:bg-red-400"} flex items-center gap-2 rounded bg-black text-white hover:shadow-none cursor-pointer transition-all duration-200`}
+                  >
+                    {!card.completed ? (
+                      <>
+                        <FaCircleCheck className="w-4 h-4" />
+                        <span className="text-base font-medium">
+                          {t("markAsIncomplete")}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <FaCircleXmark className="w-4 h-4" />
+                        <span className="text-base font-medium">
+                          {t("markAsIncomplete")}
+                        </span>
+                      </>
+                    )}
+                  </button>
                   <button
                     onClick={() => onDelete(card.id)}
                     className="px-2 py-1 border border-[theme(--primary-light)] hover hover:border-red-400 flex items-center gap-2 rounded bg-black hover:bg-red-400 text-white hover:shadow-none cursor-pointer transition-all duration-200"
@@ -159,6 +184,7 @@ export default function Card({
                     <span className="text-base font-medium">{t("delete")}</span>
                   </button>
                 </div>
+                {/* Lưu */}
                 <div className="flex gap-2 items-stretch">
                   <button
                     type="submit"

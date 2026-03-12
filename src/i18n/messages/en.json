@@ -249,6 +249,8 @@
     "delete": "Delete",
     "save": "Save",
     "areYouSureDeleteList": "Are you sure you want to delete the \"{title}\" list?",
-    "areYouSureDeleteCard": "Are you sure you want to delete the this card?"
+    "areYouSureDeleteCard": "Are you sure you want to delete the this card?",
+    "markAsCompleted": "Mark as completed",
+    "markAsIncomplete": "Mark as incomplete"
   }
 }
