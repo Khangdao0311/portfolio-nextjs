@@ -1,9 +1,11 @@
 import { Timeline } from "antd";
 import { useTranslations } from "next-intl";
+import { FiArrowUp } from "react-icons/fi";
 
 import { getExperiences } from "@/data";
 import Section from "../Section";
 import ExperienceCard from "./ExperienceCard";
+import { FaChevronUp } from "react-icons/fa";
 
 function Experience() {
   const t = useTranslations("experience");
@@ -23,20 +25,25 @@ function Experience() {
 
         <div className="w-full hidden lg:flex">
           <Timeline
-            className=" w-full [&_.ant-timeline-item-tail]:!border-[theme(--primary-light)] [&_.ant-timeline-item-head]:!bg-transparent [&_.ant-timeline-item-head-blue]:!border-none [&_.ant-timeline-item]:!pb-12"
+            className=" w-full [&_.ant-timeline-item-tail]:border-[theme(--primary-light)]! [&_.ant-timeline-item-head]:bg-transparent! [&_.ant-timeline-item-head-blue]:border-none! [&_.ant-timeline-item]:pb-12!"
             mode="alternate"
             items={[
-              ...experiences.map((experience, index) => ({
+              {
+                dot: (
+                  <FiArrowUp className="w-5 h-5 text-[theme(--primary-light)] rounded-full" />
+                ),
+              },
+              ...experiences.reverse().map((experience, index) => ({
                 label: (
                   <p
-                    data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                    data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
                     className="px-4 text-2xl text-[theme(--primary-light)] font-black"
                   >
                     {experience.time}
                   </p>
                 ),
                 children: (
-                  <div data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}>
+                  <div data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
                     <ExperienceCard experience={experience} />
                   </div>
                 ),
@@ -50,7 +57,7 @@ function Experience() {
         </div>
 
         <div className="w-full flex flex-col gap-8 lg:hidden">
-          {experiences.map((experience, index) => (
+          {experiences.reverse().map((experience, index) => (
             <div key={index} className="center-flex flex-col gap-1">
               <p className="px-4 text-2xl text-[theme(--primary-light)] font-black">
                 {experience.time}
