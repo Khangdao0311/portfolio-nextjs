@@ -5,7 +5,6 @@ import { FiArrowUp } from "react-icons/fi";
 import { getExperiences } from "@/data";
 import Section from "../Section";
 import ExperienceCard from "./ExperienceCard";
-import { FaChevronUp } from "react-icons/fa";
 
 function Experience() {
   const t = useTranslations("experience");
@@ -57,7 +56,7 @@ function Experience() {
         </div>
 
         <div className="w-full flex flex-col gap-8 lg:hidden">
-          {experiences.reverse().map((experience, index) => (
+          {experiences.map((experience, index) => (
             <div key={index} className="center-flex flex-col gap-1">
               <p className="px-4 text-2xl text-[theme(--primary-light)] font-black">
                 {experience.time}

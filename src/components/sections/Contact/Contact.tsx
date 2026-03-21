@@ -13,7 +13,6 @@ import { openNewTab } from "@/utils/openNewTab";
 import Section from "../Section";
 import icons from "@/assets/icons";
 
-
 function Contact() {
   const { setLoading, setNotification } = useNotiContext()!;
   const t = useTranslations("contact");
@@ -24,7 +23,7 @@ function Contact() {
         name: Yup.string()
           .matches(
             /^([A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝĂĐĨŨƠƯỲỴÝỶỸẰẮẲẴẶẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆÔỒỐỔỖỘƠỜỚỞỠỢƯỪỨỬỮỰ]+[a-zàáâãèéêìíòóôõùúýăđĩũơưỳỵỷỹằắẳẵặấầẩẫậèéẹẻẽêềếểễệôồốổỗộơờớởỡợưừứửữự]+(?:\s+)?)+$/,
-            t("matchesName")
+            t("matchesName"),
           )
           .required(t("requiredName")),
 
@@ -33,7 +32,7 @@ function Contact() {
           .required(t("requiredEmail")),
         message: Yup.string().required(t("requiredMessage")),
       }),
-    []
+    [],
   );
 
   const handleSubmit = useCallback(
@@ -81,7 +80,7 @@ function Contact() {
           }, 2500);
         });
     },
-    []
+    [],
   );
 
   return (
@@ -100,7 +99,7 @@ function Contact() {
           data-aos="zoom-in-down"
           className=" grid grid-cols-1 lg:grid-cols-3 gap-4 border border-[theme(--primary-light)] rounded-lg p-4"
         >
-          <div className="flex items-center gap-2 ">
+          <div className="flex items-center gap-4">
             <div className="center-flex w-12 h-12 shrink-0 rounded-full bg-[theme(--primary-light)]/20">
               <IoMail className="w-1/2 h-1/2 text-[theme(--primary-light)]" />
             </div>
@@ -113,7 +112,7 @@ function Contact() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-4 cursor-pointer">
+          <div className="flex items-center gap-4">
             <div className="center-flex w-12 h-12 shrink-0 rounded-full bg-[theme(--primary-light)]/20">
               <FaPhone className="w-1/2 h-1/2 text-[theme(--primary-light)]" />
             </div>
@@ -126,7 +125,7 @@ function Contact() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-4 cursor-pointer">
+          <div className="flex items-center gap-4">
             <div className="center-flex w-12 h-12 shrink-0 rounded-full bg-[theme(--primary-light)]/20">
               <FaMapMarkerAlt className="w-1/2 h-1/2 text-[theme(--primary-light)]" />
             </div>
@@ -219,8 +218,16 @@ function Contact() {
                     </label>
                     <Popover
                       placement="bottom"
+                      overlayClassName="popover-error"
+                      styles={{
+                        body: {
+                          backgroundColor: "#ffc9c9",
+                          boxShadow: "0 0 2px #e7000b",
+                          padding: 0,
+                        },
+                      }}
                       content={
-                        <div className="text-red-500 text-sm font-semibold">
+                        <div className="text-red-600 text-sm font-semibold px-6 py-2">
                           {errors.name}
                         </div>
                       }
@@ -244,8 +251,16 @@ function Contact() {
                     </label>
                     <Popover
                       placement="bottom"
+                      overlayClassName="popover-error"
+                      styles={{
+                        body: {
+                          backgroundColor: "#ffc9c9",
+                          boxShadow: "0 0 2px #e7000b",
+                          padding: 0,
+                        },
+                      }}
                       content={
-                        <div className="text-red-500 text-sm font-semibold">
+                        <div className="text-red-600 text-sm font-semibold px-6 py-2">
                           {errors.email}
                         </div>
                       }
@@ -270,8 +285,16 @@ function Contact() {
                     </label>
                     <Popover
                       placement="bottom"
+                      overlayClassName="popover-error"
+                      styles={{
+                        body: {
+                          backgroundColor: "#ffc9c9",
+                          boxShadow: "0 0 2px #e7000b",
+                          padding: 0,
+                        },
+                      }}
                       content={
-                        <div className="text-red-500 text-sm font-semibold">
+                        <div className="text-red-600 text-sm font-semibold px-6 py-2">
                           {errors.message}
                         </div>
                       }
@@ -290,7 +313,7 @@ function Contact() {
                       ></textarea>
                     </Popover>
                   </div>
-                  <button className="w-full center-flex gap-2 text-2xl font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border-2 border-[theme(--primary-light)] transition-all hover:scale-105 duration-300">
+                  <button className="cursor-pointer w-full center-flex gap-2 text-2xl font-bold text-nowrap py-4 rounded-lg bg-transparent hover:bg-[theme(--primary-light)] text-white hover:text-[theme(--primary-dark)] border-2 border-[theme(--primary-light)] transition-all hover:scale-105 duration-300">
                     {t("sendMessage")}
                   </button>
                 </Form>
